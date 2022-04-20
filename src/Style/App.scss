@@ -6,14 +6,20 @@
   height: 10vmin;
   pointer-events: none;
 }
+.logo-container {
+  pointer-events: none;
+  margin: 0 12px;
+  &>img{
+    height: 10vmin;
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 4s forwards;
   }
-  logo-container {
-    animation: App-logo-spin infinite 4s forwards;
-
+  .logo-container {
+    //animation: App-logo-spin infinite 4s forwards;
   }
 }
 
@@ -39,6 +45,24 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.main-menu-holder{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &>.main-menu-container{
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1190px;
+    height: 100%;
+    display: flex;
   }
 }
 
@@ -70,6 +94,11 @@
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: center;
+
+      &>.separator{
+        color: white;
+        margin: 0 1px;
+      }
       &>.social-media-item{
         color: #ffffff;
         display: flex;
@@ -80,8 +109,14 @@
         justify-content: center;
         align-content: center;
         margin: 0 12px;
-        &>.phoneNumber{
-          margin: 0 6px;
+        &>.icon{
+          margin: 0 4px;
+          font-size: 14px;
+        }
+
+        &>div>.phoneHref{
+          text-decoration: none;
+          color: #ffffff;
         }
       }
     }

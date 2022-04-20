@@ -1,6 +1,10 @@
-import {isBrowser} from 'react-device-detect';
-import logo from './logo.svg';
+import {isBrowser, isMobile} from 'react-device-detect';
 import { BsTelephone } from 'react-icons/bs';
+import { IoLocationOutline } from 'react-icons/io5';
+import { GrFacebookOption } from 'react-icons/gr';
+import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai';
+import { BsTwitter } from 'react-icons/bs';
+import { FaTelegramPlane } from 'react-icons/fa';
 
 
 const HeaderComp = () => {
@@ -10,14 +14,32 @@ const HeaderComp = () => {
                 <HeaderSocialMedia />
             )}
 
-            <div>
-                <img src={logo} className="App-logo" alt="logo" />
-                <div>{(!isBrowser)?("Is Mobile"): ("Is Desktop")}</div>
-            </div>
+            <HeaderMainHeader />
+
+            {/*<div>*/}
+            {/*    <img src={logo} className="App-logo" alt="logo" />*/}
+            {/*    <div>{(!isBrowser)?("Is Mobile"): ("Is Desktop")}</div>*/}
+            {/*</div>*/}
         </>
 
     )
 }
+
+const HeaderMainHeader = () => {
+    return (
+        <div className={"main-menu-holder"}>
+            <div className={"main-menu-container"}>
+                <div className="logo-container" >
+                    <img src={"./logoHeader.png"}alt="logo" />
+                </div>
+
+                {(isMobile) && (<div>Mobile Menu Here</div>)}
+                {(isBrowser) && (<div>Desktop Menu Here</div>)}
+            </div>
+        </div>
+    )
+}
+
 
 const HeaderSocialMedia = () => {
     return (
@@ -25,16 +47,32 @@ const HeaderSocialMedia = () => {
             <div className={"social-media-container"}>
                 <div className={"social-media-item-container"} style={{width: "calc(75% - 24px)", justifyContent: "flex-start"}}>
                     <div className={"social-media-item"}>
-                        <BsTelephone />
-                        <div className={"phoneNumber"}>+90 531 123 45 67</div>
+                        <BsTelephone className={"icon"}/>
+                        <div>
+                            <a href="tel:00905311234567" className={"phoneHref"}>
+                                +90-531-123-45-67
+                            </a>
+                        </div>
                     </div>
 
+                    <div className={"separator"}>|</div>
+
                     <div className={"social-media-item"}>
-                        Location here
+                        <IoLocationOutline className={"icon"}/>
+                        <div>Location here</div>
                     </div>
                 </div>
 
-                <div className={"social-media-item-container"} style={{width: "25%", justifyContent: "flex-end"}}>Contact here</div>
+                <div className={"social-media-item-container"} style={{width: "25%", justifyContent: "flex-end"}}>
+                    {/* todo: add href here for each social */}
+                    <div className={"social-media-item"}>
+                        <GrFacebookOption className={"icon"}/>
+                        <AiOutlineInstagram className={"icon"}/>
+                        <BsTwitter className={"icon"}/>
+                        <AiOutlineWhatsApp className={"icon"}/>
+                        <FaTelegramPlane className={"icon"}/>
+                    </div>
+                </div>
             </div>
         </div>
     )
