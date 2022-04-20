@@ -42,15 +42,24 @@
   }
 }
 
-
-.social-media-container{
+.social-media-holder{
   height: 45px;
   background: #272727;
   color: #ffffff;
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  .social-media-container{
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1190px;
+    height: 100%;
+    display: flex;
+  }
 }
+
