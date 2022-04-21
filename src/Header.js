@@ -33,8 +33,14 @@ const HeaderMainHeader = () => {
                     <img src={"./logoHeader.png"}alt="logo" />
                 </div>
 
-                {(isMobile) && (<div>Mobile Menu Here</div>)}
-                {(isBrowser) && (<div>Desktop Menu Here</div>)}
+                {/* Menu Mobile/desktop version */}
+                {(isMobile) && (<div>
+                    Mobile Menu Here
+                </div>)}
+
+                {(isBrowser) && (<div>
+                    Desktop Menu Here
+                </div>)}
             </div>
         </div>
     )
