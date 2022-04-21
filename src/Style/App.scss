@@ -63,6 +63,37 @@
     width: 1190px;
     height: 100%;
     display: flex;
+
+    &>.menu-list-holder{
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      width: max-content;
+      box-sizing: border-box;
+      font-family: Arial,sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      color: #333;
+      &>.menu-list-item{
+        margin-right: 15px;
+        padding: 10px;
+        -webkit-transition: color 300ms ease;
+        transition: color 300ms ease;
+        font-family: Metropolis, sans-serif;
+        color: #272727;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 500;
+        &:hover{
+          color: orange;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 

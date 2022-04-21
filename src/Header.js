@@ -5,6 +5,7 @@ import { GrFacebookOption } from 'react-icons/gr';
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
 import { FaTelegramPlane } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 
 const HeaderComp = () => {
@@ -26,6 +27,14 @@ const HeaderComp = () => {
 }
 
 const HeaderMainHeader = () => {
+    const menuList = [
+        {key: "home", text: "Home", link: "/"},
+        {key: "treatment", text: "Treatment", link: ""},
+        {key: "process", text: "Process", link: ""},
+        {key: "contact", text: "Contact", link: ""},
+
+        {key: "test", text: "Test", link: "/test"},
+    ]
     return (
         <div className={"main-menu-holder"}>
             <div className={"main-menu-container"}>
@@ -38,9 +47,15 @@ const HeaderMainHeader = () => {
                     Mobile Menu Here
                 </div>)}
 
-                {(isBrowser) && (<div>
-                    Desktop Menu Here
-                </div>)}
+                {(isBrowser) && (
+                    <div className={"menu-list-holder"}>
+                        {menuList.map(menuItem => {
+                            return (
+                                <Link className={"menu-list-item"} key={menuItem.key} to={menuItem.link}>{menuItem.text}</Link>
+                            )
+                        } )}
+                    </div>
+                )}
             </div>
         </div>
     )
