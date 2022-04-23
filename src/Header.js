@@ -44,15 +44,15 @@ const HeaderMainHeader = () => {
     return (
         <div className={"main-menu-holder"}>
             <div className={"main-menu-container"}>
-                <div className="logo-container" >
-                    <img src={"./logoHeader.png"}alt="logo" />
+                <div className="logo-container">
+                    <img src={"./logoHeader.png"} alt="logo" style={(isMobile) ? ({ height: "14vmin"}) : ({visibility: "visible"}) }/>
                 </div>
 
                 {/* Menu Mobile/desktop version */}
-                {(isMobile) && (<div className={"menu-list-holder-mobile"}>
+                {(isMobile) && (<div>
                     <Sidebar
                         sidebar={
-                            <div className={"menu-list-holder"}>
+                            <div className={"menu-list-holder-mobile"}>
                                 {menuList.map(menuItem => {
                                     return (
                                         <Link

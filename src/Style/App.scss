@@ -65,8 +65,20 @@
     display: flex;
 
 
-    &>.menu-list-holder-mobile{
-
+    .menu-list-holder-mobile{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      margin: 12px auto;
+      &>.menu-list-item{
+        width: 80vw;
+        text-decoration: none;
+        height: 24px;
+        margin: 6px auto;
+      }
     }
 
     &>.hamburger-react{
