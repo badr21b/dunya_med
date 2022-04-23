@@ -64,6 +64,16 @@
     height: 100%;
     display: flex;
 
+
+    &>.menu-list-holder-mobile{
+
+    }
+
+    &>.hamburger-react{
+      position: absolute !important;
+      right: 19px !important;
+    }
+
     &>.menu-list-holder{
       position: relative;
       display: flex;

@@ -5,7 +5,11 @@ import { GrFacebookOption } from 'react-icons/gr';
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
 import { FaTelegramPlane } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Sidebar from "react-sidebar";
+import { useState } from "react";
+import { slide as Menu } from 'react-burger-menu'
+import Hamburger from 'hamburger-react'
 
 
 const HeaderComp = () => {
@@ -16,25 +20,27 @@ const HeaderComp = () => {
             )}
 
             <HeaderMainHeader />
-
-            {/*<div>*/}
-            {/*    <img src={logo} className="App-logo" alt="logo" />*/}
-            {/*    <div>{(!isBrowser)?("Is Mobile"): ("Is Desktop")}</div>*/}
-            {/*</div>*/}
         </>
 
     )
 }
 
 const HeaderMainHeader = () => {
+    const location = useLocation();
     const menuList = [
         {key: "home", text: "Home", link: "/"},
         {key: "treatment", text: "Treatment", link: ""},
         {key: "process", text: "Process", link: ""},
-        {key: "contact", text: "Contact", link: ""},
-
-        {key: "test", text: "Test", link: "/test"},
+        {key: "contact", text: "Contact", link: "/test"},
     ]
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [isOpen, setOpen] = useState(false)
+
+
+    const onSetSidebarOpen = (open) => {
+        setSidebarOpen(open)
+        setOpen(open)
+    }
     return (
         <div className={"main-menu-holder"}>
             <div className={"main-menu-container"}>
@@ -43,15 +49,45 @@ const HeaderMainHeader = () => {
                 </div>
 
                 {/* Menu Mobile/desktop version */}
-                {(isMobile) && (<div>
-                    Mobile Menu Here
+                {(isMobile) && (<div className={"menu-list-holder-mobile"}>
+                    <Sidebar
+                        sidebar={
+                            <div className={"menu-list-holder"}>
+                                {menuList.map(menuItem => {
+                                    return (
+                                        <Link
+                                            className={"menu-list-item"} key={menuItem.key} to={menuItem.link}
+                                            style={(location.pathname === menuItem.link)
+                                                ? ({ color: "orange" })
+                                                : ({ color: "black" })
+                                            }
+                                        >{menuItem.text}</Link>
+                                    )
+                                } )}
+                            </div>
+                        }
+                        pullRight={false}
+                        open={sidebarOpen}
+                        onSetOpen={onSetSidebarOpen}
+                        styles={{ sidebar: { background: "white" } }}
+                    >
+                        <div style={{position: "absolute", right:"10px"}}>
+                            <Hamburger style={{position: "absolute  !important", right: "0 !important"}} toggle={() => onSetSidebarOpen(true)} toggled={isOpen} />
+                        </div>
+                    </Sidebar>
                 </div>)}
 
                 {(isBrowser) && (
                     <div className={"menu-list-holder"}>
                         {menuList.map(menuItem => {
                             return (
-                                <Link className={"menu-list-item"} key={menuItem.key} to={menuItem.link}>{menuItem.text}</Link>
+                                <Link
+                                    className={"menu-list-item"} key={menuItem.key} to={menuItem.link}
+                                    style={(location.pathname === menuItem.link)
+                                        ? ({ color: "orange" })
+                                        : ({ color: "black" })
+                                    }
+                                >{menuItem.text}</Link>
                             )
                         } )}
                     </div>
