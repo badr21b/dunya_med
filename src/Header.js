@@ -85,7 +85,7 @@ const HeaderMainHeader = () => {
                                     className={"menu-list-item"} key={menuItem.key} to={menuItem.link}
                                     style={(location.pathname === menuItem.link)
                                         ? ({ color: "orange" })
-                                        : ({ color: "black" })
+                                        : ({ cursor: "pointer" })
                                     }
                                 >{menuItem.text}</Link>
                             )
