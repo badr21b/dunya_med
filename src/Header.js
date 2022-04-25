@@ -8,7 +8,6 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import { Link, useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import { useState } from "react";
-import { slide as Menu } from 'react-burger-menu'
 import Hamburger from 'hamburger-react'
 
 
@@ -18,7 +17,6 @@ const HeaderComp = () => {
             {(isBrowser) && (
                 <HeaderSocialMedia />
             )}
-
             <HeaderMainHeader />
         </>
 
@@ -44,27 +42,36 @@ const HeaderMainHeader = () => {
     return (
         <div className={"main-menu-holder"}>
             <div className={"main-menu-container"}>
-                <div className="logo-container">
-                    <img src={"./logoHeader.png"} alt="logo" style={(isMobile) ? ({ height: "14vmin"}) : ({visibility: "visible"}) }/>
+                <div className="logo-container" style={{width: "100px"}}>
+                    <img src={"./logoHeader.png"} alt="logo" style={{height:"50px"}}/>
                 </div>
 
                 {/* Menu Mobile/desktop version */}
-                {(isMobile) && (<div>
+                {(isMobile) && (<div className={"menu-list-holder-mobile"}>
                     <Sidebar
                         sidebar={
-                            <div className={"menu-list-holder-mobile"}>
-                                {menuList.map(menuItem => {
-                                    return (
-                                        <Link
-                                            className={"menu-list-item"} key={menuItem.key} to={menuItem.link}
-                                            style={(location.pathname === menuItem.link)
-                                                ? ({ color: "orange" })
-                                                : ({ color: "black" })
-                                            }
-                                        >{menuItem.text}</Link>
-                                    )
-                                } )}
-                            </div>
+                            <>
+                                <div className="logo-container" style={{marginBottom: "32px", height: "15%",display: "flex", flexDirection: "column", flexWrap: "wrap", justifyContent: "center", alignItems: "center"}}>
+                                    <img src={"./logoHeader.png"} alt="logo" />
+                                </div>
+                                <div className={"menu-list-container-mobile"} style={{height: "50%"}}>
+                                    {menuList.map(menuItem => {
+                                        return (
+                                            <Link
+                                                className={"menu-list-item-mobile"} key={menuItem.key} to={menuItem.link}
+                                                style={(location.pathname === menuItem.link)
+                                                    ? ({ color: "orange" })
+                                                    : ({ color: "black" })
+                                                }
+                                            >{menuItem.text}</Link>
+                                        )
+                                    } )}
+                                </div>
+
+                                <SocialMediaListComponent customStyle={{height: "25%", width: "calc(100% - 24px)", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}/>
+
+                            </>
+
                         }
                         pullRight={false}
                         open={sidebarOpen}
@@ -85,7 +92,7 @@ const HeaderMainHeader = () => {
                                     className={"menu-list-item"} key={menuItem.key} to={menuItem.link}
                                     style={(location.pathname === menuItem.link)
                                         ? ({ color: "orange" })
-                                        : ({ cursor: "pointer" })
+                                        : ({ color: "black" })
                                     }
                                 >{menuItem.text}</Link>
                             )
@@ -97,6 +104,20 @@ const HeaderMainHeader = () => {
     )
 }
 
+const SocialMediaListComponent = (customStyle) => {
+    return(
+        <div className={"social-media-item-container"} style= {customStyle.customStyle} >
+            {/* todo: add href here for each social */}
+            <div className={"social-media-item"}>
+                <GrFacebookOption className={"icon"}/>
+                <AiOutlineInstagram className={"icon"}/>
+                <BsTwitter className={"icon"}/>
+                <AiOutlineWhatsApp className={"icon"}/>
+                <FaTelegramPlane className={"icon"}/>
+            </div>
+        </div>
+    )
+}
 
 const HeaderSocialMedia = () => {
     return (
@@ -120,16 +141,7 @@ const HeaderSocialMedia = () => {
                     </div>
                 </div>
 
-                <div className={"social-media-item-container"} style={{width: "25%", justifyContent: "flex-end"}}>
-                    {/* todo: add href here for each social */}
-                    <div className={"social-media-item"}>
-                        <GrFacebookOption className={"icon"}/>
-                        <AiOutlineInstagram className={"icon"}/>
-                        <BsTwitter className={"icon"}/>
-                        <AiOutlineWhatsApp className={"icon"}/>
-                        <FaTelegramPlane className={"icon"}/>
-                    </div>
-                </div>
+                <SocialMediaListComponent customStyle={{width: "25% !important", justifyContent: "flex-end !important"}}/>
             </div>
         </div>
     )
