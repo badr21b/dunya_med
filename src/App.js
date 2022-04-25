@@ -7,6 +7,7 @@ import './Style/App.scss';
 import HeaderComp from './Header'
 import MainComp from './Main'
 import TestComp from './Test'
+import { GrFacebookOption } from 'react-icons/gr';
 
 function App() {
   return (
@@ -17,9 +18,7 @@ function App() {
       {/*  <HeaderComp books={[{title: "Book 1"}, {title: "Book 2"}]}/>*/}
       {/*</header>*/}
 
-        <div>
-            <img src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/620cc9eb17d49233903dd591_Hero-image-hair-treatment-min.png"}  alt={""}/>
-        </div>
+
 
         <Routes>
             <Route path="/" element={<MainComp />} />

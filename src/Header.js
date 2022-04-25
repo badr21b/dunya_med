@@ -7,15 +7,31 @@ import { BsTwitter } from 'react-icons/bs';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { Link, useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Hamburger from 'hamburger-react'
 
 
 const HeaderComp = () => {
+    const [stickyClass, setStickyClass] = useState('relative');
+
+    useEffect(() => {
+        window.addEventListener('scroll', stickNavbar);
+
+        return () => {
+            window.removeEventListener('scroll', stickNavbar);
+        };
+    }, []);
+    const stickNavbar = () => {
+        if (window !== undefined) {
+            let windowHeight = window.scrollY;
+            windowHeight > 500 ? setStickyClass('fixed top-0 left-0 z-50') : setStickyClass('relative');
+        }
+    };
+
     return (
         <>
             {(isBrowser) && (
-                <HeaderSocialMedia />
+                <HeaderSocialMedia stickyClass={stickyClass}/>
             )}
             <HeaderMainHeader />
         </>
@@ -47,7 +63,8 @@ const HeaderMainHeader = () => {
                 </div>
 
                 {/* Menu Mobile/desktop version */}
-                {(isMobile) && (<div className={"menu-list-holder-mobile"}>
+                {(isMobile) && (
+                    <div className={"menu-list-holder-mobile"}>
                     <Sidebar
                         sidebar={
                             <>
