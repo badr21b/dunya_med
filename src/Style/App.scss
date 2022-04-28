@@ -198,3 +198,32 @@
     color: #ffffff;
   }
 }
+
+.treatmentListContainer{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 98%;
+  margin: 32px auto;
+
+  &>.treatmentItem{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    width: calc(50% - 10px);
+    padding: 0 5px;
+    justify-content: flex-start;
+    line-height: 32px;
+    border-bottom: 1px solid #d5d1d1;
+
+    &>.treatmentItemText{
+      margin-left: 6px;
+    }
+  }
+}
