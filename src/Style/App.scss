@@ -199,6 +199,84 @@
   }
 }
 
+
+
+
+.textParagraphContainer{
+  position: relative;
+  width: calc(55% - 36px);
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin: 0 36px;
+
+  &>.buttonGroupContainer{
+    position: relative;
+    display: flex;
+    font-family: Metropolis, sans-serif;
+    font-size: 15px;
+    line-height: 16px;
+    width: 85%;
+    min-height: 48px;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    color: #ffffff;
+
+    &>.buttonItem{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #dfa245;
+      //font-family: Metropolis, sans-serif;
+      //font-size: 15px;
+      //line-height: 16px;
+      text-align: center;
+      //border: 1px solid;
+      margin: 0 12px;
+      padding: 0 24px;
+    }
+  }
+
+  &>.mainParagraphTitle{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+    color: orange;
+    line-height: 32px;
+    font-size: 19px;
+    font-family: Metropolis, sans-serif;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  &>.mainParagraphSubtitle{
+    //margin-top: 24px;
+    //margin-bottom: 0;
+    font-family: Metropolis, sans-serif;
+    font-size: 62px;
+    line-height: 1.2em;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+}
 .treatmentListContainer{
   position: relative;
   display: flex;
@@ -222,8 +300,14 @@
     line-height: 32px;
     border-bottom: 1px solid #d5d1d1;
 
+    &>.treatmentItemIcon{
+      color: orange;
+      margin: 0 4px;
+      font-size: 14px;
+    }
+
     &>.treatmentItemText{
-      margin-left: 6px;
+      margin-left: 12px;
     }
   }
 }
