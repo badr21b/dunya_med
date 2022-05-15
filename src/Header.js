@@ -5,10 +5,12 @@ import { GrFacebookOption } from 'react-icons/gr';
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
 import { FaTelegramPlane } from 'react-icons/fa';
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import {useEffect, useState} from "react";
 import Hamburger from 'hamburger-react'
+import { HashLink as Link } from 'react-router-hash-link';
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
 const HeaderComp = () => {
@@ -42,9 +44,9 @@ const HeaderComp = () => {
 const HeaderMainHeader = () => {
     const location = useLocation();
     const menuList = [
-        {key: "home", text: "Home", link: "/"},
-        {key: "treatment", text: "Treatment", link: ""},
-        {key: "process", text: "Process", link: ""},
+        {key: "home", text: "Home", link: "#home"},
+        {key: "treatment", text: "Treatment", link: "#treatment"},
+        {key: "process", text: "Process", link: "#process"},
         {key: "contact", text: "Contact", link: "/test"},
     ]
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -105,15 +107,16 @@ const HeaderMainHeader = () => {
                     <div className={"menu-list-holder"}>
                         {menuList.map(menuItem => {
                             return (
-                                <Link
-                                    className={"menu-list-item"} key={menuItem.key} to={menuItem.link}
+                                <AnchorLink
+                                    className={"menu-list-item"} key={menuItem.key} href={menuItem.link}
                                     style={(location.pathname === menuItem.link)
                                         ? ({ color: "orange" })
                                         : ({ color: "black" })
                                     }
-                                >{menuItem.text}</Link>
+                                >{menuItem.text}</AnchorLink>
                             )
                         } )}
+
                     </div>
                 )}
             </div>

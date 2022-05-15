@@ -24,6 +24,7 @@ function App() {
 
         <Routes>
             <Route path="/" element={<MainComp />} />
+            <Route path={`/#section${2}`} element={<MainComp />} />
             <Route path="/test" element={<TestComp />} />
         </Routes>
 

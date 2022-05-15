@@ -5,7 +5,8 @@ import {MdOutlinePeopleAlt} from "react-icons/md";
 import {BsHandThumbsUp} from "react-icons/bs";
 import {GrCertificate} from "react-icons/gr";
 import {isMobile} from "react-device-detect";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 export default function MainComp() {
     const treatmentList = [
@@ -97,6 +98,20 @@ export default function MainComp() {
                     </div>
                 </div>
             </div>
+
+
+            <div>
+                <AnchorLink href='#things'>Things</AnchorLink>
+                <AnchorLink href='#stuff'>Stuff</AnchorLink>
+
+                <section id='treatment' style={{height: "1000px", background: "red"}}>
+                    <h2>treatments</h2>
+                </section>
+                <section id='process' style={{height: "1000px", background: "green"}}>
+                    <h2>Process</h2>
+                </section>
+            </div>
+
         </>
 
     );
