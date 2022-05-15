@@ -200,83 +200,317 @@
 }
 
 
+.mainBlockContainer{
+  width: 100%;
+  height: 100%;
+  max-width: 1160px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 100px auto;
+  background-color: #fffcf8;
+
+  &>.aboutContainer{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: -30px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    &>.aboutImageWrapper{
+      width: 550px;
+      height: 510px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+
+      &>img{
+        height: 100%;
+      }
+
+      &>.aboutExperienceWrapper{
+        width: 170px;
+        height: 170px;
+        line-height: 65px;
+        background-color: #ffffff;
+        margin-top: -85px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 2px solid #dfa245;
+        &>.experienceNumber{
+          font-size: 60px;
+        }
+        &>.experienceText{
+          color: #595959;
+        }
+      }
+    }
 
 
-.textParagraphContainer{
+
+    &>.aboutTextWrapper{
+      max-width: 545px;
+      margin-left: 50px;
+      padding-left: 10px;
+    }
+
+  }
+}
+
+.blocksContainer{
+  width: 90%;
   position: relative;
-  width: calc(55% - 36px);
-  padding-top: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
-  align-content: flex-start;
-  align-items: flex-start;
-  margin: 0 36px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 
-  &>.buttonGroupContainer{
+  margin-top: -150px;
+  &>.blocksRow{
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+
+
+
+
+    &>.blocksWrapper{
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+
+      &>.blockItem{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 160px;
+        width: 256px;
+        padding: 50px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #fff;
+        box-shadow: 0 20px 60px 0 rgb(0 0 0 / 5%);
+
+
+        &>.blockIcon{
+          width: 50px;
+          height: 50px;
+          &>img{
+            width: 100%;
+          }
+        }
+        &>.blockTitle{
+          margin-top: 17px;
+          margin-bottom: 5px;
+          color: #272727;
+          text-align: center;
+          font-weight: 600;
+          font-family: Metropolis, sans-serif;
+          font-size: 19px;
+          line-height: 2.5em;
+        }
+        &>.blockParagraph{
+          margin-top: 0;
+          margin-bottom: 0;
+          font-family: Metropolis, sans-serif;
+          font-size: 16px;
+          line-height: 1.7em;
+          font-weight: 400;
+          text-align: center;
+        }
+      }
+    }
+
+  }
+}
+
+.paragraphPictureContainer{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+
+  .imageContainer{
+    width: calc(35% + 36px);
     position: relative;
     display: flex;
-    font-family: Metropolis, sans-serif;
-    font-size: 15px;
-    line-height: 16px;
-    width: 85%;
-    min-height: 48px;
+    flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
-    justify-content: space-around;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    color: #ffffff;
-
-    &>.buttonItem{
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: #dfa245;
-      //font-family: Metropolis, sans-serif;
-      //font-size: 15px;
-      //line-height: 16px;
-      text-align: center;
-      //border: 1px solid;
-      margin: 0 12px;
-      padding: 0 24px;
+    &>img{
+      max-width: 600px;
     }
   }
 
-  &>.mainParagraphTitle{
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: 600;
-    color: orange;
-    line-height: 32px;
-    font-size: 19px;
-    font-family: Metropolis, sans-serif;
-    box-sizing: border-box;
-    text-align: left;
+  .imageContainerMobile{
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    &>img{
+      max-width: 500px;
+    }
   }
-  &>.mainParagraphSubtitle{
-    //margin-top: 24px;
-    //margin-bottom: 0;
-    font-family: Metropolis, sans-serif;
-    font-size: 62px;
-    line-height: 1.2em;
-    font-weight: 600;
-    margin-top: 28px;
-    margin-bottom: 40px;
-    text-align: left;
+
+
+
+
+  .textParagraphContainer{
+    position: relative;
+    width: calc(55% - 36px);
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin: 0 36px;
+    display: flex;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: auto;
+    max-width: 870px;
+
+    &>.buttonGroupContainer{
+      position: relative;
+      display: flex;
+      font-family: Metropolis, sans-serif;
+      font-size: 15px;
+      line-height: 16px;
+      width: 85%;
+      min-height: 48px;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-around;
+      flex-direction: row;
+      align-items: center;
+      color: #ffffff;
+
+      &>.buttonItem{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #dfa245;
+        //font-family: Metropolis, sans-serif;
+        //font-size: 15px;
+        //line-height: 16px;
+        text-align: center;
+        //border: 1px solid;
+        margin: 0 12px;
+        padding: 0 24px;
+        min-height: 50px;
+      }
+    }
+
+    &>.mainParagraphTitle{
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 600;
+      color: orange;
+      line-height: 32px;
+      font-size: 19px;
+      font-family: Metropolis, sans-serif;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    &>.mainParagraphSubtitle{
+      //margin-top: 24px;
+      //margin-bottom: 0;
+      font-family: Metropolis, sans-serif;
+      font-size: 62px;
+      line-height: 1.2em;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .paragraphPictureContainer {
+    flex-direction: column;
+
+    &>.imageContainer{
+      width: 100%;
+      &>img{
+        width: 100%;
+        height: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+        max-width: 500px;
+      }
+    }
+  }
+
+  .blocksContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-bottom: 100px;
+    &>.blocksWrapper{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+  }
+}
+
+
 .treatmentListContainer{
   position: relative;
   display: flex;
