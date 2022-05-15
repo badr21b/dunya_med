@@ -11,6 +11,7 @@ import {useEffect, useState} from "react";
 import Hamburger from 'hamburger-react'
 import { HashLink as Link } from 'react-router-hash-link';
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import Sticky from 'react-sticky-el';
 
 
 const HeaderComp = () => {
@@ -32,10 +33,13 @@ const HeaderComp = () => {
 
     return (
         <>
-            {(isBrowser) && (
-                <HeaderSocialMedia stickyClass={stickyClass}/>
-            )}
-            <HeaderMainHeader />
+            <Sticky>
+                {(isBrowser) && (
+                    <HeaderSocialMedia stickyClass={stickyClass}/>
+                )}
+                <HeaderMainHeader />
+            </Sticky>
+
         </>
 
     )
@@ -47,6 +51,7 @@ const HeaderMainHeader = () => {
         {key: "home", text: "Home", link: "#home"},
         {key: "treatment", text: "Treatment", link: "#treatment"},
         {key: "process", text: "Process", link: "#process"},
+        {key: "team", text: "Team", link: "#team"},
         {key: "contact", text: "Contact", link: "/test"},
     ]
     const [sidebarOpen, setSidebarOpen] = useState(false);
