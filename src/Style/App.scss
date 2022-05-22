@@ -295,6 +295,64 @@
       max-width: 545px;
       margin-left: 50px;
       padding-left: 10px;
+      text-align: center;
+      display: flex;
+      width: calc(50% - 42px);
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      align-content: space-around;
+      background: #ffffff;
+      &>.aboutHeading{
+        font-family: Metropolis, sans-serif;
+        font-size: 36.5px;
+        line-height: 1.4em;
+        font-weight: 600;
+        margin: 32px auto;
+      }
+      &>.aboutParagraph{
+        margin-top: 20px;
+        margin-bottom: 38px;
+        line-height: 30px;
+        font-size: 18px;
+        /* text-align: left; */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: stretch;
+        justify-content: center;
+        align-items: center;
+      }
+      &>.aboutBtnWrapper{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #dfa245;
+        //font-family: Metropolis, sans-serif;
+        //font-size: 15px;
+        //line-height: 16px;
+        text-align: center;
+        //border: 1px solid;
+        margin: 0 12px;
+        padding: 0 24px;
+        min-height: 50px;
+        width: max-content;
+        &>a{
+          color: #ffffff;
+          text-decoration: none;
+        }
+      }
     }
 
   }
@@ -402,6 +460,7 @@
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
+    margin-top: 100px;
     align-items: center;
     &>img{
       max-width: 600px;
@@ -444,6 +503,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     -ms-grid-rows: auto;
     max-width: 870px;
+    margin-top: 100px;
 
     &>.buttonGroupContainer{
       position: relative;
@@ -687,6 +747,7 @@
       padding: 0 24px;
       min-height: 50px;
       width: max-content;
+      color: #ffffff;
     }
   }
 
@@ -696,6 +757,7 @@
   display: flex;
   margin: 32px auto;
   &>.blockWrapper {
+    border: 1px solid #f3f3f3;
     position: relative;
     display: flex;
     width: 270px;
