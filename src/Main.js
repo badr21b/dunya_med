@@ -1,7 +1,8 @@
 import {GoPrimitiveDot} from "react-icons/go";
 import {FaHandHoldingMedical} from "react-icons/fa";
-import {BsTelephone} from "react-icons/bs";
-import {MdOutlinePeopleAlt} from "react-icons/md";
+import {AiOutlineStar, AiFillStar} from "react-icons/ai";
+import {BsTelephone, BsPerson} from "react-icons/bs";
+import {MdOutlinePeopleAlt, MdOutlineMail} from "react-icons/md";
 import {BsHandThumbsUp} from "react-icons/bs";
 import {GrCertificate} from "react-icons/gr";
 import {RiStethoscopeLine} from "react-icons/ri";
@@ -11,6 +12,11 @@ import {isMobile} from "react-device-detect";
 import { Link } from "react-router-dom";
 
 export default function MainComp() {
+
+    const handleChange = () => {
+        console.log("handle submit")
+    }
+
     const treatmentList = [
         {key: "dandruffTreatment", text: "Dandruff Treatment", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "HairThinning", text: "Hair Thinning", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
@@ -19,9 +25,14 @@ export default function MainComp() {
         {key: "HairTossTreatment", text: "Hair loss treatment", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "AlopeciaAreata", text: "Alopecia Areata", icon: <GoPrimitiveDot className={"treatmentItemIcon"}/>},
     ]
+
+    const ratingText1 = 4.4;
+    const ratingText2 = 4.2;
+    const ratingText3 = 4.6;
+
     return (
         <>
-            <main id='home' style={{ padding: "1rem 0" }} className={"paragraphPictureContainer"}>
+            <main id='home' style={{ padding: "1rem 0", backgroundColor: "#f6f9f7" }} className={"paragraphPictureContainer"}>
                 <div className={"textParagraphContainer"}>
                     <div className={"mainParagraphTitle"}>#1 Ranked Hair Clinic in Turkey</div>
                     <div className={"mainParagraphSubtitle"}>Life isn't perfect but Your hair can be.</div>
@@ -103,16 +114,34 @@ export default function MainComp() {
 
 
             <div>
-                <section id='treatment' className={"mainContainer"} style={{height: "1000px", background: "red"}}>
-                    <div className={"headerWrapper"}>
-                        <h2>Our treatment options</h2>
-                    </div>
-                </section>
-                <section id='process' className={"mainContainer"} style={{minHeight: "600px",
-                    padding: "32px"
-                }}>
-                    <h2 style={{marginTop: "50px auto"}}>Our great 3 steps for treatment</h2>
-                    <div className={"treatmentBlocksContainer"}>
+                {/*<section id='treatment' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", background: "#379bb31f", padding: "32px"}}>*/}
+                {/*    <h2 style={{marginTop: "100px"}}>Our treatment options</h2>*/}
+                {/*    <div className={"treatmentBlocksContainer"}>*/}
+                {/*        <div className={"blockWrapper"}>*/}
+                {/*            <div className={"icon"}><RiStethoscopeLine/></div>*/}
+                {/*            <div className={"stepWrapper"}>Step: 1</div>*/}
+                {/*            <div className={"title"}>Doctor Consultation</div>*/}
+                {/*            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>*/}
+                {/*        </div>*/}
+
+                {/*        <div className={"blockWrapper"}>*/}
+                {/*            <div className={"icon"}><BiSearchAlt/></div>*/}
+                {/*            <div className={"stepWrapper"}>Step: 2</div>*/}
+                {/*            <div className={"title"}>Digital Diagnosis</div>*/}
+                {/*            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>*/}
+                {/*        </div>*/}
+
+                {/*        <div className={"blockWrapper"}>*/}
+                {/*            <div className={"icon"}><GiHealthCapsule/></div>*/}
+                {/*            <div className={"stepWrapper"}>Step: 2</div>*/}
+                {/*            <div className={"title"}>Safe & Holistic Treatment</div>*/}
+                {/*            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</section>*/}
+                <section id='process' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", padding: "32px"}}>
+                    <h2 style={{marginTop: "100px"}}>Our great 3 steps for treatment</h2>
+                    <div className={"treatmentBlocksContainer"} style={{marginBottom: '100px'}}>
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><RiStethoscopeLine/></div>
                             <div className={"stepWrapper"}>Step: 1</div>
@@ -154,9 +183,156 @@ export default function MainComp() {
                     </div>
                 </section>
 
-                <section id='team' style={{height: "1000px"}}>
-                    <h2>Team</h2>
+                <section id='testimonials' className={"mainContainer"}
+                         style={{minHeight: "calc(100vh - 160px)", background: "#379bb3", padding: "32px", display:"flex", flexDirection: "column", flexWrap: "wrap", alignContent: "center", justifyContent: "center", maxWidth: "100%"}}>
+                    <h2 style={{marginTop: "100px", color: "#ffffff", fontSize: "42px"}}>Testimonials</h2>
+                    <div className={"testimonialsBlocksContainer"}>
+
+                        <div className={"blockWrapper"}>
+                            <div className={"icon"}><img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/628374c23aea710d2175ccc2_testimonial-3-min.jpg"}/></div>
+                            <div className={"stepWrapper"}>
+                                <img src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6213c81cd79929cf18d25393_quotes_icon.svg"} alt={""} />
+                            </div>
+                            <div className={"title"}>Minutes consultation with a hair doctor to understand the root cause & extent of your condition oleo hobe</div>
+
+
+                            <div className={"testimonial-rating-wrapper"}>
+                                <div className={"rating-text"}>{ratingText1}</div>
+                                <div className={"rating-star-wrapper"}>
+                                    <div>{(1 <= ratingText1) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(2 <= ratingText1) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(3 <= ratingText1) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(4 <= ratingText1) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(5 <= ratingText1) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                </div>
+                            </div>
+                            <div className={"nameJobContainer"}>
+                                <div className={"name"}>Darlene Robertson</div>
+                                <div className={"job"}>Business Man</div>
+                            </div>
+                        </div>
+
+                         <div className={"blockWrapper"}>
+                            <div className={"icon"}><img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/628374c3f8e3335d14e56c17_testimonial-2-min.jpg"}/></div>
+                            <div className={"stepWrapper"}>
+                                <img src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6213c81cd79929cf18d25393_quotes_icon.svg"} alt={""} />
+                            </div>
+                            <div className={"title"}>Minutes consultation with a hair doctor to understand the root cause & extent of your condition oleo hobe</div>
+
+
+                            <div className={"testimonial-rating-wrapper"}>
+                                <div className={"rating-text"}>{ratingText2}</div>
+                                <div className={"rating-star-wrapper"}>
+                                    <div>{(1 <= ratingText2) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(2 <= ratingText2) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(3 <= ratingText2) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(4 <= ratingText2) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(5 <= ratingText2) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                </div>
+                            </div>
+                             <div className={"nameJobContainer"}>
+                                 <div className={"name"}>Darlene Robertson</div>
+                                 <div className={"job"}>Business Man</div>
+                             </div>
+                        </div>
+
+                         <div className={"blockWrapper"}>
+                            <div className={"icon"}><img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/628374c23485265ccc4b7bbd_testimonial-1-min.jpg"}/></div>
+                            <div className={"stepWrapper"}>
+                                <img src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6213c81cd79929cf18d25393_quotes_icon.svg"} alt={""} />
+                            </div>
+                            <div className={"title"}>Minutes consultation with a hair doctor to understand the root cause & extent of your condition oleo hobe</div>
+
+
+                            <div className={"testimonial-rating-wrapper"}>
+                                <div className={"rating-text"}>{ratingText3}</div>
+                                <div className={"rating-star-wrapper"}>
+                                    <div>{(1 <= ratingText3) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(2 <= ratingText3) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(3 <= ratingText3) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(4 <= ratingText3) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                    <div>{(5 <= ratingText3) ? <AiFillStar color="#dfa245"/> : <AiOutlineStar/>}</div>
+                                </div>
+                            </div>
+                            <div className={"nameJobContainer"}>
+                                <div className={"name"}>Darlene Robertson</div>
+                                <div className={"job"}>Business Man</div>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </section>
+
+
+
+                <section id='results' className={""}
+                    style={{minHeight: "600px)", maxWidth: "100%", margin: "0 auto"}}>
+                    <div className={"imageParagraphContainer"} style={{minHeight: "600px"}}>
+                        <img className={"image"} alt={""} src={"https://us.123rf.com/450wm/stokkete/stokkete1609/stokkete160900332/62025951-sourire-m%C3%A9decin-%C3%A0-la-clinique-donnant-une-poign%C3%A9e-de-main-%C3%A0-son-patient-la-sant%C3%A9-et-le-professionnal.jpg"} style={{maxWidth: "600px"}}/>
+                        <div className={"paragraphContainer"} style={{maxWidth: "900px"}}>
+                            <div className={"title"}>95% Proven results! See the difference</div>
+                            <div className={"paragraph"}>30-45 minute consultation with a hair doctor to understand the root cause & the extent of your condition earlier root cause & extent of your condition</div>
+                            <div className={"button"} style={{background: "#0f0f0f"}}>View story</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id='process' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", padding: "32px"}}>
+                    <div className={"imageParagraphContainer"}>
+                        <img className={"image"} alt={""} src={"https://browsecat.net/sites/default/files/doctors-wallpapers-105115-962022-5679706.png"} />
+                        <div className={"paragraphContainer"}>
+                            <div className={"title"}>Contact us</div>
+                            <div className={"paragraph"}>Please fill in the details below to schedule an appointment.</div>
+                            <div className={"contactFormContainer"}>
+                                <div className={"lineWrapper"}>
+                                    {/*<div className={"lineElement"}>*/}
+                                    {/*    <div className={"icon"}><BsPerson/></div>*/}
+                                        <input className={"lineElement"}
+                                            // value={value}
+                                               placeholder={"Full Name"}
+                                        />
+                                    {/*</div>*/}
+                                    <input className={"lineElement"}
+                                        // value={value}
+                                           placeholder={"Phone Number"}
+                                    />
+                                </div>
+
+                                <div className={"lineWrapper"}>
+                                    <input className={"lineElement"}  style={{width: "90%"}}
+                                        // value={value}
+                                           placeholder={"Email"}
+                                    />
+                                </div>
+
+                                <div className={"lineWrapper"}>
+                                    <select value={"Sex"} className={"lineElement"} style={{height: "45px", width: "45%"}}>
+                                        <option value="A">Male</option>
+                                        <option value="B">Female</option>
+                                    </select>
+                                    <select value={"Need treatment for"} className={"lineElement"} style={{height: "45px", width: "45%"}}>
+                                        <option value="A">Male</option>
+                                        <option value="B">Female</option>
+                                    </select>
+                                </div>
+
+
+
+                                <div className={"lineWrapper"}>
+                                    <textArea
+                                        className={"lineElement"} style={{width: "90%"}}
+                                    // value={value}
+                                    placeholder="Message"
+                                    />
+                                </div>
+
+                            </div>
+                            <div className={"button"}>Send</div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
 
         </>

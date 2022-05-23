@@ -49,9 +49,10 @@ const HeaderMainHeader = () => {
     const location = useLocation();
     const menuList = [
         {key: "home", text: "Home", link: "#home"},
-        {key: "treatment", text: "Treatment", link: "#treatment"},
+        // {key: "treatment", text: "Treatment", link: "#treatment"},
         {key: "process", text: "Process", link: "#process"},
-        {key: "team", text: "Team", link: "#team"},
+        {key: "testimonials", text: "Testimonials", link: "#testimonials"},
+        {key: "results", text: "Results", link: "#results"},
         {key: "contact", text: "Contact", link: "/test"},
     ]
     const [sidebarOpen, setSidebarOpen] = useState(false);
