@@ -53,7 +53,7 @@ const HeaderMainHeader = () => {
         {key: "process", text: "Process", link: "#process"},
         {key: "testimonials", text: "Testimonials", link: "#testimonials"},
         {key: "results", text: "Results", link: "#results"},
-        {key: "contact", text: "Contact", link: "/test"},
+        {key: "contact", text: "Contact", link: "#contact"},
     ]
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isOpen, setOpen] = useState(false)

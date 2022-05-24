@@ -10,11 +10,55 @@ import {GiHealthCapsule} from "react-icons/gi";
 import {BiSearchAlt} from "react-icons/bi";
 import {isMobile} from "react-device-detect";
 import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+
+import ReactWhatsapp from 'react-whatsapp';
+
 
 export default function MainComp() {
 
-    const handleChange = () => {
-        console.log("handle submit")
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [sex, setSex] = useState(null);
+    const [treatmentType, setTreatmentType] = useState("");
+    const [message, setMessage] = useState("");
+    const [whatsappMessage, setWhatsappMessage] = useState({
+        nom: "",
+        telephone: "",
+        email: "",
+        sexe: "",
+        type_de_traitement: "",
+        message: ""
+    });
+
+
+    const handleChange = (e) => {
+        console.log(e.target.dataset.fieldname)
+        console.log(e.target.value)
+
+        switch (e.target.dataset.fieldname) {
+            case "name":
+                setName(e.target.value)
+                break;
+            case "phone":
+                setPhone(e.target.value)
+                break;
+
+            default: return
+
+        }
+    }
+
+    const handleSubmit = () => {
+        setWhatsappMessage({
+            nom: name,
+            telephone: phone,
+            email: email,
+            sexe: sex,
+            type_de_traitement: treatmentType,
+            message: message
+        })
     }
 
     const treatmentList = [
@@ -278,7 +322,7 @@ export default function MainComp() {
                     </div>
                 </section>
 
-                <section id='process' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", padding: "32px"}}>
+                <section id='contact' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", padding: "32px"}}>
                     <div className={"imageParagraphContainer"}>
                         <img className={"image"} alt={""} src={"https://browsecat.net/sites/default/files/doctors-wallpapers-105115-962022-5679706.png"} />
                         <div className={"paragraphContainer"}>
@@ -289,31 +333,40 @@ export default function MainComp() {
                                     {/*<div className={"lineElement"}>*/}
                                     {/*    <div className={"icon"}><BsPerson/></div>*/}
                                         <input className={"lineElement"}
-                                            // value={value}
+                                               value={name}
+                                               data-fieldName={"name"}
+                                               onChange={handleChange}
                                                placeholder={"Full Name"}
                                         />
                                     {/*</div>*/}
                                     <input className={"lineElement"}
-                                        // value={value}
+                                           value={phone}
+                                           data-fieldName={"phone"}
+                                           onChange={handleChange}
                                            placeholder={"Phone Number"}
                                     />
                                 </div>
 
                                 <div className={"lineWrapper"}>
                                     <input className={"lineElement"}  style={{width: "90%"}}
-                                        // value={value}
+                                           value={email}
+                                           data-fieldName={"email"}
+                                           onChange={handleChange}
                                            placeholder={"Email"}
                                     />
                                 </div>
 
                                 <div className={"lineWrapper"}>
-                                    <select value={"Sex"} className={"lineElement"} style={{height: "45px", width: "45%"}}>
-                                        <option value="A">Male</option>
-                                        <option value="B">Female</option>
+                                    <select value={sex} onChange={handleChange} data-fieldName={"sex"} className={"lineElement"} style={{height: "45px", width: "45%"}} >
+                                        <option value="" disabled selected>Select your sex</option>
+                                        <option value={"male"}>Male</option>
+                                        <option value={"female"}>Female</option>
                                     </select>
-                                    <select value={"Need treatment for"} className={"lineElement"} style={{height: "45px", width: "45%"}}>
-                                        <option value="A">Male</option>
-                                        <option value="B">Female</option>
+                                    <select placeholder={"Need treatment for"} data-fieldName={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
+                                        <option value="" disabled selected>Need treatment for</option>
+                                        <option value="hair">Hair Transplant</option>
+                                        <option value="dent">Teeth </option>
+                                        <option value="breast">Option 3</option>
                                     </select>
                                 </div>
 
@@ -322,13 +375,16 @@ export default function MainComp() {
                                 <div className={"lineWrapper"}>
                                     <textArea
                                         className={"lineElement"} style={{width: "90%"}}
-                                    // value={value}
-                                    placeholder="Message"
+                                        data-fieldName={"message"}
+                                        value={message}
+                                        onchange={handleChange}
+                                        placeholder="Message"
                                     />
                                 </div>
 
                             </div>
-                            <div className={"button"}>Send</div>
+
+                            <ReactWhatsapp className={"button"} number="+905346314603" message="Hello World!!!">Send</ReactWhatsapp>
                         </div>
                     </div>
                 </section>
