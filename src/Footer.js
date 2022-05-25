@@ -1,3 +1,4 @@
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const FooterComp = () => {
     return (
@@ -48,9 +49,9 @@ const FooterComp = () => {
                         </div>
                         <div className={"itemContainer"}>
                             <div className={"itemLeft"}>
-                                <a href="tel:00905311234567" className={"phoneHref"}>
-                                    +90 (534) 631 46 03
-                                </a>
+                                <AnchorLink
+                                    className={"menu-list-item"} href={"#contact"}
+                                >Send us a form</AnchorLink>
                             </div>
                         </div>
                     </div>
