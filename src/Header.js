@@ -138,7 +138,7 @@ const SocialMediaListComponent = (customStyle) => {
                 <GrFacebookOption className={"icon"}/>
                 <AiOutlineInstagram className={"icon"}/>
                 <BsTwitter className={"icon"}/>
-                <a href="https://wa.me/905346314603?text=DuniaMed" className={"icon"} target="_blank">
+                <a href="https://wa.me/905346314603?text=DuniaMed" rel="noreferrer" className={"icon"} target="_blank">
                     <AiOutlineWhatsApp className={"icon"}/>
                 </a>
                 <FaTelegramPlane className={"icon"}/>
@@ -156,7 +156,7 @@ const HeaderSocialMedia = () => {
                         <BsTelephone className={"icon"}/>
                         <div>
                             <a href="tel:00905311234567" className={"phoneHref"}>
-                                +90-531-123-45-67
+                                +90 (534) 631 46 03
                             </a>
                         </div>
                     </div>
@@ -165,7 +165,7 @@ const HeaderSocialMedia = () => {
 
                     <div className={"social-media-item"}>
                         <IoLocationOutline className={"icon"}/>
-                        <div>Location here</div>
+                        <div>Istanbul, Turquie</div>
                     </div>
                 </div>
 

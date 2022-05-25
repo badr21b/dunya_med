@@ -1,8 +1,8 @@
 import {GoPrimitiveDot} from "react-icons/go";
 import {FaHandHoldingMedical} from "react-icons/fa";
 import {AiOutlineStar, AiFillStar} from "react-icons/ai";
-import {BsTelephone, BsPerson} from "react-icons/bs";
-import {MdOutlinePeopleAlt, MdOutlineMail} from "react-icons/md";
+import {BsTelephone} from "react-icons/bs";
+import {MdOutlinePeopleAlt} from "react-icons/md";
 import {BsHandThumbsUp} from "react-icons/bs";
 import {GrCertificate} from "react-icons/gr";
 import {RiStethoscopeLine} from "react-icons/ri";
@@ -88,17 +88,6 @@ export default function MainComp() {
         } else{
             setAllowSubmit(false)
         }
-    }
-
-    const handleSubmit = () => {
-        setWhatsappMessage({
-            nom: name,
-            telephone: phone,
-            email: email,
-            sexe: sex,
-            type_de_traitement: treatmentType,
-            message: message
-        })
     }
 
     const treatmentList = [
@@ -268,7 +257,7 @@ export default function MainComp() {
                 </section>
 
                 <section id='testimonials' className={"mainContainer"}
-                         style={{minHeight: "calc(100vh - 160px)", background: "#379bb3", padding: "32px", display:"flex", flexDirection: "column", flexWrap: "wrap", alignContent: "center", justifyContent: "center", maxWidth: "100%"}}>
+                         style={{minHeight: "100vh", background: "#379bb3", padding: "32px", display:"flex", flexDirection: "column", flexWrap: "wrap", alignContent: "center", justifyContent: "center", maxWidth: "100%"}}>
                     <h2 style={{marginTop: "100px", color: "#ffffff", fontSize: "42px"}}>Testimonials</h2>
                     <div className={"testimonialsBlocksContainer"}>
 
@@ -362,7 +351,16 @@ export default function MainComp() {
                     </div>
                 </section>
 
-                <section id='contact' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", padding: "32px"}}>
+                <section id='contact' className={"mainContainer"}
+                         style={{minHeight: "100vh", padding: "32px",
+
+                             position: "relative",
+                             display: "flex",
+                             flexDirection: "column",
+                             justifyContent: "center",
+                             alignItems: "center"
+                         }}
+                >
                     <div className={"imageParagraphContainer"}>
                         <img className={"image"} alt={""} src={"https://browsecat.net/sites/default/files/doctors-wallpapers-105115-962022-5679706.png"} />
                         <div className={"paragraphContainer"}>

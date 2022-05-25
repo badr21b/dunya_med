@@ -1,4 +1,5 @@
 .App {
+  overflow: hidden;
   text-align: center;
 }
 
@@ -1046,4 +1047,78 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.footer-holder{
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100px;
+  background-color: #379bb3;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &>.blockHolder{
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    &>.categoryHolder{
+      position: relative;
+      display: flex;
+      width: 400px;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      /* background: red; */
+      margin: 12px 21px;
+      padding: 12px;
+      color: white;
+      font-weight: 500;
+      &>.title{
+        font-size: 18px;
+        font-weight: bold;
+        color: #272727;
+        width: 100%;
+        margin-top: 14px;
+        text-align: center;
+      }
+      &>.itemsList{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        margin: 12px auto;
+        &>.itemContainer{
+          position: relative;
+          display: flex;
+          margin: 6px auto;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          &>.itemLeft{
+            margin: 0 9px;
+           &>a{
+             text-decoration: none;
+             color: white;
+           }
+          }
+        }
+      }
+    }
+  }
 }

@@ -7,6 +7,7 @@ import './Style/App.scss';
 import HeaderComp from './Header'
 import MainComp from './Main'
 import TestComp from './Test'
+import FooterComp from "./Footer";
 
 
 //https://hairflow.webflow.io/#Testimonial
@@ -27,6 +28,8 @@ function App() {
             <Route path={`/#section${2}`} element={<MainComp />} />
             <Route path="/test" element={<TestComp />} />
         </Routes>
+
+        <FooterComp />
 
     </div>
   );
