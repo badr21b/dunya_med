@@ -138,7 +138,9 @@ const SocialMediaListComponent = (customStyle) => {
                 <GrFacebookOption className={"icon"}/>
                 <AiOutlineInstagram className={"icon"}/>
                 <BsTwitter className={"icon"}/>
-                <AiOutlineWhatsApp className={"icon"}/>
+                <a href="https://wa.me/905346314603?text=DuniaMed" className={"icon"} target="_blank">
+                    <AiOutlineWhatsApp className={"icon"}/>
+                </a>
                 <FaTelegramPlane className={"icon"}/>
             </div>
         </div>

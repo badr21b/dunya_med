@@ -224,6 +224,7 @@
   &>.icon{
     margin: 0 4px;
     font-size: 14px;
+    color: #ffffff;
   }
 
   &>div>.phoneHref{
@@ -548,6 +549,12 @@
         margin: 0 12px;
         padding: 0 24px;
         min-height: 50px;
+        border: none;
+        color: #ffffff;
+        &:hover{
+          cursor: pointer;
+          background-color: #61dafb;
+        }
       }
     }
 

@@ -133,10 +133,10 @@ export default function MainComp() {
 
                     <div className={"buttonGroupContainer"}>
                         <div className={"buttonItem"}>Make an appointment</div>
-                        <div className={"buttonItem"}>
+                        <ReactWhatsapp  className={"buttonItem"} number="+905346314603" message={""}>
                             <BsTelephone style={{marginRight: "9px"}}/>
-                            +90 (123) 145-6789
-                        </div>
+                            +90 (534) 631 46 03
+                        </ReactWhatsapp>
                     </div>
                 </div>
 
