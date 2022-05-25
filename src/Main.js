@@ -20,9 +20,10 @@ export default function MainComp() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
-    const [sex, setSex] = useState(null);
-    const [treatmentType, setTreatmentType] = useState("");
+    const [sex, setSex] = useState("initial");
+    const [treatmentType, setTreatmentType] = useState("initial");
     const [message, setMessage] = useState("");
+    const [allowSubmit, setAllowSubmit] = useState(false);
     const [whatsappMessage, setWhatsappMessage] = useState({
         nom: "",
         telephone: "",
@@ -34,19 +35,58 @@ export default function MainComp() {
 
 
     const handleChange = (e) => {
-        console.log(e.target.dataset.fieldname)
-        console.log(e.target.value)
-
         switch (e.target.dataset.fieldname) {
             case "name":
-                setName(e.target.value)
+                setName(e.target.value);
+                if(6 < name.length){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
                 break;
             case "phone":
                 setPhone(e.target.value)
+                if(6 < phone.length){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
                 break;
-
+            case "email":
+                setEmail(e.target.value)
+                if(!! email.match(/.+@.+/)){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
+                break;
+            case "sex":
+                setSex(e.target.value)
+                console.log(sex)
+                if("initial" !== e.target.value){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
+                break;
+            case "treatmentType":
+                setTreatmentType(e.target.value)
+                if("initial" !== e.target.value){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
+                break;
+            case "message":
+                setMessage(e.target.value)
+                if(6 < message.length){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
+                break;
             default: return
-
+        }
+        setTimeout(() => {
+            controlSubmitForm()
+        }, 300)
+    }
+    const controlSubmitForm = () => {
+        if (
+            6 < name.length &&
+            6 < phone.length &&
+            !! email.match(/.+@.+/) &&
+            "initial" !== sex &&
+            "initial" !== treatmentType &&
+            6 < message.length
+        ){
+            setWhatsappMessage({
+                nom: name,
+                telephone: phone,
+                email: email,
+                sexe: sex,
+                type_de_traitement: treatmentType,
+                message: message
+            })
+            setAllowSubmit(true)
+        } else{
+            setAllowSubmit(false)
         }
     }
 
@@ -214,11 +254,11 @@ export default function MainComp() {
                             <div className={"paragraph"}>Dunya Med is a modern business theme, that lets you build stunning high performance websites using a fully visual interface. Start with any of the demos below or build one on your own.</div>
                             <div className={"statisticsContainer"}>
                                 <div className={"statisticElementWrapper"}>
-                                    <div className={"number"}>493</div>
+                                    <div className={"number"}>+43</div>
                                     <div className={"text"}>Expert Doctor</div>
                                 </div>
                                 <div className={"statisticElementWrapper"}>
-                                    <div className={"number"}>43</div>
+                                    <div className={"number"}>+289</div>
                                     <div className={"text"}>Happy Client</div>
                                 </div>
                             </div>
@@ -334,14 +374,15 @@ export default function MainComp() {
                                     {/*    <div className={"icon"}><BsPerson/></div>*/}
                                         <input className={"lineElement"}
                                                value={name}
-                                               data-fieldName={"name"}
+                                               data-fieldname={"name"}
                                                onChange={handleChange}
                                                placeholder={"Full Name"}
                                         />
                                     {/*</div>*/}
                                     <input className={"lineElement"}
                                            value={phone}
-                                           data-fieldName={"phone"}
+                                           type="number"
+                                           data-fieldname={"phone"}
                                            onChange={handleChange}
                                            placeholder={"Phone Number"}
                                     />
@@ -350,20 +391,21 @@ export default function MainComp() {
                                 <div className={"lineWrapper"}>
                                     <input className={"lineElement"}  style={{width: "90%"}}
                                            value={email}
-                                           data-fieldName={"email"}
+                                           type="email"
+                                           data-fieldname={"email"}
                                            onChange={handleChange}
                                            placeholder={"Email"}
                                     />
                                 </div>
 
                                 <div className={"lineWrapper"}>
-                                    <select value={sex} onChange={handleChange} data-fieldName={"sex"} className={"lineElement"} style={{height: "45px", width: "45%"}} >
-                                        <option value="" disabled selected>Select your sex</option>
+                                    <select defaultValue={sex} onChange={handleChange} data-fieldname={"sex"} className={"lineElement"} style={{height: "45px", width: "45%"}} >
+                                        <option value="initial" disabled >Select your sex</option>
                                         <option value={"male"}>Male</option>
                                         <option value={"female"}>Female</option>
                                     </select>
-                                    <select placeholder={"Need treatment for"} data-fieldName={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
-                                        <option value="" disabled selected>Need treatment for</option>
+                                    <select defaultValue={treatmentType} placeholder={"Need treatment for"} data-fieldname={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
+                                        <option value="initial" disabled >Need treatment for</option>
                                         <option value="hair">Hair Transplant</option>
                                         <option value="dent">Teeth </option>
                                         <option value="breast">Option 3</option>
@@ -375,16 +417,21 @@ export default function MainComp() {
                                 <div className={"lineWrapper"}>
                                     <textArea
                                         className={"lineElement"} style={{width: "90%"}}
-                                        data-fieldName={"message"}
+                                        data-fieldname={"message"}
                                         value={message}
-                                        onchange={handleChange}
+                                        onChange={handleChange}
                                         placeholder="Message"
                                     />
                                 </div>
 
                             </div>
 
-                            <ReactWhatsapp className={"button"} number="+905346314603" message="Hello World!!!">Send</ReactWhatsapp>
+                            {(allowSubmit) ? (
+                                <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>Send</ReactWhatsapp>
+                            ) :(
+                                <div className={"button"} style={{background: "#e2e2e2"}}>Send</div>
+                            )}
+
                         </div>
                     </div>
                 </section>
