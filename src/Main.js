@@ -188,7 +188,7 @@ export default function MainComp() {
             </div>
 
 
-            <div>
+            <>
                 {/*<section id='treatment' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", background: "#379bb31f", padding: "32px"}}>*/}
                 {/*    <h2 style={{marginTop: "100px"}}>Our treatment options</h2>*/}
                 {/*    <div className={"treatmentBlocksContainer"}>*/}
@@ -214,9 +214,9 @@ export default function MainComp() {
                 {/*        </div>*/}
                 {/*    </div>*/}
                 {/*</section>*/}
-                <section id='process' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", padding: "32px"}}>
+                <section id='process'  className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}>
                     <h2 style={{marginTop: "100px"}}>Our great 3 steps for treatment</h2>
-                    <div className={"treatmentBlocksContainer"} style={{marginBottom: '100px'}}>
+                    <div className={(isDesktop)? ("treatmentBlocksContainer"):("treatmentBlocksContainerMobile")} style={{marginBottom: '100px'}}>
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><RiStethoscopeLine/></div>
                             <div className={"stepWrapper"}>Step: 1</div>
@@ -238,7 +238,7 @@ export default function MainComp() {
                             <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>
                         </div>
                     </div>
-                    <div className={"imageParagraphContainer"}>
+                    <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")}>
                         <img className={"image"} alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6214537f681fac1e317a0110_hair-transplant-min.jpg"} />
                         <div className={"paragraphContainer"}>
                             <div className={"title"}>World's most advanced hair transplant system</div>
@@ -258,10 +258,10 @@ export default function MainComp() {
                     </div>
                 </section>
 
-                <section id='testimonials' className={"mainContainer"}
+                <section id='testimonials' className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}
                          style={{minHeight: "100vh", background: "#379bb3", padding: "32px", display:"flex", flexDirection: "column", flexWrap: "wrap", alignContent: "center", justifyContent: "center", maxWidth: "100%"}}>
                     <h2 style={{marginTop: "100px", color: "#ffffff", fontSize: "42px"}}>Testimonials</h2>
-                    <div className={"testimonialsBlocksContainer"}>
+                    <div className={(isDesktop)? ("testimonialsBlocksContainer"):("testimonialsBlocksContainerMobile")}>
 
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/628374c23aea710d2175ccc2_testimonial-3-min.jpg"}/></div>
@@ -436,7 +436,7 @@ export default function MainComp() {
                     </div>
                 </section>
 
-            </div>
+            </>
 
         </>
 
