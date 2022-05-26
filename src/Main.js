@@ -9,8 +9,8 @@ import {RiStethoscopeLine} from "react-icons/ri";
 import {GiHealthCapsule} from "react-icons/gi";
 import {BiSearchAlt} from "react-icons/bi";
 import {isDesktop, isMobile} from "react-device-detect";
-import { Link } from "react-router-dom";
 import React, { useState } from 'react';
+import { Parallax } from 'react-scroll-parallax';
 
 import ReactWhatsapp from 'react-whatsapp';
 import AnchorLink from "react-anchor-link-smooth-scroll";
@@ -97,7 +97,7 @@ export default function MainComp() {
         {key: "RoughHairTreatment", text: "Rough hair treatment", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "Alopecia", text: "Alopecia", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "HairTossTreatment", text: "Hair loss treatment", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "AlopeciaAreata", text: "Alopecia Areata", icon: <GoPrimitiveDot className={"treatmentItemIcon"}/>},
+        {key: "AlopeciaAreata", text: "Alopecia Areata", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
     ]
 
     const ratingText1 = 4.4;
@@ -115,7 +115,7 @@ export default function MainComp() {
                     <div className={"treatmentListContainer"}>
                         {treatmentList.map(item => {
                             return(
-                                <div key={item.key} className={"treatmentItem"}>
+                                <div key={item.key} className={"treatmentItem"} style={(isDesktop)? ({width: "50%"}):({width: "70%"})}>
                                     {item.icon}
                                     <div className={"treatmentItemText"}>{item.text}</div>
                                 </div>
@@ -138,6 +138,7 @@ export default function MainComp() {
                 </div>
             </main>
 
+            <Parallax className="blocksRow" y={[-20, 20]} tagOuter="figure">
             <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")}>
                 <div className={"blocksRow"}>
                     <div className={"blocksWrapper"}>
@@ -156,6 +157,7 @@ export default function MainComp() {
                         </div>
                     </div>
 
+
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
                             <div className={"blockIcon"}><BsHandThumbsUp size={42}/></div>
@@ -165,12 +167,12 @@ export default function MainComp() {
                     </div>
                 </div>
             </div>
+            </Parallax>
 
             <div className={(isDesktop)? ("mainBlockContainer"):("mainBlockContainerMobile")}>
                 <div className={"aboutContainer"}>
                     <div className={"aboutImageWrapper"}>
                         <img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6210b57ab0efeab9f7a50a4b_hair-treatment-about_image-min.jpg"} />
-
                         <div className={"aboutExperienceWrapper"}>
                             <div className={"experienceNumber"}>8+</div>
                             <div className={"experienceText"}>Years of Experience</div>
@@ -237,24 +239,29 @@ export default function MainComp() {
                             <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>
                         </div>
                     </div>
-                    <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")}>
-                        <img className={"image"} alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6214537f681fac1e317a0110_hair-transplant-min.jpg"} />
-                        <div className={"paragraphContainer"}>
-                            <div className={"title"}>World's most advanced hair transplant system</div>
-                            <div className={"paragraph"}>Dunya Med is a modern business theme, that lets you build stunning high performance websites using a fully visual interface. Start with any of the demos below or build one on your own.</div>
-                            <div className={"statisticsContainer"}>
-                                <div className={"statisticElementWrapper"}>
-                                    <div className={"number"}>+43</div>
-                                    <div className={"text"}>Expert Doctor</div>
+
+                    <Parallax className="" y={[-20, 20]} tagOuter="figure">
+                        <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")}>
+                            <img className={"image"} alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6214537f681fac1e317a0110_hair-transplant-min.jpg"} />
+                            <div className={"paragraphContainer"}>
+                                <div className={"title"}>World's most advanced hair transplant system</div>
+                                <div className={"paragraph"}>Dunya Med is a modern business theme, that lets you build stunning high performance websites using a fully visual interface. Start with any of the demos below or build one on your own.</div>
+                                <div className={"statisticsContainer"}>
+                                    <div className={"statisticElementWrapper"}>
+                                        <div className={"number"}>+43</div>
+                                        <div className={"text"}>Expert Doctor</div>
+                                    </div>
+                                    <div className={"statisticElementWrapper"}>
+                                        <div className={"number"}>+289</div>
+                                        <div className={"text"}>Happy Client</div>
+                                    </div>
                                 </div>
-                                <div className={"statisticElementWrapper"}>
-                                    <div className={"number"}>+289</div>
-                                    <div className={"text"}>Happy Client</div>
-                                </div>
+                                <AnchorLink className={"button"} href={"#contact"}>Make an appointment</AnchorLink>
                             </div>
-                            <AnchorLink className={"button"} href={"#contact"}>Make an appointment</AnchorLink>
                         </div>
-                    </div>
+
+                    </Parallax>
+
                 </section>
 
                 <section id='testimonials' className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}
@@ -339,7 +346,7 @@ export default function MainComp() {
                 </section>
 
 
-
+                <Parallax className="" y={[-20, 20]} tagOuter="figure">
                 <section id='results' className={""}
                     style={{minHeight: "600px)", maxWidth: "100%", margin: "0 auto"}}>
                     <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")} style={{minHeight: "600px"}}>
@@ -351,6 +358,7 @@ export default function MainComp() {
                         </div>
                     </div>
                 </section>
+                </Parallax>
 
                 <section id='contact'
                          className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}

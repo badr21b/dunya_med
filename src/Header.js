@@ -9,9 +9,7 @@ import { useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import {useEffect, useState} from "react";
 import Hamburger from 'hamburger-react'
-import { HashLink as Link } from 'react-router-hash-link';
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import Sticky from 'react-sticky-el';
 
 
 const HeaderComp = () => {
@@ -82,13 +80,14 @@ const HeaderMainHeader = () => {
                                 <div className={"menu-list-container-mobile"} style={{height: "50%"}}>
                                     {menuList.map(menuItem => {
                                         return (
-                                            <Link
-                                                className={"menu-list-item-mobile"} key={menuItem.key} to={menuItem.link}
-                                                style={(location.pathname === menuItem.link)
-                                                    ? ({ color: "orange" })
-                                                    : ({ color: "black" })
-                                                }
-                                            >{menuItem.text}</Link>
+                                        <AnchorLink
+                                            onClick={() => {onSetSidebarOpen(false)}}
+                                            className={"menu-list-item-mobile"} key={menuItem.key}  href={menuItem.link}
+                                            style={(location.pathname === menuItem.link)
+                                                ? ({ color: "orange" })
+                                                : ({ color: "black" })
+                                            }
+                                        >{menuItem.text}</AnchorLink>
                                         )
                                     } )}
                                 </div>

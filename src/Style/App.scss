@@ -325,7 +325,7 @@
 
 
 
-    &>.aboutTextWrapper{
+    .aboutTextWrapper{
       max-width: 545px;
       margin-left: 50px;
       padding-left: 10px;
@@ -913,6 +913,7 @@
         min-height: 50px;
         border: none;
         color: #ffffff;
+        text-decoration: none;
         &:hover{
           cursor: pointer;
           background-color: #61dafb;
@@ -1327,6 +1328,7 @@
         align-items: center;
         border: 1px solid #379bb3;
         padding: 12px;
+        margin: 12px auto;
         /* background: #379bb3; */
         /* color: white; */
         border-radius: 5px;
