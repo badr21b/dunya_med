@@ -343,7 +343,7 @@ export default function MainComp() {
 
                 <section id='results' className={""}
                     style={{minHeight: "600px)", maxWidth: "100%", margin: "0 auto"}}>
-                    <div className={"imageParagraphContainer"} style={{minHeight: "600px"}}>
+                    <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")} style={{minHeight: "600px"}}>
                         <img className={"image"} alt={""} src={"https://us.123rf.com/450wm/stokkete/stokkete1609/stokkete160900332/62025951-sourire-m%C3%A9decin-%C3%A0-la-clinique-donnant-une-poign%C3%A9e-de-main-%C3%A0-son-patient-la-sant%C3%A9-et-le-professionnal.jpg"} style={{maxWidth: "600px"}}/>
                         <div className={"paragraphContainer"} style={{maxWidth: "900px"}}>
                             <div className={"title"}>95% Proven results! See the difference</div>
@@ -353,7 +353,8 @@ export default function MainComp() {
                     </div>
                 </section>
 
-                <section id='contact' className={"mainContainer"}
+                <section id='contact'
+                         className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}
                          style={{minHeight: "100vh", padding: "32px",
 
                              position: "relative",
@@ -363,7 +364,7 @@ export default function MainComp() {
                              alignItems: "center"
                          }}
                 >
-                    <div className={"imageParagraphContainer"}>
+                    <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")} >
                         <img className={"image"} alt={""} src={"https://browsecat.net/sites/default/files/doctors-wallpapers-105115-962022-5679706.png"} />
                         <div className={"paragraphContainer"}>
                             <div className={"title"}>Contact us</div>

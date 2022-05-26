@@ -1,8 +1,9 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import {isDesktop} from "react-device-detect";
 
 const FooterComp = () => {
     return (
-        <div className={"footer-holder"}>
+        <div className={(isDesktop)? ("footer-holder"):("footer-holder-mobile")} >
             <div className={"blockHolder"}>
                 <div className={"categoryHolder"}>
                     <div className={"title"}>Information</div>
