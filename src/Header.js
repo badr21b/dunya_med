@@ -33,12 +33,12 @@ const HeaderComp = () => {
 
     return (
         <>
-            <Sticky>
+            {/*<Sticky>*/}
                 {(isBrowser) && (
                     <HeaderSocialMedia stickyClass={stickyClass}/>
                 )}
                 <HeaderMainHeader />
-            </Sticky>
+            {/*</Sticky>*/}
 
         </>
 
