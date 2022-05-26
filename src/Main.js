@@ -8,7 +8,7 @@ import {GrCertificate} from "react-icons/gr";
 import {RiStethoscopeLine} from "react-icons/ri";
 import {GiHealthCapsule} from "react-icons/gi";
 import {BiSearchAlt} from "react-icons/bi";
-import {isMobile} from "react-device-detect";
+import {isDesktop, isMobile} from "react-device-detect";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 
@@ -105,7 +105,9 @@ export default function MainComp() {
 
     return (
         <>
-            <main id='home' style={{ padding: "1rem 0", backgroundColor: "#f6f9f7" }} className={"paragraphPictureContainer"}>
+            <main id='home' style={{ padding: "1rem 0", backgroundColor: "#f6f9f7" }}
+                  className={(isDesktop)? ("paragraphPictureContainer"):("paragraphPictureContainerMobile")}
+            >
                 <div className={"textParagraphContainer"}>
                     <div className={"mainParagraphTitle"}>#1 Ranked Hair Clinic in Turkey</div>
                     <div className={"mainParagraphSubtitle"}>Life isn't perfect but Your hair can be.</div>
@@ -135,7 +137,7 @@ export default function MainComp() {
                 </div>
             </main>
 
-            <div className={"blocksContainer"}>
+            <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")}>
                 <div className={"blocksRow"}>
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
@@ -163,7 +165,7 @@ export default function MainComp() {
                 </div>
             </div>
 
-            <div className={"mainBlockContainer"}>
+            <div className={(isDesktop)? ("mainBlockContainer"):("mainBlockContainerMobile")}>
                 <div className={"aboutContainer"}>
                     <div className={"aboutImageWrapper"}>
                         <img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6210b57ab0efeab9f7a50a4b_hair-treatment-about_image-min.jpg"} />

@@ -8,6 +8,7 @@ import HeaderComp from './Header'
 import MainComp from './Main'
 import TestComp from './Test'
 import FooterComp from "./Footer";
+import ScrollToTop from "react-scroll-to-top";
 
 
 //https://hairflow.webflow.io/#Testimonial
@@ -15,6 +16,7 @@ import FooterComp from "./Footer";
 function App() {
   return (
     <div className="App">
+        <ScrollToTop smooth />
         <HeaderComp />
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
