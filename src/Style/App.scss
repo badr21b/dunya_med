@@ -630,6 +630,7 @@
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
+      margin: 12px auto;
 
       &>.blockItem{
         display: -webkit-box;
@@ -778,6 +779,7 @@
         border: none;
         color: #ffffff;
         flex-direction: row;
+        text-decoration: none;
         &:hover{
           cursor: pointer;
           background-color: #61dafb;
@@ -1159,6 +1161,7 @@
       }
     }
     &>.button{
+      text-decoration: none;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -1341,6 +1344,7 @@
       }
     }
     &>.button{
+      text-decoration: none;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;

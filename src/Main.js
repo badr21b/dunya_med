@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 
 import ReactWhatsapp from 'react-whatsapp';
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
 export default function MainComp() {
@@ -123,7 +124,7 @@ export default function MainComp() {
                     </div>
 
                     <div className={"buttonGroupContainer"}>
-                        <div className={"buttonItem"}>Make an appointment</div>
+                        <AnchorLink className={"buttonItem"} href={"#contact"}>Make an appointment</AnchorLink>
                         <ReactWhatsapp  className={"buttonItem"} number="+905346314603" message={""}>
                             <BsTelephone style={{marginRight: "9px"}}/>
                             +90 (534) 631 46 03
@@ -180,9 +181,7 @@ export default function MainComp() {
                         <div className={"aboutHeading"}>We’re Dunya Med</div>
                         <div className={"aboutParagraph"}>Get started swiftly & easily by importing a demo of your choice in a single click. Over 30 high quality professionally designed pre-built website concepts to choose from.</div>
                         <div className={"aboutParagraph"}>Dunya Med is a modern business theme, that lets you build stunning high performance websites using a fully visual interface. Start with any of the demos below or build one on your own. Exponent is a perfect blend of spacious layouts, precise typography.</div>
-                        <div className={"aboutBtnWrapper"} >
-                            <Link to={'/contact'}>Make Appointment</Link>
-                            </div>
+                        <div className={"aboutBtnWrapper"} ><AnchorLink className={"button"} href={"#contact"}>Make an appointment</AnchorLink></div>
                     </div>
                 </div>
             </div>
@@ -253,7 +252,7 @@ export default function MainComp() {
                                     <div className={"text"}>Happy Client</div>
                                 </div>
                             </div>
-                            <div className={"button"}>Make an Appointment</div>
+                            <AnchorLink className={"button"} href={"#contact"}>Make an appointment</AnchorLink>
                         </div>
                     </div>
                 </section>
