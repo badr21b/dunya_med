@@ -1,9 +1,9 @@
-import {GoPrimitiveDot} from "react-icons/go";
+import {AiFillCar} from "react-icons/ai";
 import {FaHandHoldingMedical} from "react-icons/fa";
 import {AiOutlineStar, AiFillStar} from "react-icons/ai";
 import {BsTelephone} from "react-icons/bs";
-import {MdOutlinePeopleAlt} from "react-icons/md";
-import {BsHandThumbsUp} from "react-icons/bs";
+import {MdOutlinePeopleAlt, MdHotel} from "react-icons/md";
+import {BsHandThumbsUp, BsTranslate} from "react-icons/bs";
 import {GrCertificate} from "react-icons/gr";
 import {RiStethoscopeLine} from "react-icons/ri";
 import {GiHealthCapsule} from "react-icons/gi";
@@ -21,6 +21,7 @@ export default function MainComp() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+    const [age, setAge] = useState("");
     const [sex, setSex] = useState("initial");
     const [treatmentType, setTreatmentType] = useState("initial");
     const [message, setMessage] = useState("");
@@ -29,6 +30,7 @@ export default function MainComp() {
         nom: "",
         telephone: "",
         email: "",
+        age: "",
         sexe: "",
         type_de_traitement: "",
         message: ""
@@ -48,6 +50,10 @@ export default function MainComp() {
             case "email":
                 setEmail(e.target.value)
                 if(!! email.match(/.+@.+/)){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
+                break;
+            case "age":
+                setAge(e.target.value)
+                if(1 < age.length){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
                 break;
             case "sex":
                 setSex(e.target.value)
@@ -72,6 +78,7 @@ export default function MainComp() {
         if (
             6 < name.length &&
             6 < phone.length &&
+            1 < age.length &&
             !! email.match(/.+@.+/) &&
             "initial" !== sex &&
             "initial" !== treatmentType &&
@@ -81,6 +88,7 @@ export default function MainComp() {
                 nom: name,
                 telephone: phone,
                 email: email,
+                age: age,
                 sexe: sex,
                 type_de_traitement: treatmentType,
                 message: message
@@ -124,7 +132,7 @@ export default function MainComp() {
                     </div>
 
                     <div className={"buttonGroupContainer"}>
-                        <AnchorLink className={"buttonItem"} href={"#contact"}>Make an appointment</AnchorLink>
+                        <AnchorLink className={"buttonItem"} href={"#contact"}>Obtenez un devis gratuit</AnchorLink>
                         <ReactWhatsapp  className={"buttonItem"} number="+905346314603" message={""}>
                             <BsTelephone style={{marginRight: "9px"}}/>
                             +90 (534) 631 46 03
@@ -144,7 +152,7 @@ export default function MainComp() {
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
                             <div className={"blockIcon"}><MdOutlinePeopleAlt size={42}/></div>
-                            <div className={"blockTitle"}>8.4 M+ People Treated</div>
+                            <div className={"blockTitle"}>8.4K+ Personnes traitées</div>
                             <div className={"blockParagraph"}>Dunya Med is insanely flexible and amazingly easy to use.</div>
                         </div>
                     </div>
@@ -346,6 +354,30 @@ export default function MainComp() {
                 </section>
 
 
+
+
+                <section id='process'  className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}>
+                    <div className={(isDesktop)? ("treatmentBlocksContainer"):("treatmentBlocksContainerMobile")} style={{marginBottom: '100px'}}>
+                        <div className={"blockWrapperSmall"}>
+                            <div className={"icon"}><AiFillCar/></div>
+                            <div className={"title"}>Transfert VIP durant tout votre séjour </div>
+                        </div>
+                        <div className={"blockWrapperSmall"}>
+                            <div className={"icon"}><MdHotel/></div>
+                            <div className={"title"}>Hébergement dans un hôtel préstigieux</div>
+                        </div>
+                        <div className={"blockWrapperSmall"}>
+                            <div className={"icon"}><BsTranslate/></div>
+                            <div className={"title"}>Traducteur disponible durant toute la procédure</div>
+                        </div>
+                        <div className={"blockWrapperSmall"}>
+                            <div className={"icon"}><RiStethoscopeLine/></div>
+                            <div className={"title"}>Suivi médical</div>
+                        </div>
+                    </div>
+
+                </section>
+
                 <Parallax className="" y={[-20, 20]} tagOuter="figure">
                 <section id='results' className={""}
                     style={{minHeight: "600px)", maxWidth: "100%", margin: "0 auto"}}>
@@ -354,7 +386,9 @@ export default function MainComp() {
                         <div className={"paragraphContainer"} style={{maxWidth: "900px"}}>
                             <div className={"title"}>95% Proven results! See the difference</div>
                             <div className={"paragraph"}>30-45 minute consultation with a hair doctor to understand the root cause & the extent of your condition earlier root cause & extent of your condition</div>
-                            <div className={"button"} style={{background: "#0f0f0f"}}>View story</div>
+                            <div className={"button"} style={{background: "#0f0f0f"}}>
+                                <AnchorLink style={{textDecoration:"none", color: "#ffffff"}} href={"#testimonials"}>View story</AnchorLink>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -395,28 +429,48 @@ export default function MainComp() {
                                            placeholder={"Phone Number"}
                                     />
                                 </div>
-
                                 <div className={"lineWrapper"}>
-                                    <input className={"lineElement"}  style={{width: "90%"}}
+                                    {/*<div className={"lineElement"}>*/}
+                                    {/*    <div className={"icon"}><BsPerson/></div>*/}
+                                    <input className={"lineElement"}
                                            value={email}
                                            type="email"
                                            data-fieldname={"email"}
                                            onChange={handleChange}
                                            placeholder={"Email"}
                                     />
+                                    {/*</div>*/}
+                                    <input className={"lineElement"}
+                                           value={age}
+                                           type="age"
+                                           data-fieldname={"age"}
+                                           onChange={handleChange}
+                                           placeholder={"Age"}
+                                    />
                                 </div>
+
+                                {/*<div className={"lineWrapper"}>*/}
+                                {/*    <input className={"lineElement"}  style={{width: "90%"}}*/}
+                                {/*           value={email}*/}
+                                {/*           type="email"*/}
+                                {/*           data-fieldname={"email"}*/}
+                                {/*           onChange={handleChange}*/}
+                                {/*           placeholder={"Email"}*/}
+                                {/*    />*/}
+                                {/*</div>*/}
 
                                 <div className={"lineWrapper"}>
                                     <select defaultValue={sex} onChange={handleChange} data-fieldname={"sex"} className={"lineElement"} style={{height: "45px", width: "45%"}} >
-                                        <option value="initial" disabled >Select your sex</option>
+                                        <option value="initial" disabled >Sélectionnez votre sexe</option>
                                         <option value={"male"}>Male</option>
                                         <option value={"female"}>Female</option>
                                     </select>
                                     <select defaultValue={treatmentType} placeholder={"Need treatment for"} data-fieldname={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
-                                        <option value="initial" disabled >Need treatment for</option>
+                                        <option value="initial" disabled >Besoin d'un traitement pour</option>
                                         <option value="hair">Hair Transplant</option>
-                                        <option value="dent">Teeth </option>
-                                        <option value="breast">Option 3</option>
+                                        <option value="dent">Esthétique dentaire</option>
+                                        <option value="plasticSurgery">Chirurgie Esthétique</option>
+                                        <option value="Mesotherapy">Mésothérapie</option>
                                     </select>
                                 </div>
 

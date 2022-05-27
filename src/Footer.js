@@ -55,12 +55,17 @@ const FooterComp = () => {
                                 >Send us a form</AnchorLink>
                             </div>
                         </div>
+                        <div className={"itemContainer"}>
+                            <div className={"itemLeft"} onClick={() => window.location = 'mailto:duniamed34@gmail.com'}>
+                                Send us an email
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
-            <div className={"blockHolder"}>
-                <div className={"categoryHolder"}>© Dunia Med {new Date().getFullYear()}.</div>
+            <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
+                <div className={"categoryHolder"} style={{fontStyle: "12px"}}>© Dunia Med {new Date().getFullYear()}.</div>
             </div>
         </div>
     )

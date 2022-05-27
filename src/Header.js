@@ -1,10 +1,11 @@
 import {isBrowser, isMobile} from 'react-device-detect';
 import { BsTelephone } from 'react-icons/bs';
-import { IoLocationOutline } from 'react-icons/io5';
-import { GrFacebookOption } from 'react-icons/gr';
+// import { IoLocationOutline } from 'react-icons/io5';
+// import { GrFacebookOption } from 'react-icons/gr';
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai';
-import { BsTwitter } from 'react-icons/bs';
+// import { BsTwitter } from 'react-icons/bs';
 import { FaTelegramPlane } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
 import { useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import {useEffect, useState} from "react";
@@ -12,7 +13,7 @@ import Hamburger from 'hamburger-react'
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
-const HeaderComp = () => {
+const HeaderComp = ({language}) => {
     const [stickyClass, setStickyClass] = useState('relative');
 
     useEffect(() => {
@@ -22,6 +23,14 @@ const HeaderComp = () => {
             window.removeEventListener('scroll', stickNavbar);
         };
     }, []);
+
+
+    useEffect(() => {
+        console.log("language: " + language)
+    }, [language]);
+
+
+
     const stickNavbar = () => {
         if (window !== undefined) {
             let windowHeight = window.scrollY;
@@ -132,11 +141,20 @@ const HeaderMainHeader = () => {
 const SocialMediaListComponent = (customStyle) => {
     return(
         <div className={"social-media-item-container"} style= {customStyle.customStyle} >
+            <div className={"social-media-item"}>
+              <select className={"languageSelector"}>
+                  <option disabled>Language</option>
+                  <option>🇬🇧 English</option>
+                  <option>🇫🇷 Français</option>
+                  <option>🇹🇷 Türkçe</option>
+              </select>
+            </div>
+
             {/* todo: add href here for each social */}
             <div className={"social-media-item"}>
-                <GrFacebookOption className={"icon"}/>
+                {/*<GrFacebookOption className={"icon"}/>*/}
                 <AiOutlineInstagram className={"icon"}/>
-                <BsTwitter className={"icon"}/>
+                {/*<BsTwitter className={"icon"}/>*/}
                 <a href="https://wa.me/905346314603?text=DuniaMed" rel="noreferrer" className={"icon"} target="_blank">
                     <AiOutlineWhatsApp className={"icon"}/>
                 </a>
@@ -162,9 +180,9 @@ const HeaderSocialMedia = () => {
 
                     <div className={"separator"}>|</div>
 
-                    <div className={"social-media-item"}>
-                        <IoLocationOutline className={"icon"}/>
-                        <div>Istanbul, Turquie</div>
+                    <div className={"social-media-item"} onClick={() => window.location = 'mailto:duniamed34@gmail.com'}>
+                        <FiMail className={"icon"}/>
+                        <div>duniamed34@gmail.com</div>
                     </div>
                 </div>
 
