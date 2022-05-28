@@ -24,6 +24,7 @@ export default function MainComp() {
     const [age, setAge] = useState("");
     const [sex, setSex] = useState("initial");
     const [treatmentType, setTreatmentType] = useState("initial");
+    const [healthPrecedentDisease, setHealthPrecedentDisease] = useState("");
     const [message, setMessage] = useState("");
     const [allowSubmit, setAllowSubmit] = useState(false);
     const [whatsappMessage, setWhatsappMessage] = useState({
@@ -33,6 +34,7 @@ export default function MainComp() {
         age: "",
         sexe: "",
         type_de_traitement: "",
+        prodblemes_de_santés_precedents: "",
         message: ""
     });
 
@@ -64,6 +66,9 @@ export default function MainComp() {
                 setTreatmentType(e.target.value)
                 if("initial" !== e.target.value){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
                 break;
+            case "healthPrecedentDisease":
+                setHealthPrecedentDisease(e.target.value)
+                break;
             case "message":
                 setMessage(e.target.value)
                 if(6 < message.length){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
@@ -91,6 +96,7 @@ export default function MainComp() {
                 age: age,
                 sexe: sex,
                 type_de_traitement: treatmentType,
+                prodblemes_de_santés_precedents: healthPrecedentDisease,
                 message: message
             })
             setAllowSubmit(true)
@@ -100,12 +106,10 @@ export default function MainComp() {
     }
 
     const treatmentList = [
-        {key: "dandruffTreatment", text: "Dandruff Treatment", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "HairThinning", text: "Hair Thinning", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "RoughHairTreatment", text: "Rough hair treatment", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "Alopecia", text: "Alopecia", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "HairTossTreatment", text: "Hair loss treatment", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "AlopeciaAreata", text: "Alopecia Areata", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
+        {key: "fueSafir", text: "Fue Safir", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
+        {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
+        {key: "mesotherapy", text: "Mésothérapie", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
+        {key: "prp", text: "PRP", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
     ]
 
     const ratingText1 = 4.4;
@@ -119,7 +123,9 @@ export default function MainComp() {
             >
                 <div className={"textParagraphContainer"}>
                     <div className={"mainParagraphTitle"}>#1 Ranked Hair Clinic in Turkey</div>
-                    <div className={"mainParagraphSubtitle"}>Life isn't perfect but Your hair can be.</div>
+                    <div className={"mainParagraphSubtitle"}>
+                        La vie n'est pas parfaite, mais vos cheveux peuvent l'être.
+                    </div>
                     <div className={"treatmentListContainer"}>
                         {treatmentList.map(item => {
                             return(
@@ -189,8 +195,10 @@ export default function MainComp() {
 
                     <div className={"aboutTextWrapper"}>
                         <div className={"aboutHeading"}>We’re Dunya Med</div>
-                        <div className={"aboutParagraph"}>Get started swiftly & easily by importing a demo of your choice in a single click. Over 30 high quality professionally designed pre-built website concepts to choose from.</div>
-                        <div className={"aboutParagraph"}>Dunya Med is a modern business theme, that lets you build stunning high performance websites using a fully visual interface. Start with any of the demos below or build one on your own. Exponent is a perfect blend of spacious layouts, precise typography.</div>
+                        <div className={"aboutParagraph"}>Nous sommes une clinique qui est à votre service pour vous aider à organiser votre séjour médical en vous offrant une meilleure qualité de service avec une équipe proffessionelle..</div>
+                        <div className={"aboutParagraph"}>
+                            Dunia MED se distingue parmis plusieures cliniques à Istanbul grace au dévouement de sa team qui veillera à votre confort absolut.
+                        </div>
                         <div className={"aboutBtnWrapper"} ><AnchorLink className={"button"} href={"#contact"}>Make an appointment</AnchorLink></div>
                     </div>
                 </div>
@@ -198,53 +206,30 @@ export default function MainComp() {
 
 
             <>
-                {/*<section id='treatment' className={"mainContainer"} style={{minHeight: "calc(100vh - 160px)", background: "#379bb31f", padding: "32px"}}>*/}
-                {/*    <h2 style={{marginTop: "100px"}}>Our treatment options</h2>*/}
-                {/*    <div className={"treatmentBlocksContainer"}>*/}
-                {/*        <div className={"blockWrapper"}>*/}
-                {/*            <div className={"icon"}><RiStethoscopeLine/></div>*/}
-                {/*            <div className={"stepWrapper"}>Step: 1</div>*/}
-                {/*            <div className={"title"}>Doctor Consultation</div>*/}
-                {/*            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>*/}
-                {/*        </div>*/}
-
-                {/*        <div className={"blockWrapper"}>*/}
-                {/*            <div className={"icon"}><BiSearchAlt/></div>*/}
-                {/*            <div className={"stepWrapper"}>Step: 2</div>*/}
-                {/*            <div className={"title"}>Digital Diagnosis</div>*/}
-                {/*            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>*/}
-                {/*        </div>*/}
-
-                {/*        <div className={"blockWrapper"}>*/}
-                {/*            <div className={"icon"}><GiHealthCapsule/></div>*/}
-                {/*            <div className={"stepWrapper"}>Step: 2</div>*/}
-                {/*            <div className={"title"}>Safe & Holistic Treatment</div>*/}
-                {/*            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</section>*/}
                 <section id='process'  className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}>
-                    <h2 style={{marginTop: "100px"}}>Our great 3 steps for treatment</h2>
+                    <h2 style={{marginTop: "100px"}}>Nos 3 grandes étapes de traitement</h2>
                     <div className={(isDesktop)? ("treatmentBlocksContainer"):("treatmentBlocksContainerMobile")} style={{marginBottom: '100px'}}>
-                        <div className={"blockWrapper"}>
-                            <div className={"icon"}><RiStethoscopeLine/></div>
-                            <div className={"stepWrapper"}>Step: 1</div>
-                            <div className={"title"}>Doctor Consultation</div>
-                            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>
-                        </div>
+
 
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><BiSearchAlt/></div>
-                            <div className={"stepWrapper"}>Step: 2</div>
-                            <div className={"title"}>Digital Diagnosis</div>
-                            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>
+                            <div className={"stepWrapper"}>Step: 1</div>
+                            <div className={"title"}>Diagnostic en ligne</div>
+                            <div className={"paragraph"}>Mise en contact rapide et réactive.</div>
+                        </div>
+
+                        <div className={"blockWrapper"}>
+                            <div className={"icon"}><RiStethoscopeLine/></div>
+                            <div className={"stepWrapper"}>Etape: 2</div>
+                            <div className={"title"}>Consultation de médecin</div>
+                            <div className={"paragraph"}>Une consultation médicale approffondie.</div>
                         </div>
 
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><GiHealthCapsule/></div>
-                            <div className={"stepWrapper"}>Step: 2</div>
-                            <div className={"title"}>Safe & Holistic Treatment</div>
-                            <div className={"paragraph"}>Dunya Med is insanely flexible and amazingly easy to use Marketing Page WP Theme.</div>
+                            <div className={"stepWrapper"}>Step: 3</div>
+                            <div className={"title"}>Suivi post-opp</div>
+                            <div className={"paragraph"}>Suivi post oppératoir constant pour avoir toujours les meilleurs conseils.</div>
                         </div>
                     </div>
 
@@ -282,7 +267,11 @@ export default function MainComp() {
                             <div className={"stepWrapper"}>
                                 <img src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6213c81cd79929cf18d25393_quotes_icon.svg"} alt={""} />
                             </div>
-                            <div className={"title"}>Minutes consultation with a hair doctor to understand the root cause & extent of your condition oleo hobe</div>
+                            <div className={"title"}>
+                                Depuis l'aéroport jusqu'à mon retour, ils étaient toujours présents, bien viellants et toujours sourillants.
+                                Le résultat se voit déjà comme prévu!
+                                Merci
+                            </div>
 
 
                             <div className={"testimonial-rating-wrapper"}>
@@ -296,7 +285,7 @@ export default function MainComp() {
                                 </div>
                             </div>
                             <div className={"nameJobContainer"}>
-                                <div className={"name"}>Darlene Robertson</div>
+                                <div className={"name"}>Alexandre Jubier</div>
                                 <div className={"job"}>Business Man</div>
                             </div>
                         </div>
@@ -306,7 +295,10 @@ export default function MainComp() {
                             <div className={"stepWrapper"}>
                                 <img src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6213c81cd79929cf18d25393_quotes_icon.svg"} alt={""} />
                             </div>
-                            <div className={"title"}>Minutes consultation with a hair doctor to understand the root cause & extent of your condition oleo hobe</div>
+                            <div className={"title"}>
+                                Merci beaucoup à toute l'équipe qui était au petits soins.
+                                Je conseille fortement cette clinique.
+                            </div>
 
 
                             <div className={"testimonial-rating-wrapper"}>
@@ -320,17 +312,20 @@ export default function MainComp() {
                                 </div>
                             </div>
                              <div className={"nameJobContainer"}>
-                                 <div className={"name"}>Darlene Robertson</div>
-                                 <div className={"job"}>Business Man</div>
+                                 <div className={"name"}>Jemy Lunarre</div>
+                                 <div className={"job"}>Pompier</div>
                              </div>
                         </div>
 
                          <div className={"blockWrapper"}>
-                            <div className={"icon"}><img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/628374c23485265ccc4b7bbd_testimonial-1-min.jpg"}/></div>
+                            <div className={"icon"}><img alt={""} src={"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUSFRgVFRUZGBgYGBgYGBwYGBIYGBgYGBgZGRgYGBgcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHhISHjQhISsxNDQ0NDQ0NDQxNDE0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAADAAIEBQYBBwj/xAA/EAACAQIDBAgDBQYGAwEAAAABAgADEQQSIQUxQVEGImFxgZGhsRMywQdCUnKyMzSC0eHwFCNikqLxJDVzRP/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EACURAAICAgIBBQEAAwAAAAAAAAABAhEDMRIhUQQiMkFxYRMjQv/aAAwDAQACEQMRAD8A3JjY4xs5DQ5ORxnCIAMJnG5xGNJgIRMYTOkxl4AOnDFOXgB3NFOWijAV5wtFeItETYgYjOAzpMZR0GK84J0wAes4x1jROQAII9TBx6mIB06Jy86DAY4RwjI4GABVnRGidvADsUUUKGMMbOxQEcjSZ1pwmADLxhMc0jVqAqCzbr33kG/eICY+x4xtuydpIEFh6kn1jiYUAgsQF5y8RMYHGNpwvOXjS0BHS0RaCd7SLV2gi7yBHQNFhn7J295X0sarag37jJCvChWHJnS0YDeK8Q7HkxAxl45SDAYS86DBgx6mADgYRYOODQAcY9YMGFR7DnEA8GOEGDHrJBDooopRQ0xhnSY0mAhpMaY4xpMBHCYwxEzl4qAaZy8TTgMoDjGNLzjQK1Re0YrDGpI9auFGvvujqz5QSeAmdx+fEX1yourczGhxi5HdobeQaBuy41tMxtVyeuHOv4jr5cIZVR2IyMw4AAW/7kKthKiMTlOTUgE3tNI0jTg0RqGPqU20cjxP9mafZXSprhagFj97+fKZdKOe6jfv/wCo6hTINiOOv8xG0mJxTPVsPiVqAFTe8Or85hNiY56TZTqh9O6bKjVBFwd8zlGjNqiTnnAYNWiDSSQytePUyODDIYFWEnQYzNOgxBYS8epgo9YDDKYRIFTCI0QBYo28UBjSI0mOcRkBDS0Y0cY0wQDCI0zj0xmzW18YiYwE0Hc3O63DfeOaNMBM42msjBRqTDOb6GRcbXCISd1o0CXJlftOsX6i8/LtMPU2eWRKKj5tWPIHie+C2NT+IwJG8gnxPVXvm4oYALrbU75EpV0duOMYq2ZqhsFKYHE84PFYBWFrTRYykZWvTMyt2dMaaMDtXY7U2zpwN9IOvggQtRRowv2A8RNvjMPmUgiZvBpYvRPAhl8d86ITZhkxr6I+Awubqn8N1PZLPCXp9Rt3sf5SNh2+GyE/dcofytqPf0lpjqV1cLoVBIPavW8rXjcuzJw5RokK8cGkOhVuAeYv5yQrQo4qrokBo9WPZaR1MKjQGSFaPUyKpO7dbjDqZLQwohFgQYQGA0FEepglj0MTGEvFFFAY5xcSOlILe1yTvJJJPnDFoMwEcMaxiYxpgBwwRfWFJgmjAaxjGeJjBsYyWJzKbaqmqct8qixY9nZ2y1Y6eplNUrEs7WuACoGml/mPZpA3wx+2XPRFBUrWUdSkNO1jpdu3Td3zSbcxlWmp+CFzf6rSu6AYUph2qEa1GJHYq6KJTdMcdiFDlUKINFdrnMRvAVdR3mwkVb6NU033pDqW2MSzWq0tOakESypVC0822dtytTOZjxAI11vPR9n1DVRHtv398U48ToxTTJDsoHWmG21iUp4lHRgc3VNjzOhlx0i2itMlD42mDxWLo5/ksbg3ubjWVjj9k5Z/Rq9uJ1HYcVDj8yX/AJy2wdQVFV+Doj+a5GkCoBVoEjXQj/cgYRvRqtfB0zrdFdf9jkiN6Jjsfhj1FH4bqf4SRJSNItH5qi8nLjuaHpPKRw5o8ZEsGORoIPHFjaMzDZm4W9YRC3ZBI2kKpiGSQY5YJTHoZJSDCEUwKmEUxDC3ijYoAIxpM6JxoANMbOmNYwAaxgzHMYNjGANjBnfHuYFmlEgcQSVIXfIRwpKlFubgknmRJFWpkB/vtkDC7SFPE0Q56hJV/wCMEL5NaS7+jrw1XZ6P0eQLhqQtbqDT6WkDb2EFRbZyvd9RLLZdfNTBtuLDyJ1HZK/agzTNsvFH/Y0ZTAdGEqVQGe437gAbTdUMAtJVVRxmf2c6pWXMbDUntsN0vae0VqlGQhkO4jsNjHd7HlTUqjo8+6dbMPxmIFwSG48phMXgwSWvre9iJ7H0lpq1QG4IZfIiYna2yABmAmkZ10P/AB8oqQXo83+XkP3qanxS6n0IjejNxh2Tk9VfciRtiVglVVvb5R/C/UPupkrYhy5xyrNfzIMHpjX0Ho1P86x3OnqQD/OGTQyFj3CPTI3iw8BeSqjdY95jj2cvqFoko0OpkWkYdWjOYPeFXSABhVMQwytCqYAGGQxMaCrCqYJTCLEUEvFORQGNacvHNGRCEYNjHNGmArGEwZMcTBO0oTGPAsYRmgGMoRHxy3RhzBtM+r2rK19QlRl7wjETRO0yuPr/AA3RwAchewP3lIKsPImB0YX0ehfZk5OBAYklalQXJJ0zXG/vlptIm+kzf2V49DSrUVPyuHUHflcW9Cs1O08MaikDS8xmu2b4pcZFYuGAXM1m48PeP/x9+qBbQ2tBjZCohCO6MRwY5b8wp0lO2zsSCf8AONvyU/cSUl5OuKUkEqFV3X09O6Cx1RSm+Q62DrKcz1SewADzMj7TxGVN/CVXYm6szaYi2JXtuvnu9QJpaK2zHnUDf7tfrMZhjmrqeTA+s12JrWZ9dxQ93VM1mjnT+wO09XTtYj/iT9ZLvrIFSreogPBz6L/WSS5DG/OOJz59E6k0OhkSk8kKY2ciJamPDQCmFUxDDoYVTI6mGQxFJkhTCKYER6mSNBc0U5FAY9xBEwpgjEA0mMaPaDJjEMYwZnXaDaUJg2kd2hnaRn4mMSVuiLj6uRS0yu1Kl0zcVJYdx0kjbOMLvlOnEDgAOfvKbE4r4iOw+WyqO4N/3HFX2dUVxVHdg7ffB4hayagGzpwdD8y9h5HnPfcFi1rorruYAi+8XG4z5pHuZ7p0eq5aSa26q+wk50lTHijyst9qYUEE3I04TPJQcHR2PeZqK7Zl1lc7ou+c9nZjft7KjEocuvKY7btYKDc6CaDpBt9VBRFueZ0AnnG1cS9Vusb3NgBu8prii27M800l0SdnDUNz18BL53JZ+11HgFErtnU7WPALYe0Nnvc/6z7y5dsyj0iXhus9+ALm/gLXkj43v7mRsIrMzIbC4XU8N+vrKuriDQco+uttDpa+8GOOyMsbVmnoVL6yYhlTgiCt1NxvlnSaUzjkqZLRoZTI6GGBkiQZYVb3gVMMhiGHUwiGCBhKcktBIpy0UBhTBtHtBtEJjWgXhGgnMpAxjGCdo9oNjGSAYyHj6+RD2yXUaV+0ELIQN9jaNorE6kYDauJLMdd+/u5SIjdRh2iTMfRtr5yCPlPbaax0bS2LA087qO0Hyns2xHsi908s2Bhbtm7vKenbJ0QTHM7N8Ko0K1rrKrHvYGEJ431F+J49kh4ypecyRvox+1kuSZlXXrFvw6DvOl5s9qLoZkKq205tfy0H1nXDRzTLZKoCdth6R+yqPxFTxv26aStp1dLdhF/775YbBqAiol7MtnTtybx4gmKS6Y4u2iZiaRNnW5OUHvtvHlK3aGKRiFqKSoHV0Cut/wALj5h2GaitRsiuLZtHW+48x3EGUe0MM1c9UKqi5ANtL7wDyiiypxoWwnW5QNflw05Wl7SbhMYtMU236jeR/OafBqQAwa4O8HeP6Svs5ssU1ZcUzDKZFpGSViZyhkMOjQCmEp77wKJKQ6yOsOkllIJFGxRFD2jTHGMMBMa8A0K0C8aEDcwTwrGR3aUSwTyK5/r3cYWu+UXN+egN7RyUcpBq6EglU3MBbe5+6f8ATGkYvNGLuzLbX2cfn0ygm5G7uF+MzOMtcKosN5m3xtE1EZ6lxlZlVNyoqi5NuJtx7ZisPTNWpprc/wDU1UVGJ0Y8rySNT0bwBdQBpa26a2ihQhY3YGzDRQXGpAk9sP1rzjnK2ejGNIhY6mGK3JBU5hYka7teY7Iyq9xO4ypc3HCBDXiRbKfap0MzGKS3jb0ufrNftLBM4vwvM9isMQTfgb+lptBmE0ygL2FuI/syXs2rZs19R/d5ExlLKYEFhqJtxtGKlTNBi9uvkCLqBqOaniBzErjjHa2oF5DS7a23R2Rspe27Xju3XEFAcsnlljhxmNiNT5GaHBVBYDcLW1vpMvh8aMoBAvx9vrNNsACqFAOo7d/KVwVHLmyyRaUW3Sckn4nYyqqlbgmwBt1SSNA3K5uL90r1BGh0I0t3TKRlGVh1EIg4QSNCpvkmiJCw6wAh1kspD4orxRFBGgzCNBtAGCcwVSEcwdSUSwDHhJ2DwIyfEfd90H3Mj0cL8Rgu7XU8hzh9vY4IgVR2Ac7CBy+oycVSIK1FUPWOoUgIObEgFzzteQMcrZ6Sb3YDOd5y5tT37te2c/xNOnk+M6ogTM9zqTmDABd5NxM3tnpNTrM/+HL3b5nIKEi/yoN4G+/cJpFOznxYpSapBumW0t9JCBvVgDc9tzzJ4TK7KqFXuOBnWckm/n9YLZx/zLc7jxmj1R6eCPHo9i2TtH4iLfkJYVXW0zvR9eoBLk0zOCS7PUg+iI9DWGo0AsOtG0HV0iKImPqA90ye0XEvMZcyixtEzWCMZyKTIHaxF9dBxJ5AcTJeytlsz/CqDIW+YN84B0Fl8bwSJ8PDVK97EtlTdcn5dPfwmZes7NnLsX/EWJbz3ztTpI813JumWu0NmvhKhU66kA8GG6a1MGlbCIygK3w2Vhu3A29plztDEsil1DqNQWBzcBe48JOw3SgKgRqNrE3KtvvfQg9/pBpmGWM5JVtMzV5f9F3Y1lVTqb+0oXNySOJM2f2a4MVMRmP3FPnY/wBIN1bNczSg2z0rYuOWoqq2v0PEehlXtmllqFhzt323E9siLjxRq1raZADbtKh7eZPnLNKi4lW5uoZT/qAFvNSswe7OKE5Jq9FYgh6e+R08pIWSdqDrCpAgwqRFoJeKdiiKsK0G0IYMxDBOIFoZ4Go4W5Y9UAk9wF5SIbpWDxG0RhkGX53YKBx1F93YNfGAx75/htwBNz2AE/SZPbG0zU+C9yP2rX0vqwUW8AZbDFNUwjcwgAtwvYexvNuFJM8/JFupPyVnR7Y6YgO9QXC37yW1UeszFSmKNV2KAoGIZL26t9wPZznpXRajZGUW1Fzby08hMF0nommxB3uzNbx0ji7k0Xhm+bj5Jq7OR6a1kN0bS2mh5W36HQzMg5XuODXmj2MCKbAHTKpt2m4MzziznulUdcJds9T6OVAUB5gH0mkVhaYPonir01H4dJqBVM4Zx9zPVxu4plmziRa5BkM1zBPWYkW3cf6SaLs7iKIMzfSKp8NMq/M/VHjoTNO4NrmYnGVxUxKsxORDmO75UJbTmSbTfCrd+Dk9Vk4xpbYLpvTFL4WGW2VFDmwF8xUKL+TecyKpcy127tA4io9Q/fYkDku5R4C0jbNw5qOqjeTp2zqSOGHth2bzA4AfAS43pbs3XH99kxu28Pkci3lPSMTT+HSRRuCqD2FTp7kTzzbD3cntMIttHH6ebc2/oqCJ6b9muGKK7/iBt5CeZDWew9FKPwsDnPBWMmWjo9Q+kjH7SxpL4pr73yjXkuX6Sb0Zx7vhKoDHPTWym+oyrmX9NvCZjF4jWoPxNf1Mtugj3NdODUjp2jS/kxhLRDguF/htalQVAlVRZayLUA4DNvA8bzqxbPyts7COPuoEPZpu84lmDNYPoOrQqmASGUwNEEzRTkUkoktGGPMYYigTSj6WV/h4WoeJyqP4mF/QS9cTJ/aA9sMg5vr22GnrLjtGctGWxx/8bDHmrjzeXvReoHNRN9wNDzCn+W+Z7HP/AOJhew1ePJh5b4bo3iylZdfmIv3EzfaMJxuD/TebFfK6IPwC/fa3qSfITH9L8OTXd20C2t3aa/WbbCYe1dyo0yj0IN/MmUHT9AHQDe5JJ52I09ZMWuRz4n7k0U+FHUyjilh5Ai/rM5iR1r94l/gq1720ylB4X1Mrtv4b4dSw3MA66bw3L1E1OnG6lRbdDMRZip7Jv1Gk8s6MVstUDnpPUaRuoM480fdZ63p5e2iNXcQuFQMZAxtSxllsM5hMno0T9wLbrFUVF+ao2XTeF3sR7eMxO28I2HQU3TK7lmF7E5F0G7QAk9829bEK+K1+WkMvexsSfA2Ew3TTaoxOJdkN0RRTU87Elm8ST5TqwppUeTmyf5MzrS6MtXM03QbCE1c5W6ohbuNxa3bMxa5tPWehmy/hUGYrqbXB5jVSO8GaykkmZ+pnxhXkl7ZSw7GU37yCZ5XjxdmPMm09U6Svl04MunYd9vKeXYxfm79POLHo5fSdNgNlYcvURQLkke89a6Rv/h9n5RyVB4n+kwfQbB/ExKaXC9YzW/afXy0qaA/MxPkNJMnckjbL7siR5e7zRfZ6ubEleaNfu3fWZpzL/oBUy4xCeKuP+N/pKlpnRkXsZ6B0Vp59mb7lXdu4h9V8AI1DIX2a4/NRakx0Z6rAcwclx3daT6lMo7KeBImL2zKDpuI5YdRArCiI3QS8U5miiKJdo2PMYZJQNhMP9o9Tq0k4fN4m/wBLTcNPO/tFqXqoL7lt4y8fyMpbS/pSVNcGh/BWcH+JFI9pBwtUo4I4fSSsO98NUT8Lo/iQV+krlOs6EOto9qwDB8jj79Mk+Kgj1lV01wZfJUA+VW7gSqkknwhOhlT4mFRx8yZk36Gx4+YlrttA9BhzQ2Pbb+kwT4zPLVwk/wCM8wwyZHqoTra/oCPeXfSXCK2GpVDo9NshHNGO/wBRKbE3XEBj99AT4dX6TYVqtNsMEdSc9Ngtt4KGx9wZu3o6ZSakmedYBvh1VPJh5XnrOAPUnktRcri/A2PfPRtlbUpmkoNRQ2UAgsAQZnnj0mj1PTzp9+AG16lryfsTaAp4dnGrE5UHNju8t8zu28YpvYg9xkNsU9Kgo++9yg5Z+PfaZxhyHnzcY9bfSJz7a+AlcgZmI+EpOt3brO3gPWY0tpaPrVCbLe4UnXmx+YxttJ0pUcMIKKJ/R3AfGqgWvqPUz2+nh1VQu64Uf7RMD9m2zrnORuu3juUX856LVOh/vSYZJd0cuduTb8GP25UFQMu5iSLNzQ7x5zC4/CN1iRu0tym5pslR3Fxa7aHhbde/MyBtXZ6pRzEWLFRv0I1yzSDrowxScXR37NsH1mqW4Ee0hfaZis1dE/Clz3sT9AJrOhmHFPD3A1JvPNumdcvi6hPAhfISUrm2dWJcp8mZ95L2RiTTcOOAf1Uj6yI8VM2B7jNDtatUa7YtZsLhsNXBt/nOh/LZCfaejbapKQlZNzgHvuLj0nnmKpAbJwzDjVcnsJ6p9pudl4kVdm0n4qqA9hXqmZS8nJ/1y/tEdDDAyMsOG0kHSh+adg7xRFFgY0xRSShjTzHpz+3b8x9liimmPZnL5IpcL+xrfmpe7yCu+KKblLbPUfs5/dX/APo36Vl7iv2S9x/SZ2KYS+R5WX5S/Tzvbn7xT/Kfcy8P/wCXuxP6Iopt4NX9GL2v+0b8w/SJEq/OfD2EUUqejvx/X4dEu9rfPT/IP0RRSY7JzbiUKx43TsUsZ6x9m/7IflX9M05+bwb3iinLL5M4smmYmv8ANiO76x+3f3VO6l+mKKbLaMI7NH0b/dk7p5H0q/eq352+kUUS+TOzD8imeIfKYopodZtsR/6ah/8AR/1GaboZ/wCsP52/UIoplL4nJ5/QiR8UUzN0OiiiiGf/2Q=="}/></div>
                             <div className={"stepWrapper"}>
                                 <img src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6213c81cd79929cf18d25393_quotes_icon.svg"} alt={""} />
                             </div>
-                            <div className={"title"}>Minutes consultation with a hair doctor to understand the root cause & extent of your condition oleo hobe</div>
+                            <div className={"title"}>
+                                Je suis très contante du résultat.
+                                Le déroulement était super professionel de A à Z.
+                            </div>
 
 
                             <div className={"testimonial-rating-wrapper"}>
@@ -344,8 +339,8 @@ export default function MainComp() {
                                 </div>
                             </div>
                             <div className={"nameJobContainer"}>
-                                <div className={"name"}>Darlene Robertson</div>
-                                <div className={"job"}>Business Man</div>
+                                <div className={"name"}>Lucie Dubois</div>
+                                <div className={"job"}>Cosultante marketing</div>
                             </div>
                         </div>
 
@@ -384,10 +379,12 @@ export default function MainComp() {
                     <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")} style={{minHeight: "600px"}}>
                         <img className={"image"} alt={""} src={"https://us.123rf.com/450wm/stokkete/stokkete1609/stokkete160900332/62025951-sourire-m%C3%A9decin-%C3%A0-la-clinique-donnant-une-poign%C3%A9e-de-main-%C3%A0-son-patient-la-sant%C3%A9-et-le-professionnal.jpg"} style={{maxWidth: "600px"}}/>
                         <div className={"paragraphContainer"} style={{maxWidth: "900px"}}>
-                            <div className={"title"}>95% Proven results! See the difference</div>
-                            <div className={"paragraph"}>30-45 minute consultation with a hair doctor to understand the root cause & the extent of your condition earlier root cause & extent of your condition</div>
+                            <div className={"title"}>Des résultats prouvés ! Regardez la différence</div>
+                            <div className={"paragraph"}>
+                                Une consultation avec un expert pour avoir toutes les informations concernant votre cas et vous proposer les meilleures solutions.
+                            </div>
                             <div className={"button"} style={{background: "#0f0f0f"}}>
-                                <AnchorLink style={{textDecoration:"none", color: "#ffffff"}} href={"#testimonials"}>View story</AnchorLink>
+                                <AnchorLink style={{textDecoration:"none", color: "#ffffff"}} href={"#testimonials"}>Voir les témoignages</AnchorLink>
                             </div>
                         </div>
                     </div>
@@ -467,18 +464,26 @@ export default function MainComp() {
                                     </select>
                                     <select defaultValue={treatmentType} placeholder={"Need treatment for"} data-fieldname={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
                                         <option value="initial" disabled >Besoin d'un traitement pour</option>
-                                        <option value="hair">Hair Transplant</option>
+                                        <option value="hair">Greffe capilaire</option>
                                         <option value="dent">Esthétique dentaire</option>
                                         <option value="plasticSurgery">Chirurgie Esthétique</option>
-                                        <option value="Mesotherapy">Mésothérapie</option>
                                     </select>
                                 </div>
 
 
+                                <div className={"lineWrapper"}>
+                                    <input className={"lineElement"} style={{width: "90%"}}
+                                           value={healthPrecedentDisease}
+                                           type="healthPrecedentDisease"
+                                           data-fieldname={"healthPrecedentDisease"}
+                                           onChange={handleChange}
+                                           placeholder={"Est-ce-que vous avez des problèmes de santé?"}
+                                    />
+                                </div>
 
                                 <div className={"lineWrapper"}>
                                     <textArea
-                                        className={"lineElement"} style={{width: "90%"}}
+                                        className={"lineElement"} style={{width: "90%", lineHeight: "24px", minHeight: "150px"}}
                                         data-fieldname={"message"}
                                         value={message}
                                         onChange={handleChange}

@@ -13,7 +13,7 @@ import Hamburger from 'hamburger-react'
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
-const HeaderComp = ({language}) => {
+const HeaderComp = () => {
     const [stickyClass, setStickyClass] = useState('relative');
 
     useEffect(() => {
@@ -23,12 +23,6 @@ const HeaderComp = ({language}) => {
             window.removeEventListener('scroll', stickNavbar);
         };
     }, []);
-
-
-    useEffect(() => {
-        console.log("language: " + language)
-    }, [language]);
-
 
 
     const stickNavbar = () => {
@@ -50,6 +44,10 @@ const HeaderComp = ({language}) => {
         </>
 
     )
+}
+
+const handleChange = (e) => {
+    console.log(e.target.value);
 }
 
 const HeaderMainHeader = () => {
@@ -142,11 +140,11 @@ const SocialMediaListComponent = (customStyle) => {
     return(
         <div className={"social-media-item-container"} style= {customStyle.customStyle} >
             <div className={"social-media-item"}>
-              <select className={"languageSelector"}>
+              <select className={"languageSelector"} defaultValue={"fr"} onClick={handleChange}>
                   <option disabled>Language</option>
-                  <option>🇬🇧 English</option>
-                  <option>🇫🇷 Français</option>
-                  <option>🇹🇷 Türkçe</option>
+                  <option value={"en"}>🇬🇧 English</option>
+                  <option value={"fr"}>🇫🇷 Français</option>
+                  <option value={"tr"}>🇹🇷 Türkçe</option>
               </select>
             </div>
 

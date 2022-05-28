@@ -19,6 +19,7 @@
     "react-hamburgers-menu": "^1.1.5",
     "react-icons": "^4.3.1",
     "react-mobile-navigation-menu": "^0.0.5",
+    "react-redux": "^8.0.0-beta.1",
     "react-router-dom": "^6.3.0",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
@@ -32,6 +33,7 @@
     "react-sticky-header": "^0.2.0",
     "react-use-sticky-header": "^1.0.18",
     "react-whatsapp": "^0.2.1",
+    "redux": "^5.0.0-alpha.0",
     "sass": "^1.50.1",
     "web-vitals": "^2.1.4"
   },
