@@ -11,6 +11,7 @@ import Sidebar from "react-sidebar";
 import {useEffect, useState} from "react";
 import Hamburger from 'hamburger-react'
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const HeaderComp = () => {
@@ -36,9 +37,9 @@ const HeaderComp = () => {
         <>
             {/*<Sticky>*/}
                 {(isBrowser) && (
-                    <HeaderSocialMedia stickyClass={stickyClass}/>
+                    <HeaderSocialMedia stickyClass={stickyClass} />
                 )}
-                <HeaderMainHeader />
+                <HeaderMainHeader stickyClass={stickyClass}/>
             {/*</Sticky>*/}
 
         </>
@@ -46,9 +47,7 @@ const HeaderComp = () => {
     )
 }
 
-const handleChange = (e) => {
-    console.log(e.target.value);
-}
+
 
 const HeaderMainHeader = () => {
     const location = useLocation();
@@ -137,10 +136,22 @@ const HeaderMainHeader = () => {
 }
 
 const SocialMediaListComponent = (customStyle) => {
+    const [storeLanguage, setStoreLanguage] = useState(useSelector(state => state.language));
+    const dispatch = useDispatch();
+
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        // dispatch({type: "SET_LANGUAGE" });
+        dispatch({
+            type: 'SET_LANGUAGE',
+            language: e.target.value,
+        })
+        setStoreLanguage(e.target.value)
+    }
     return(
         <div className={"social-media-item-container"} style= {customStyle.customStyle} >
             <div className={"social-media-item"}>
-              <select className={"languageSelector"} defaultValue={"fr"} onClick={handleChange}>
+              <select className={"languageSelector"} defaultValue={storeLanguage} onChange={handleChange}>
                   <option disabled>Language</option>
                   <option value={"en"}>🇬🇧 English</option>
                   <option value={"fr"}>🇫🇷 Français</option>
@@ -184,7 +195,7 @@ const HeaderSocialMedia = () => {
                     </div>
                 </div>
 
-                <SocialMediaListComponent customStyle={{width: "25% !important", justifyContent: "flex-end !important"}}/>
+                <SocialMediaListComponent  customStyle={{width: "25% !important", justifyContent: "flex-end !important"}}/>
             </div>
         </div>
     )

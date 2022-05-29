@@ -9,17 +9,17 @@ import MainComp from './Main'
 import TestComp from './Test'
 import FooterComp from "./Footer";
 import ScrollToTop from "react-scroll-to-top";
-import {useState} from "react";
+import { useState} from "react";
 
-//import {useSelector, useDispatch} from "react-redux";
+import {useSelector, /*useDispatch*/} from "react-redux";
 
 //https://hairflow.webflow.io/#Testimonial
 
 function App() {
 
-    //const counter = useSelector(state => state.counter);
-    //const storeLanguage = useSelector(state => state.language);
-    //const dispatch = useDispatch();
+    // const counter = useSelector(state => state.counter);
+    const storeLanguage = useSelector(state => state.language);
+    // const dispatch = useDispatch();
 
     const [language, setLanguage] = useState('');
 
@@ -43,12 +43,15 @@ function App() {
         <ScrollToTop smooth />
 
 
-        {/*<div>*/}
-        {/*    <h1>language : {storeLanguage}</h1>*/}
+        <div>
+            <h1>language : {storeLanguage}</h1>
+            {/*<button onClick={() => dispatch({type: "SET_LANGUAGE" })}> Set LANGUAGE </button>*/}
 
-        {/*    <h1>counter : {counter}</h1>*/}
-        {/*    <button onClick={() => dispatch({type: "INCREMENT" })}> Increment </button>*/}
-        {/*</div>*/}
+
+            {/*<h1>counter : {counter}</h1>*/}
+            {/*<button onClick={() => dispatch({type: "INCREMENT" })}> Increment </button>*/}
+            {/*<button onClick={() => dispatch({type: "DECREMENT" })}> Decrement </button>*/}
+        </div>
 
         <HeaderComp language={language} setLanguage={setLanguage}/>
       {/*<header className="App-header">*/}
