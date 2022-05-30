@@ -614,7 +614,7 @@
           margin-top: 0;
           margin-bottom: 0;
           font-family: Metropolis, sans-serif;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 1.7em;
           font-weight: 400;
           text-align: center;
@@ -1479,6 +1479,8 @@
     }
     &>.paragraph{
       color: #595959;
+      font-size: 15px;
+      line-height: 22px;
       text-align: center;
     }
   }

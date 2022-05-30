@@ -9,14 +9,17 @@ import {RiStethoscopeLine} from "react-icons/ri";
 import {GiHealthCapsule} from "react-icons/gi";
 import {BiSearchAlt} from "react-icons/bi";
 import {isDesktop, isMobile} from "react-device-detect";
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Parallax } from 'react-scroll-parallax';
 
 import ReactWhatsapp from 'react-whatsapp';
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import {useSelector} from "react-redux";
+import {translate} from "./functions/Languages/translation";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
-
-export default function MainComp() {
+export default function MainComp(props) {
 
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
@@ -37,7 +40,11 @@ export default function MainComp() {
         prodblemes_de_santés_precedents: "",
         message: ""
     });
+    const [storeLanguage, setStoreLanguage] = useState(useSelector(state => state.language));
 
+    useEffect(() => {
+        setStoreLanguage(props.currentLanguage)
+    },[props.currentLanguage])
 
     const handleChange = (e) => {
         switch (e.target.dataset.fieldname) {
@@ -106,7 +113,7 @@ export default function MainComp() {
     }
 
     const treatmentList = [
-        {key: "fueSafir", text: "Fue Safir", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
+        {key: "fueSafir", text: "FUE SAPPHİRE", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "mesotherapy", text: "Mésothérapie", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "prp", text: "PRP", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
@@ -122,9 +129,9 @@ export default function MainComp() {
                   className={(isDesktop)? ("paragraphPictureContainer"):("paragraphPictureContainerMobile")}
             >
                 <div className={"textParagraphContainer"}>
-                    <div className={"mainParagraphTitle"}>#1 Ranked Hair Clinic in Turkey</div>
+                    <div className={"mainParagraphTitle"}>{translate("ranked_number_one", storeLanguage)}</div>
                     <div className={"mainParagraphSubtitle"}>
-                        La vie n'est pas parfaite, mais vos cheveux peuvent l'être.
+                        {translate("slogan_title", storeLanguage)}
                     </div>
                     <div className={"treatmentListContainer"}>
                         {treatmentList.map(item => {
@@ -138,7 +145,9 @@ export default function MainComp() {
                     </div>
 
                     <div className={"buttonGroupContainer"}>
-                        <AnchorLink className={"buttonItem"} href={"#contact"}>Obtenez un devis gratuit</AnchorLink>
+                        <AnchorLink className={"buttonItem"} href={"#contact"}>
+                            {translate("devis_gratuit", storeLanguage)}
+                        </AnchorLink>
                         <ReactWhatsapp  className={"buttonItem"} number="+905346314603" message={""}>
                             <BsTelephone style={{marginRight: "9px"}}/>
                             +90 (534) 631 46 03
@@ -148,7 +157,7 @@ export default function MainComp() {
 
 
                 <div className={(isMobile) ? ("imageContainerMobile") :("imageContainer")}>
-                    <img style={{width: "100%"}} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/620cc9eb17d49233903dd591_Hero-image-hair-treatment-min.png"}  alt={""}/>
+                    <img style={{width: "100%"}} src={"./main_page_background.png"} alt={""}/>
                 </div>
             </main>
 
@@ -158,16 +167,16 @@ export default function MainComp() {
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
                             <div className={"blockIcon"}><MdOutlinePeopleAlt size={42}/></div>
-                            <div className={"blockTitle"}>8.4K+ Personnes traitées</div>
-                            <div className={"blockParagraph"}>Dunya Med is insanely flexible and amazingly easy to use.</div>
+                            <div className={"blockTitle"}>{translate("plus_de_traite", storeLanguage)}</div>
+                            <div className={"blockParagraph"}>{translate("plus_de_traite_paragraph", storeLanguage)}</div>
                         </div>
                     </div>
 
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
                             <div className={"blockIcon"}><GrCertificate size={42}/></div>
-                            <div className={"blockTitle"}>40+ Expert Doctor</div>
-                            <div className={"blockParagraph"}>Get started swiftly & easily by importing a demo of your choice.</div>
+                            <div className={"blockTitle"}>{translate("plus_expert_doctor")}</div>
+                            <div className={"blockParagraph"}>{translate("expert_doctor_paragraph", storeLanguage)}</div>
                         </div>
                     </div>
 
@@ -175,8 +184,8 @@ export default function MainComp() {
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
                             <div className={"blockIcon"}><BsHandThumbsUp size={42}/></div>
-                            <div className={"blockTitle"}>95% Success Rate</div>
-                            <div className={"blockParagraph"}>Over 30 quality professionally designed pre-built website.</div>
+                            <div className={"blockTitle"}>{translate("success_rate", storeLanguage)}</div>
+                            <div className={"blockParagraph"}>{translate("excellent_success_rate_paragraph", storeLanguage)}</div>
                         </div>
                     </div>
                 </div>
@@ -186,18 +195,20 @@ export default function MainComp() {
             <div className={(isDesktop)? ("mainBlockContainer"):("mainBlockContainerMobile")}>
                 <div className={"aboutContainer"}>
                     <div className={"aboutImageWrapper"}>
-                        <img alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6210b57ab0efeab9f7a50a4b_hair-treatment-about_image-min.jpg"} />
+                        <img alt={""} src={"./doctor_patient.jpeg"} />
                         <div className={"aboutExperienceWrapper"}>
                             <div className={"experienceNumber"}>8+</div>
-                            <div className={"experienceText"}>Years of Experience</div>
+                            <div className={"experienceText"}>{translate("experience_years", storeLanguage)}</div>
                         </div>
                     </div>
 
                     <div className={"aboutTextWrapper"}>
                         <div className={"aboutHeading"}>We’re Dunya Med</div>
-                        <div className={"aboutParagraph"}>Nous sommes une clinique qui est à votre service pour vous aider à organiser votre séjour médical en vous offrant une meilleure qualité de service avec une équipe proffessionelle..</div>
                         <div className={"aboutParagraph"}>
-                            Dunia MED se distingue parmis plusieures cliniques à Istanbul grace au dévouement de sa team qui veillera à votre confort absolut.
+                            {translate("we_re_dunya_paragraph", storeLanguage)}
+                        </div>
+                        <div className={"aboutParagraph"}>
+                            {translate("we_re_dunya_paragraph_2", storeLanguage)}
                         </div>
                         <div className={"aboutBtnWrapper"} ><AnchorLink className={"button"} href={"#contact"}>Make an appointment</AnchorLink></div>
                     </div>
@@ -207,45 +218,67 @@ export default function MainComp() {
 
             <>
                 <section id='process'  className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}>
-                    <h2 style={{marginTop: "100px"}}>Nos 3 grandes étapes de traitement</h2>
+                    <h2 style={{marginTop: "100px"}}>{translate('nos_grandes_etapes', storeLanguage)}</h2>
                     <div className={(isDesktop)? ("treatmentBlocksContainer"):("treatmentBlocksContainerMobile")} style={{marginBottom: '100px'}}>
 
 
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><BiSearchAlt/></div>
-                            <div className={"stepWrapper"}>Step: 1</div>
-                            <div className={"title"}>Diagnostic en ligne</div>
+                            <div className={"stepWrapper"}>{translate("step", storeLanguage)}: 1</div>
+                            <div className={"title"}>{translate("online_diagnostic", storeLanguage)}</div>
                             <div className={"paragraph"}>Mise en contact rapide et réactive.</div>
                         </div>
 
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><RiStethoscopeLine/></div>
-                            <div className={"stepWrapper"}>Etape: 2</div>
-                            <div className={"title"}>Consultation de médecin</div>
-                            <div className={"paragraph"}>Une consultation médicale approffondie.</div>
+                            <div className={"stepWrapper"}>{translate("step", storeLanguage)}: 2</div>
+                            <div className={"title"}>{translate("consultation_medecin", storeLanguage)}</div>
+                            <div className={"paragraph"}>{translate("consultation_medecin_paragraph", storeLanguage)}</div>
                         </div>
 
                         <div className={"blockWrapper"}>
                             <div className={"icon"}><GiHealthCapsule/></div>
-                            <div className={"stepWrapper"}>Step: 3</div>
-                            <div className={"title"}>Suivi post-opp</div>
-                            <div className={"paragraph"}>Suivi post oppératoir constant pour avoir toujours les meilleurs conseils.</div>
+                            <div className={"stepWrapper"}>{translate("step", storeLanguage)}: 3</div>
+                            <div className={"title"}>{translate("suivi_post_opp",storeLanguage)}</div>
+                            <div className={"paragraph"}>{translate("suivi_post_opp_paragraph", storeLanguage)}</div>
                         </div>
                     </div>
 
                     <Parallax className="" y={[-20, 20]} tagOuter="figure">
                         <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")}>
-                            <img className={"image"} alt={""} src={"https://assets.website-files.com/620a7612af716dbffa6c4a61/6214537f681fac1e317a0110_hair-transplant-min.jpg"} />
+
+                            <Carousel className={"image"}
+                                      autoPlay={true}
+                                      dynamicHeight={true}
+                                      showThumbs={false}
+                                      showIndicators={false}
+                            >
+                                {[...Array(22)].map((_, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <img src={"./hotel_clinique/hotel_clinique_"+ i + ".jpeg"}  alt={i}/>
+                                            <p className="legend">Legend 1</p>
+                                        </div>
+                                    )
+                                })}
+
+                            </Carousel>
+
                             <div className={"paragraphContainer"}>
-                                <div className={"title"}>World's most advanced hair transplant system</div>
-                                <div className={"paragraph"}>Dunya Med is a modern business theme, that lets you build stunning high performance websites using a fully visual interface. Start with any of the demos below or build one on your own.</div>
+                                <div className={"title"}>{translate("votre_confort", storeLanguage)}</div>
+                                <div className={"paragraph"}>
+                                    {translate("our_hospital_1",storeLanguage)}
+                                </div>
+                                <div className={"paragraph"}>
+                                    {translate("our_hospital_2",storeLanguage)}
+                                </div>
                                 <div className={"statisticsContainer"}>
                                     <div className={"statisticElementWrapper"}>
                                         <div className={"number"}>+43</div>
-                                        <div className={"text"}>Expert Doctor</div>
+                                        <div className={"text"}>{translate("expert_doctor", storeLanguage)}</div>
                                     </div>
                                     <div className={"statisticElementWrapper"}>
-                                        <div className={"number"}>+289</div>
+                                        <div className={"number"}>+650</div>
                                         <div className={"text"}>Happy Client</div>
                                     </div>
                                 </div>

@@ -16,59 +16,20 @@ import {useSelector, /*useDispatch*/} from "react-redux";
 //https://hairflow.webflow.io/#Testimonial
 
 function App() {
-
-    // const counter = useSelector(state => state.counter);
     const storeLanguage = useSelector(state => state.language);
-    // const dispatch = useDispatch();
-
     const [language, setLanguage] = useState('');
 
-
-    // useEffect(() => {
-    //     let tempLng = ""
-    //     if(navigator.language || navigator.userLanguage.includes("en")){
-    //         tempLng = "en"
-    //     } else if (navigator.language || navigator.userLanguage.includes("fr")) {
-    //         tempLng = "fr"
-    //     } else if (navigator.language || navigator.userLanguage.includes("tr")){
-    //         tempLng = "tr"
-    //     } else {
-    //         tempLng = "fr"
-    //     }
-    //     setLanguage(tempLng);
-    // }, []);
 
     return (
     <div className="App">
         <ScrollToTop smooth />
-
-
-        <div>
-            <h1>language : {storeLanguage}</h1>
-            {/*<button onClick={() => dispatch({type: "SET_LANGUAGE" })}> Set LANGUAGE </button>*/}
-
-
-            {/*<h1>counter : {counter}</h1>*/}
-            {/*<button onClick={() => dispatch({type: "INCREMENT" })}> Increment </button>*/}
-            {/*<button onClick={() => dispatch({type: "DECREMENT" })}> Decrement </button>*/}
-        </div>
-
         <HeaderComp language={language} setLanguage={setLanguage}/>
-      {/*<header className="App-header">*/}
-      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-      {/*  <HeaderComp books={[{title: "Book 1"}, {title: "Book 2"}]}/>*/}
-      {/*</header>*/}
-
-
-
         <Routes>
-            <Route path="/" element={<MainComp  language={language}/>} />
+            <Route path="/" element={<MainComp  currentLanguage={storeLanguage}/>} />
             <Route path={`/#section${2}`} element={<MainComp  language={language}/>} />
             <Route path="/test" element={<TestComp  language={language}/>} />
         </Routes>
-
         <FooterComp  language={language}/>
-
     </div>
   );
 }

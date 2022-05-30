@@ -12,6 +12,7 @@ import {useEffect, useState} from "react";
 import Hamburger from 'hamburger-react'
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import {useDispatch, useSelector} from "react-redux";
+import {translate} from "./functions/Languages/translation";
 
 
 const HeaderComp = () => {
@@ -140,7 +141,7 @@ const SocialMediaListComponent = (customStyle) => {
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         // dispatch({type: "SET_LANGUAGE" });
         dispatch({
             type: 'SET_LANGUAGE',
@@ -152,10 +153,10 @@ const SocialMediaListComponent = (customStyle) => {
         <div className={"social-media-item-container"} style= {customStyle.customStyle} >
             <div className={"social-media-item"}>
               <select className={"languageSelector"} defaultValue={storeLanguage} onChange={handleChange}>
-                  <option disabled>Language</option>
-                  <option value={"en"}>🇬🇧 English</option>
-                  <option value={"fr"}>🇫🇷 Français</option>
-                  <option value={"tr"}>🇹🇷 Türkçe</option>
+                  <option disabled>{translate("language", storeLanguage)}</option>
+                  <option value={"en"}>🇬🇧 &nbsp; English</option>
+                  <option value={"fr"}>🇫🇷 &nbsp; Français</option>
+                  <option value={"tr"}>🇹🇷 &nbsp; Türkçe</option>
               </select>
             </div>
 
