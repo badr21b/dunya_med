@@ -812,7 +812,8 @@
       font-size: 19px;
       font-family: Metropolis, sans-serif;
       box-sizing: border-box;
-      text-align: left;
+      width: 90%;
+      text-align: center;
     }
     &>.mainParagraphSubtitle{
       font-family: Metropolis, sans-serif;
@@ -1047,6 +1048,8 @@
 
   &>.image{
     width: 50%;
+    min-width: 200px;
+    min-height: 200px;
   }
   &>.paragraphContainer{
     position: relative;

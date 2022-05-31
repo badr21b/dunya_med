@@ -257,7 +257,6 @@ export default function MainComp(props) {
                                     return (
                                         <div key={i}>
                                             <img src={"./hotel_clinique/hotel_clinique_"+ i + ".jpeg"}  alt={i}/>
-                                            <p className="legend">Legend 1</p>
                                         </div>
                                     )
                                 })}
@@ -279,10 +278,10 @@ export default function MainComp(props) {
                                     </div>
                                     <div className={"statisticElementWrapper"}>
                                         <div className={"number"}>+650</div>
-                                        <div className={"text"}>Happy Client</div>
+                                        <div className={"text"}>{translate("happy_client",storeLanguage)}</div>
                                     </div>
                                 </div>
-                                <AnchorLink className={"button"} href={"#contact"}>Make an appointment</AnchorLink>
+                                <AnchorLink className={"button"} href={"#contact"}>{translate("devis_gratuit", storeLanguage)}</AnchorLink>
                             </div>
                         </div>
 
@@ -292,7 +291,7 @@ export default function MainComp(props) {
 
                 <section id='testimonials' className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}
                          style={{minHeight: "100vh", background: "#379bb3", padding: "32px", display:"flex", flexDirection: "column", flexWrap: "wrap", alignContent: "center", justifyContent: "center", maxWidth: "100%"}}>
-                    <h2 style={{marginTop: "100px", color: "#ffffff", fontSize: "42px"}}>Testimonials</h2>
+                    <h2 style={{marginTop: "100px", color: "#ffffff", fontSize: "42px"}}>{translate("testimonials", storeLanguage)}</h2>
                     <div className={(isDesktop)? ("testimonialsBlocksContainer"):("testimonialsBlocksContainerMobile")}>
 
                         <div className={"blockWrapper"}>
@@ -388,19 +387,19 @@ export default function MainComp(props) {
                     <div className={(isDesktop)? ("treatmentBlocksContainer"):("treatmentBlocksContainerMobile")} style={{marginBottom: '100px'}}>
                         <div className={"blockWrapperSmall"}>
                             <div className={"icon"}><AiFillCar/></div>
-                            <div className={"title"}>Transfert VIP durant tout votre séjour </div>
+                            <div className={"title"}>{translate("transfert", storeLanguage)}</div>
                         </div>
                         <div className={"blockWrapperSmall"}>
                             <div className={"icon"}><MdHotel/></div>
-                            <div className={"title"}>Hébergement dans un hôtel préstigieux</div>
+                            <div className={"title"}>{translate("hebergement", storeLanguage)}</div>
                         </div>
                         <div className={"blockWrapperSmall"}>
                             <div className={"icon"}><BsTranslate/></div>
-                            <div className={"title"}>Traducteur disponible durant toute la procédure</div>
+                            <div className={"title"}>{translate("traducteur", storeLanguage)}</div>
                         </div>
                         <div className={"blockWrapperSmall"}>
                             <div className={"icon"}><RiStethoscopeLine/></div>
-                            <div className={"title"}>Suivi médical</div>
+                            <div className={"title"}>{translate("suivi_medical",storeLanguage)}</div>
                         </div>
                     </div>
 
@@ -410,14 +409,14 @@ export default function MainComp(props) {
                 <section id='results' className={""}
                     style={{minHeight: "600px)", maxWidth: "100%", margin: "0 auto"}}>
                     <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")} style={{minHeight: "600px"}}>
-                        <img className={"image"} alt={""} src={"https://us.123rf.com/450wm/stokkete/stokkete1609/stokkete160900332/62025951-sourire-m%C3%A9decin-%C3%A0-la-clinique-donnant-une-poign%C3%A9e-de-main-%C3%A0-son-patient-la-sant%C3%A9-et-le-professionnal.jpg"} style={{maxWidth: "600px"}}/>
+                        <img className={"image"} alt={""} src={"./doctor_result.png"} style={{maxWidth: "600px"}}/>
                         <div className={"paragraphContainer"} style={{maxWidth: "900px"}}>
-                            <div className={"title"}>Des résultats prouvés ! Regardez la différence</div>
+                            <div className={"title"}>{translate("resultat_prouve", storeLanguage)}</div>
                             <div className={"paragraph"}>
-                                Une consultation avec un expert pour avoir toutes les informations concernant votre cas et vous proposer les meilleures solutions.
+                                {translate("consultation_resultat", storeLanguage)}
                             </div>
                             <div className={"button"} style={{background: "#0f0f0f"}}>
-                                <AnchorLink style={{textDecoration:"none", color: "#ffffff"}} href={"#testimonials"}>Voir les témoignages</AnchorLink>
+                                <AnchorLink style={{textDecoration:"none", color: "#ffffff"}} href={"#testimonials"}>{translate("see_testimonials", storeLanguage)}</AnchorLink>
                             </div>
                         </div>
                     </div>
@@ -436,10 +435,10 @@ export default function MainComp(props) {
                          }}
                 >
                     <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")} >
-                        <img className={"image"} alt={""} src={"https://browsecat.net/sites/default/files/doctors-wallpapers-105115-962022-5679706.png"} />
+                        <img className={"image"} alt={""} src={"./doctor.png"} />
                         <div className={"paragraphContainer"}>
-                            <div className={"title"}>Contact us</div>
-                            <div className={"paragraph"}>Please fill in the details below to schedule an appointment.</div>
+                            <div className={"title"}>{translate("contact_us", storeLanguage)}</div>
+                            <div className={"paragraph"}>{translate("please_fill_form", storeLanguage)}</div>
                             <div className={"contactFormContainer"}>
                                 <div className={"lineWrapper"}>
                                     {/*<div className={"lineElement"}>*/}
@@ -448,7 +447,7 @@ export default function MainComp(props) {
                                                value={name}
                                                data-fieldname={"name"}
                                                onChange={handleChange}
-                                               placeholder={"Full Name"}
+                                               placeholder={translate("full_name", storeLanguage)}
                                         />
                                     {/*</div>*/}
                                     <input className={"lineElement"}
@@ -456,7 +455,7 @@ export default function MainComp(props) {
                                            type="number"
                                            data-fieldname={"phone"}
                                            onChange={handleChange}
-                                           placeholder={"Phone Number"}
+                                           placeholder={translate("phone", storeLanguage)}
                                     />
                                 </div>
                                 <div className={"lineWrapper"}>
@@ -467,7 +466,7 @@ export default function MainComp(props) {
                                            type="email"
                                            data-fieldname={"email"}
                                            onChange={handleChange}
-                                           placeholder={"Email"}
+                                           placeholder={translate("email", storeLanguage)}
                                     />
                                     {/*</div>*/}
                                     <input className={"lineElement"}
@@ -475,31 +474,21 @@ export default function MainComp(props) {
                                            type="age"
                                            data-fieldname={"age"}
                                            onChange={handleChange}
-                                           placeholder={"Age"}
+                                           placeholder={translate("age", storeLanguage)}
                                     />
                                 </div>
 
-                                {/*<div className={"lineWrapper"}>*/}
-                                {/*    <input className={"lineElement"}  style={{width: "90%"}}*/}
-                                {/*           value={email}*/}
-                                {/*           type="email"*/}
-                                {/*           data-fieldname={"email"}*/}
-                                {/*           onChange={handleChange}*/}
-                                {/*           placeholder={"Email"}*/}
-                                {/*    />*/}
-                                {/*</div>*/}
-
                                 <div className={"lineWrapper"}>
                                     <select defaultValue={sex} onChange={handleChange} data-fieldname={"sex"} className={"lineElement"} style={{height: "45px", width: "45%"}} >
-                                        <option value="initial" disabled >Sélectionnez votre sexe</option>
-                                        <option value={"male"}>Male</option>
-                                        <option value={"female"}>Female</option>
+                                        <option value="initial" disabled >{translate("select_sex", storeLanguage)}</option>
+                                        <option value={"male"}>{translate("male",storeLanguage)}</option>
+                                        <option value={"female"}>{translate("female",storeLanguage)}</option>
                                     </select>
                                     <select defaultValue={treatmentType} placeholder={"Need treatment for"} data-fieldname={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
-                                        <option value="initial" disabled >Besoin d'un traitement pour</option>
-                                        <option value="hair">Greffe capilaire</option>
-                                        <option value="dent">Esthétique dentaire</option>
-                                        <option value="plasticSurgery">Chirurgie Esthétique</option>
+                                        <option value="initial" disabled >{translate("need_for", storeLanguage)}</option>
+                                        <option value="hair">{translate("greffe", storeLanguage)}</option>
+                                        <option value="dent">{translate("estetique", storeLanguage)}</option>
+                                        <option value="plasticSurgery">{translate("chirurugie_estetique", storeLanguage)}</option>
                                     </select>
                                 </div>
 
@@ -510,26 +499,26 @@ export default function MainComp(props) {
                                            type="healthPrecedentDisease"
                                            data-fieldname={"healthPrecedentDisease"}
                                            onChange={handleChange}
-                                           placeholder={"Est-ce-que vous avez des problèmes de santé?"}
+                                           placeholder={translate("health_problem", storeLanguage)}
                                     />
                                 </div>
 
                                 <div className={"lineWrapper"}>
                                     <textArea
-                                        className={"lineElement"} style={{width: "90%", lineHeight: "24px", minHeight: "150px"}}
+                                        className={"lineElement"} style={{width: "90%", lineHeight: "24px", minHeight: "150px", padding: "12px"}}
                                         data-fieldname={"message"}
                                         value={message}
                                         onChange={handleChange}
-                                        placeholder="Message"
+                                        placeholder={translate("message", storeLanguage)}
                                     />
                                 </div>
 
                             </div>
 
                             {(allowSubmit) ? (
-                                <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>Send</ReactWhatsapp>
+                                <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send", storeLanguage)}</ReactWhatsapp>
                             ) :(
-                                <div className={"button"} style={{background: "#e2e2e2"}}>Send</div>
+                                <div className={"button"} style={{background: "#e2e2e2"}}>{translate("send", storeLanguage)}</div>
                             )}
 
                         </div>
