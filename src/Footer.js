@@ -97,7 +97,7 @@ const FooterComp = (props) => {
                             <Typography style={{fontSize: "12px", color:"#fff"}}>{translate("where_who_makes_opp", storeLanguage)}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
+                            <Typography style={{fontSize: "13px", color: "#847373"}}>
                                 {translate("where_who_makes_opp_answr", storeLanguage)}
                             </Typography>
                         </AccordionDetails>
@@ -112,7 +112,7 @@ const FooterComp = (props) => {
                             <Typography style={{fontSize: "12px", color:"#fff"}}>{translate("who_can_transplant_hair", storeLanguage)}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
+                            <Typography style={{fontSize: "13px", color: "#847373"}}>
                                 {translate("who_can_transplant_hair_answr", storeLanguage)}
                             </Typography>
                         </AccordionDetails>
