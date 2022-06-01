@@ -72,7 +72,7 @@ const HeaderMainHeader = () => {
         <div className={"main-menu-holder"}>
             <div className={"main-menu-container"}>
                 <div className="logo-container" style={{width: "100px"}}>
-                    <img src={"./logoHeader.png"} alt="logo" style={{height:"50px"}}/>
+                    <img src={"./logoHeader.png"} alt="logo" style={{height:"60px"}}/>
                 </div>
 
                 {/* Menu Mobile/desktop version */}
