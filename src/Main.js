@@ -2,7 +2,7 @@ import {AiFillCar} from "react-icons/ai";
 import {FaHandHoldingMedical} from "react-icons/fa";
 import {AiOutlineStar, AiFillStar} from "react-icons/ai";
 import {BsTelephone} from "react-icons/bs";
-import {MdOutlinePeopleAlt, MdHotel} from "react-icons/md";
+import {MdOutlinePeopleAlt, MdHotel, MdOutlineHealthAndSafety} from "react-icons/md";
 import {BsHandThumbsUp, BsTranslate} from "react-icons/bs";
 import {GrCertificate} from "react-icons/gr";
 import {RiStethoscopeLine} from "react-icons/ri";
@@ -117,6 +117,8 @@ export default function MainComp(props) {
         {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "mesotherapy", text: "Mésothérapie", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
         {key: "prp", text: "PRP", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
+        {key: "implant_dentaire", text: translate("dental_implant", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>},
+        {key: "blanchiment_dentaire", text: translate("blanchiment_dentaire", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>},
     ]
 
     const ratingText1 = 4.4;

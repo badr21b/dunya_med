@@ -1,45 +1,65 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import {isDesktop} from "react-device-detect";
+import {isDesktop, isMobile} from "react-device-detect";
+import {translate} from "./functions/Languages/translation";
+import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 
-const FooterComp = () => {
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import {AiOutlineInstagram, AiOutlineWhatsApp} from "react-icons/ai";
+
+const FooterComp = (props) => {
+    const [storeLanguage, setStoreLanguage] = useState(useSelector(state => state.language));
+    useEffect(() => {
+        setStoreLanguage(props.currentLanguage);
+    },[props.currentLanguage])
     return (
         <div className={(isDesktop)? ("footer-holder"):("footer-holder-mobile")} >
             <div className={"blockHolder"}>
                 <div className={"categoryHolder"}>
-                    <div className={"title"}>Information</div>
+                    <div className={"title"}>{translate("information", storeLanguage)}</div>
                     <div className={"itemsList"}>
                         <div className={"itemContainer"}>
-                            <div className={"itemLeft"}>Working days</div>
+                            <div className={"itemLeft"}>{translate("working_days", storeLanguage)}</div>
                             <div className={"itemRight"}>8AM - 11PM</div>
                         </div>
                         <div className={"itemContainer"}>
-                            <div className={"itemLeft"}>Saturday</div>
+                            <div className={"itemLeft"}>{translate("saturday", storeLanguage)}</div>
                             <div className={"itemRight"}>8AM - 12PM</div>
                         </div>
                         <div className={"itemContainer"}>
-                            <div className={"itemLeft"}>Sunday</div>
+                            <div className={"itemLeft"}>{translate("sunday", storeLanguage)}</div>
                             <div className={"itemRight"}>10AM - 11PM</div>
                         </div>
                     </div>
                 </div>
 
                 <div className={"categoryHolder"}>
-                    <div className={"title"}>Follow us</div>
+                    <div className={"title"}>{translate("follow_us", storeLanguage)}</div>
                     <div className={"itemsList"}>
                         <div className={"itemContainer"}>
-                            <div className={"itemLeft"}>Facebook</div>
+                            <div className={"itemLeft"}>
+                                <a href="https://wa.me/905346314603?text=DuniaMed" rel="noreferrer" className={"icon"} target="_blank">Whatsapp</a>
+                            </div>
                         </div>
+                        {/*<div className={"itemContainer"}>*/}
+                        {/*    <div className={"itemLeft"}>Twitter</div>*/}
+                        {/*</div>*/}
                         <div className={"itemContainer"}>
-                            <div className={"itemLeft"}>Twitter</div>
-                        </div>
-                        <div className={"itemContainer"}>
-                            <div className={"itemLeft"}>Instagram</div>
+                            <div className={"itemLeft"}>
+                                <a href="https://www.instagram.com/duniamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
+                                    Instagram
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div className={"categoryHolder"}>
-                    <div className={"title"}>Contact</div>
+                    <div className={"title"}>{translate("contact", storeLanguage)}</div>
                     <div className={"itemsList"}>
                         <div className={"itemContainer"}>
                             <div className={"itemLeft"}>
@@ -52,12 +72,12 @@ const FooterComp = () => {
                             <div className={"itemLeft"}>
                                 <AnchorLink
                                     className={"menu-list-item"} href={"#contact"}
-                                >Send us a form</AnchorLink>
+                                >{translate("send_form", storeLanguage)}</AnchorLink>
                             </div>
                         </div>
                         <div className={"itemContainer"}>
                             <div className={"itemLeft"} onClick={() => window.location = 'mailto:duniamed34@gmail.com'}>
-                                Send us an email
+                                {translate("send_email", storeLanguage)}
                             </div>
                         </div>
                     </div>
@@ -65,7 +85,51 @@ const FooterComp = () => {
 
             </div>
             <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
-                <div className={"categoryHolder"} style={{fontStyle: "12px"}}>© Dunia Med {new Date().getFullYear()}.</div>
+                <div className={"categoryHolder"} style={{fontSize: "14px"}}>{translate("questions_frequentes", storeLanguage)}</div>
+                <div className={"categoryHolder"} style={{fontSize: "12px"}}>
+                    <Accordion>
+                        <AccordionSummary
+                            style={{ backgroundColor: "#379bb3"}}
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <Typography style={{fontSize: "12px", color:"#fff"}}>{translate("where_who_makes_opp", storeLanguage)}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                {translate("where_who_makes_opp_answr", storeLanguage)}
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                        <AccordionSummary
+                            style={{ backgroundColor: "#379bb3"}}
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel2a-content"
+                            id="panel2a-header"
+                        >
+                            <Typography style={{fontSize: "12px", color:"#fff"}}>{translate("who_can_transplant_hair", storeLanguage)}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                {translate("who_can_transplant_hair_answr", storeLanguage)}
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                    {/*<Accordion disabled>*/}
+                    {/*    <AccordionSummary*/}
+                    {/*        expandIcon={<ExpandMoreIcon />}*/}
+                    {/*        aria-controls="panel3a-content"*/}
+                    {/*        id="panel3a-header"*/}
+                    {/*    >*/}
+                    {/*        <Typography>Disabled Accordion</Typography>*/}
+                    {/*    </AccordionSummary>*/}
+                    {/*</Accordion>*/}
+                </div>
+            </div>
+            <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
+                <div className={"categoryHolder"} style={{fontSize: "12px"}}>© Dunia Med {new Date().getFullYear()}.</div>
             </div>
         </div>
     )

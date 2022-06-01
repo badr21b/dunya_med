@@ -99,7 +99,7 @@ const HeaderMainHeader = () => {
                                     } )}
                                 </div>
 
-                                <SocialMediaListComponent customStyle={{height: "25%", width: "calc(100% - 24px)", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}/>
+                                <SocialMediaListComponent customStyle={{height: "25%", width: "calc(100% - 24px)", display: "flex", flexDirection: (isMobile)?("column"):("row"), justifyContent: "center", alignItems: "center"}}/>
 
                             </>
 
@@ -163,12 +163,16 @@ const SocialMediaListComponent = (customStyle) => {
             {/* todo: add href here for each social */}
             <div className={"social-media-item"}>
                 {/*<GrFacebookOption className={"icon"}/>*/}
-                <AiOutlineInstagram className={"icon"}/>
+
+                <a href="https://www.instagram.com/duniamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
+                    <AiOutlineInstagram className={"icon"} style={(isMobile)? {color: "#379bb3"} : {color: "#ffffff"}}/>
+                </a>
+
                 {/*<BsTwitter className={"icon"}/>*/}
                 <a href="https://wa.me/905346314603?text=DuniaMed" rel="noreferrer" className={"icon"} target="_blank">
-                    <AiOutlineWhatsApp className={"icon"}/>
+                    <AiOutlineWhatsApp className={"icon"} style={(isMobile)? {color: "#379bb3"} : {color: "#ffffff"}}/>
                 </a>
-                <FaTelegramPlane className={"icon"}/>
+                {/*<FaTelegramPlane className={"icon"} style={(isMobile)? {color: "#379bb3"} : {color: "#ffffff"}}/>*/}
             </div>
         </div>
     )

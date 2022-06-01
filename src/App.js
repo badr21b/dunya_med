@@ -29,7 +29,7 @@ function App() {
             <Route path={`/#section${2}`} element={<MainComp  language={language}/>} />
             <Route path="/test" element={<TestComp  language={language}/>} />
         </Routes>
-        <FooterComp  language={language}/>
+        <FooterComp currentLanguage={storeLanguage}/>
     </div>
   );
 }

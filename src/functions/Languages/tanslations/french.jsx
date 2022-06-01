@@ -49,6 +49,22 @@ const french = {
     "health_problem": "Est-ce-que vous avez des problèmes de santé?",
     "message": "Message",
     "send": "Envoyer",
+    "information": "Informations",
+    "working_days": "Jours de travail",
+    "saturday": "Samedi",
+    "sunday": "Dimanche",
+    "follow_us": "Suivez-nous",
+    "contact": "Contact",
+    "send_form": "Envoyez-nous un formulaire",
+    "send_email": "Envoyez-nous un email",
+    "dental_implant": "Implant dentaire\n",
+    "blanchiment_dentaire": "Blanchiment dentaire",
+    "questions_frequentes": "Questions fréquentes",
+    "where_who_makes_opp": "Où et par qui une opération de greffe capillaire doit être appliquées ?",
+    "where_who_makes_opp_answr": "Elle doit être réalisée sous anesthésie locale, en milieu clinique, sous le contrôle d’un médecin par des experts de greffe capillaire.",
+    "who_can_transplant_hair": "Qui peut faire une greffe de cheveux?",
+    "who_can_transplant_hair_answr": "Quel que soit le stade de la chute, du moment où la zone donneuse est suffisante, toute personne peut réaliser une greffe capillaire.\n",
+    "home": "Home",
 };
 
 export default french;

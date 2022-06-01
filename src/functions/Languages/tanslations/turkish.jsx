@@ -31,6 +31,7 @@ const turkish = {
     "traducteur": "Prosedür boyunca tercüman mevcut",
     "suivi_medical": "Tıbbi takip",
     "resultat_prouve": "Davanızla ilgili tüm bilgileri almak ve size en iyi çözümleri sunmak için bir uzmanla görüşme.",
+    "consultation_resultat": "Davanızla ilgili tüm bilgileri almak ve size en iyi çözümleri sunmak için bir uzmanla görüşme.",
     "see_testimonials": "Referanslara bakın",
     "please_fill_form": "Randevu almak için lütfen aşağıdaki bilgileri doldurunuz.",
     "contact_us": "Bize Ulaşın",
@@ -47,7 +48,22 @@ const turkish = {
     "health_problem": "Herhangi bir sağlık sorununuz var mı?",
     "message": "Mesaj",
     "send": "Gönder",
-
+    "information": "Bilgi",
+    "working_days": "İş günleri",
+    "saturday": "Cumartesi",
+    "sunday": "Pazar",
+    "follow_us": "Bizi takip edin",
+    "contact": "İletişim",
+    "send_form": "Bize bir form gönderin",
+    "send_email": "Bize bir e-posta gönderin",
+    "dental_implant": "Diş implantı",
+    "blanchiment_dentaire": "Diş beyazlatma",
+    "questions_frequentes": "Sıkça Sorulan Sorular",
+    "where_who_makes_opp": "Saç ekimi operasyonu nerede ve kimler tarafından yapılmalıdır?",
+    "where_who_makes_opp_answr": "Lokal anestezi altında, klinik ortamında, saç ekimi uzmanları tarafından doktor kontrolünde yapılmalıdır.",
+    "who_can_transplant_hair": "Kimler saç ekimi yapabilir?",
+    "who_can_transplant_hair_answr": "Saç dökülmesinin aşaması ne olursa olsun, donör bölge yeterli olduğu sürece herkes saç ekimi yapabilir.",
+    "home": "Accueil",
 };
 
 export default turkish;

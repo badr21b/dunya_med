@@ -49,6 +49,22 @@ const english = {
     "health_problem": "Do you have any health issues?",
     "message": "Message",
     "send": "Send",
+    "information": "Information",
+    "working_days": "Working days",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "follow_us": "Follow us",
+    "contact": "Contact",
+    "send_form": "Send us a form",
+    "send_email": "Send us an email",
+    "dental_implant": "Dental implant",
+    "blanchiment_dentaire": "Teeth whitening",
+    "questions_frequentes": "Frequently asked Questions",
+    "where_who_makes_opp": "Where and by whom should a hair transplant operation be performed?",
+    "where_who_makes_opp_answr": "It must be performed under local anesthesia, in a clinical setting, under the supervision of a doctor by hair transplant experts.",
+    "who_can_transplant_hair": "Who can do a hair transplant?",
+    "who_can_transplant_hair_answr": "Whatever the stage of the hair loss, as long as the donor area is sufficient, anyone can perform a hair transplant.",
+    "home": "Anasayfa",
 };
 
 export default english;
