@@ -18,6 +18,7 @@ import {useSelector} from "react-redux";
 import {translate} from "./functions/Languages/translation";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import {TextareaAutosize} from "@mui/material";
 
 export default function MainComp(props) {
 
@@ -167,7 +168,7 @@ export default function MainComp(props) {
                 </div>
             </main>
 
-            <Parallax className="blocksRow" y={[-20, 20]} tagOuter="figure">
+            <Parallax className="blocksRow" y={[-10, 10]} tagOuter="figure">
             <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")}>
                 <div className={"blocksRow"}>
                     <div className={"blocksWrapper"}>
@@ -250,7 +251,7 @@ export default function MainComp(props) {
                         </div>
                     </div>
 
-                    <Parallax className="" y={[-20, 20]} tagOuter="figure">
+                    <Parallax className="" y={[-10, 10]} tagOuter="figure">
                         <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")}>
 
                             <Carousel className={"image"}
@@ -411,7 +412,7 @@ export default function MainComp(props) {
 
                 </section>
 
-                <Parallax className="" y={[-20, 20]} tagOuter="figure">
+                <Parallax className="" y={[-10, 10]} tagOuter="figure">
                 <section id='results' className={""}
                     style={{minHeight: "600px)", maxWidth: "100%", margin: "0 auto"}}>
                     <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")} style={{minHeight: "600px"}}>
@@ -510,12 +511,15 @@ export default function MainComp(props) {
                                 </div>
 
                                 <div className={"lineWrapper"}>
-                                    <textArea
-                                        className={"lineElement"} style={{width: "90%", lineHeight: "24px", minHeight: "150px", padding: "12px"}}
-                                        data-fieldname={"message"}
-                                        value={message}
+                                    <TextareaAutosize
                                         onChange={handleChange}
-                                        placeholder={translate("message", storeLanguage)}
+                                        className={"lineElement"}
+                                        maxRows={4}
+                                        aria-label="maximum height"
+                                        placeholder= {translate("message", storeLanguage)}
+                                        defaultValue={message}
+                                        data-fieldname={"message"}
+                                        style={{ width: "90%", lineHeight: "24px", minHeight: "150px", padding: "12px" }}
                                     />
                                 </div>
 
