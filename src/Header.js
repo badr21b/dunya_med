@@ -4,7 +4,7 @@ import { BsTelephone } from 'react-icons/bs';
 // import { GrFacebookOption } from 'react-icons/gr';
 import { AiOutlineInstagram, AiOutlineWhatsApp } from 'react-icons/ai';
 // import { BsTwitter } from 'react-icons/bs';
-import { FaTelegramPlane } from 'react-icons/fa';
+// import { FaTelegramPlane } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
 import { useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";

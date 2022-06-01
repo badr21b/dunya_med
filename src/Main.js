@@ -135,16 +135,20 @@ export default function MainComp(props) {
                     <div className={"mainParagraphSubtitle"}>
                         {translate("slogan_title", storeLanguage)}
                     </div>
-                    <div className={"treatmentListContainer"}>
-                        {treatmentList.map(item => {
-                            return(
-                                <div key={item.key} className={"treatmentItem"} style={(isDesktop)? ({width: "50%"}):({width: "70%"})}>
-                                    {item.icon}
-                                    <div className={"treatmentItemText"}>{item.text}</div>
-                                </div>
-                            )
-                        })}
-                    </div>
+
+                    {(isDesktop) && (
+                        <div className={"treatmentListContainer"}>
+                            {treatmentList.map(item => {
+                                return(
+                                    <div key={item.key} className={"treatmentItem"} style={(isDesktop)? ({width: "50%"}):({width: "70%"})}>
+                                        {item.icon}
+                                        <div className={"treatmentItemText"}>{item.text}</div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )}
+
 
                     <div className={"buttonGroupContainer"}>
                         <AnchorLink className={"buttonItem"} href={"#contact"}>

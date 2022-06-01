@@ -1,4 +1,4 @@
-import arabic from '../Languages/tanslations/arabic'
+// import arabic from '../Languages/tanslations/arabic'
 import french from '../Languages/tanslations/french'
 import english from '../Languages/tanslations/english'
 import turkish from '../Languages/tanslations/turkish'

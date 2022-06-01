@@ -1020,10 +1020,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-height: 120px;
   margin: 32px auto;
 
   &>.treatmentItem{

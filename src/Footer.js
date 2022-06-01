@@ -9,7 +9,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {AiOutlineInstagram, AiOutlineWhatsApp} from "react-icons/ai";
+// import {AiOutlineInstagram, AiOutlineWhatsApp} from "react-icons/ai";
 
 const FooterComp = (props) => {
     const [storeLanguage, setStoreLanguage] = useState(useSelector(state => state.language));
@@ -86,7 +86,7 @@ const FooterComp = (props) => {
             </div>
             <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
                 <div className={"categoryHolder"} style={{fontSize: "14px"}}>{translate("questions_frequentes", storeLanguage)}</div>
-                <div className={"categoryHolder"} style={{fontSize: "12px"}}>
+                <div className={"categoryHolder"} style={isMobile ? ({maxWidth: "80%", fontSize: "12px"}):({fontSize: "12px"})}>
                     <Accordion>
                         <AccordionSummary
                             style={{ backgroundColor: "#379bb3"}}
