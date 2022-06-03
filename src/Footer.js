@@ -133,7 +133,7 @@ const FooterComp = (props) => {
                         </AccordionDetails>
                     </Accordion>
                     <Accordion
-                        {/*disabled*/}
+                        // disabled
                     >
                         <AccordionSummary
                             style={{ backgroundColor: "#379bb3"}}
