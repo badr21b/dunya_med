@@ -12,6 +12,7 @@ import ScrollToTop from "react-scroll-to-top";
 import { useState} from "react";
 
 import {useSelector, /*useDispatch*/} from "react-redux";
+import AboutComp from "./AboutComp";
 
 //https://hairflow.webflow.io/#Testimonial
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<MainComp  currentLanguage={storeLanguage}/>} />
             <Route path={`/#section${2}`} element={<MainComp  language={language}/>} />
             <Route path="/test" element={<TestComp  language={language}/>} />
+            <Route path="/services/hair" element={<AboutComp  language={language}/>} />
         </Routes>
         <FooterComp currentLanguage={storeLanguage}/>
     </div>

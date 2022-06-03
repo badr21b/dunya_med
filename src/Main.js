@@ -10,6 +10,7 @@ import {GiHealthCapsule} from "react-icons/gi";
 import {BiSearchAlt} from "react-icons/bi";
 import {isDesktop, isMobile} from "react-device-detect";
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import { Parallax } from 'react-scroll-parallax';
 
 import ReactWhatsapp from 'react-whatsapp';
@@ -114,12 +115,12 @@ export default function MainComp(props) {
     }
 
     const treatmentList = [
-        {key: "fueSafir", text: "FUE SAPPHİRE", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "mesotherapy", text: "Mésothérapie", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "prp", text: "PRP", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>},
-        {key: "implant_dentaire", text: translate("dental_implant", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>},
-        {key: "blanchiment_dentaire", text: translate("blanchiment_dentaire", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>},
+        {key: "fueSafir", text: "FUE SAPPHİRE", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
+        {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
+        {key: "mesotherapy", text: "Mésothérapie", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
+        {key: "prp", text: "PRP", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
+        {key: "implant_dentaire", text: translate("dental_implant", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>, link:"/services/hair"},
+        {key: "blanchiment_dentaire", text: translate("blanchiment_dentaire", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>, link:"/services/hair"  },
     ]
 
     const ratingText1 = 4.4;
@@ -143,7 +144,7 @@ export default function MainComp(props) {
                                 return(
                                     <div key={item.key} className={"treatmentItem"} style={(isDesktop)? ({width: "50%"}):({width: "70%"})}>
                                         {item.icon}
-                                        <div className={"treatmentItemText"}>{item.text}</div>
+                                        <Link to={item.link} className={"treatmentItemText"}>{item.text}</Link>
                                     </div>
                                 )
                             })}
