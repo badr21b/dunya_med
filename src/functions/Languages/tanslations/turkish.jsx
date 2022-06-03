@@ -64,6 +64,10 @@ const turkish = {
     "who_can_transplant_hair": "Kimler saç ekimi yapabilir?",
     "who_can_transplant_hair_answr": "Saç dökülmesinin aşaması ne olursa olsun, donör bölge yeterli olduğu sürece herkes saç ekimi yapabilir.",
     "home": "Accueil",
+    "what_are_dental_implants": "Diş implantları nelerdir?",
+    "what_are_dental_implants_paragraph": "Bir diş implantı, bir yedek dişi veya bir köprüyü tutmak için çenenize yerleştirilen yapay bir diş köküdür. Vida şeklinde olan implantlar çoğunlukla titanyumdan yapılır. İmplantlar kemiğe yerleştirilir ve kron veya köprü adı verilen bir veya daha fazla yapay diş için sağlam bir temel oluşturur. Diş protezlerinden farklı olarak diş implantları kalıcı çözüm sağlar ve doğal dişlerin tüm özelliklerine sahiptir.",
+    "what_do_with_crooked_or_crowded_teeth": "Çarpık veya çapraşık dişlerde ne yapmalıyız?",
+    "what_do_with_crooked_or_crowded_teeth_paragraph": "Çarpık veya aşırı kalabalık dişlere yardımcı olmanın birkaç yolu vardır. Örneğin diş telleri, seramik yüzeyler, kronlar vb.",
 };
 
 export default turkish;

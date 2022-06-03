@@ -65,6 +65,10 @@ const french = {
     "who_can_transplant_hair": "Qui peut faire une greffe de cheveux?",
     "who_can_transplant_hair_answr": "Quel que soit le stade de la chute, du moment où la zone donneuse est suffisante, toute personne peut réaliser une greffe capillaire.\n",
     "home": "Home",
+    "what_are_dental_implants": "Que sont les implants dentaires ?",
+    "what_are_dental_implants_paragraph": "Un implant dentaire est une racine de dent artificielle qui est placée dans votre mâchoire pour contenir une dent de remplacement ou un pont. En forme de vis, les implants sont majoritairement en titane. Les implants sont placés dans l'os, fournissant une base solide pour une ou plusieurs dents artificielles appelées couronnes ou ponts. Contrairement à une prothèse dentaire, les implants dentaires offrent une solution permanente et possèdent tous les attributs des dents naturelles.",
+    "what_do_with_crooked_or_crowded_teeth": "Que faire des dents tordues ou encombrées ?",
+    "what_do_with_crooked_or_crowded_teeth_paragraph": "Il existe plusieurs façons d'aider avec les dents tordues ou surpeuplées. Par exemple, utiliser des appareils dentaires, des facettes en céramique, des couronnes, etc.",
 };
 
 export default french;

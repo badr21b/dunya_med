@@ -65,6 +65,11 @@ const english = {
     "who_can_transplant_hair": "Who can do a hair transplant?",
     "who_can_transplant_hair_answr": "Whatever the stage of the hair loss, as long as the donor area is sufficient, anyone can perform a hair transplant.",
     "home": "Anasayfa",
+    "what_are_dental_implants": "What are dental implants?",
+    "what_are_dental_implants_paragraph": "A dental implant is an artificial tooth root that is placed into your jaw to hold a replacement tooth or a bridge. Shaped as a screw, implants are mostly made of titanium. Implants are placed into the bone, providing a firm base for one or more artificial teeth called crowns or bridges. Unlike a denture, dental implants provide permanent solution and have all the attributes of natural teeth.",
+    "what_do_with_crooked_or_crowded_teeth": "What should we do with crooked or crowded teeth?",
+    "what_do_with_crooked_or_crowded_teeth_paragraph": "There are several ways to help with the crooked or overcrowded teeth. For example, using dental braces, ceramic facets, crowns, etc.",
+
 };
 
 export default english;

@@ -117,15 +117,37 @@ const FooterComp = (props) => {
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
-                    {/*<Accordion disabled>*/}
-                    {/*    <AccordionSummary*/}
-                    {/*        expandIcon={<ExpandMoreIcon />}*/}
-                    {/*        aria-controls="panel3a-content"*/}
-                    {/*        id="panel3a-header"*/}
-                    {/*    >*/}
-                    {/*        <Typography>Disabled Accordion</Typography>*/}
-                    {/*    </AccordionSummary>*/}
-                    {/*</Accordion>*/}
+                    <Accordion>
+                        <AccordionSummary
+                            style={{ backgroundColor: "#379bb3"}}
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel2a-content"
+                            id="panel2a-header"
+                        >
+                            <Typography style={{fontSize: "12px", color:"#fff"}}>{translate("what_are_dental_implants", storeLanguage)}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography style={{fontSize: "13px", color: "#847373"}}>
+                                {translate("what_are_dental_implants_paragraph", storeLanguage)}
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion {/*disabled*/}>
+                        <AccordionSummary
+                            style={{ backgroundColor: "#379bb3"}}
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel2a-content"
+                            id="panel2a-header"
+                        >
+                            <Typography style={{fontSize: "12px", color:"#fff"}}>{translate("what_do_with_crooked_or_crowded_teeth", storeLanguage)}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography style={{fontSize: "13px", color: "#847373"}}>
+                                {translate("what_do_with_crooked_or_crowded_teeth_paragraph", storeLanguage)}
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+
                 </div>
             </div>
             <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
