@@ -37,7 +37,7 @@ const FooterComp = (props) => {
                     <div className={"itemsList"}>
                         <div className={"itemContainer"}>
                             <div className={"itemLeft"}>
-                                <a href="https://wa.me/905346314603?text=DuniaMed" rel="noreferrer" className={"icon"} target="_blank">Whatsapp</a>
+                                <a href="https://wa.me/905346314603?text=DunyaMed" rel="noreferrer" className={"icon"} target="_blank">Whatsapp</a>
                             </div>
                         </div>
                         {/*<div className={"itemContainer"}>*/}
@@ -45,7 +45,7 @@ const FooterComp = (props) => {
                         {/*</div>*/}
                         <div className={"itemContainer"}>
                             <div className={"itemLeft"}>
-                                <a href="https://www.instagram.com/duniamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
+                                <a href="https://www.instagram.com/Dunyamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
                                     Instagram
                                 </a>
                             </div>
@@ -84,7 +84,7 @@ const FooterComp = (props) => {
                 <FrequentQuestions/>
             </div>
             <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
-                <div className={"categoryHolder"} style={{fontSize: "12px"}}>© Dunia Med {new Date().getFullYear()}.</div>
+                <div className={"categoryHolder"} style={{fontSize: "12px"}}>© DunyaMED {new Date().getFullYear()}.</div>
             </div>
         </div>
     )

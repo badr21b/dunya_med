@@ -183,7 +183,7 @@ export default function MainComp(props) {
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
                             <div className={"blockIcon"}><GrCertificate size={42}/></div>
-                            <div className={"blockTitle"}>{translate("plus_expert_doctor")}</div>
+                            <div className={"blockTitle"}>{translate("plus_expert")}</div>
                             <div className={"blockParagraph"}>{translate("expert_doctor_paragraph", storeLanguage)}</div>
                         </div>
                     </div>
@@ -211,7 +211,7 @@ export default function MainComp(props) {
                     </div>
 
                     <div className={"aboutTextWrapper"}>
-                        <div className={"aboutHeading"}>We’re Dunya Med</div>
+                        <div className={"aboutHeading"}>We’re DunyaMED</div>
                         <div className={"aboutParagraph"}>
                             {translate("we_re_dunya_paragraph", storeLanguage)}
                         </div>
@@ -492,11 +492,11 @@ export default function MainComp(props) {
                                         <option value={"male"}>{translate("male",storeLanguage)}</option>
                                         <option value={"female"}>{translate("female",storeLanguage)}</option>
                                     </select>
-                                    <select defaultValue={treatmentType} placeholder={"Need treatment for"} data-fieldname={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
+                                    <select defaultValue={treatmentType} placeholder={translate("need_for")} data-fieldname={"treatmentType"} onChange={handleChange} className={"lineElement"} style={{height: "45px", width: "45%"}}>
                                         <option value="initial" disabled >{translate("need_for", storeLanguage)}</option>
                                         <option value="hair">{translate("greffe", storeLanguage)}</option>
                                         <option value="dent">{translate("estetique", storeLanguage)}</option>
-                                        <option value="plasticSurgery">{translate("chirurugie_estetique", storeLanguage)}</option>
+                                        <option value="plasticSurgery">{translate("chirurgie_esthetique", storeLanguage)}</option>
                                     </select>
                                 </div>
 

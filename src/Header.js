@@ -164,12 +164,12 @@ const SocialMediaListComponent = (customStyle) => {
             <div className={"social-media-item"}>
                 {/*<GrFacebookOption className={"icon"}/>*/}
 
-                <a href="https://www.instagram.com/duniamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
+                <a href="https://www.instagram.com/Dunyamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
                     <AiOutlineInstagram className={"icon"} style={(isMobile)? {color: "#379bb3"} : {color: "#ffffff"}}/>
                 </a>
 
                 {/*<BsTwitter className={"icon"}/>*/}
-                <a href="https://wa.me/905346314603?text=DuniaMed" rel="noreferrer" className={"icon"} target="_blank">
+                <a href="https://wa.me/905346314603?text=DunyaMed" rel="noreferrer" className={"icon"} target="_blank">
                     <AiOutlineWhatsApp className={"icon"} style={(isMobile)? {color: "#379bb3"} : {color: "#ffffff"}}/>
                 </a>
                 {/*<FaTelegramPlane className={"icon"} style={(isMobile)? {color: "#379bb3"} : {color: "#ffffff"}}/>*/}
@@ -196,7 +196,7 @@ const HeaderSocialMedia = () => {
 
                     <div className={"social-media-item"} onClick={() => window.location = 'mailto:duniamed34@gmail.com'}>
                         <FiMail className={"icon"}/>
-                        <div>duniamed34@gmail.com</div>
+                        <div>dunyamed@gmail.com</div>
                     </div>
                 </div>
 
