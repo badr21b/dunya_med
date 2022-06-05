@@ -226,9 +226,9 @@ const HeaderSocialMedia = () => {
 
                     <div className={"separator"}>|</div>
 
-                    <div className={"social-media-item"} onClick={() => window.location = 'mailto:duniamed34@gmail.com'}>
+                    <div className={"social-media-item"} onClick={() => window.location = 'mailto:info@dunyamed.fr'}>
                         <FiMail className={"icon"}/>
-                        <div>dunyamed@gmail.com</div>
+                        <div>info@dunyamed.fr</div>
                     </div>
                 </div>
 

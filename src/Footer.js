@@ -71,7 +71,7 @@ const FooterComp = (props) => {
                             </div>
                         </div>
                         <div className={"itemContainer"}>
-                            <div className={"itemLeft"} onClick={() => window.location = 'mailto:duniamed34@gmail.com'}>
+                            <div className={"itemLeft"} onClick={() => window.location = 'mailto:info@dunyamed.fr'}>
                                 {translate("send_email", storeLanguage)}
                             </div>
                         </div>
