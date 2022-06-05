@@ -1,6 +1,7 @@
 const initialState = {
     counter: 10,
-    language: setLanguage( navigator.language || navigator.userLanguage )
+    language: setLanguage( navigator.language || navigator.userLanguage ),
+    phoneNumber: "+90 (534) 631 46 03"
 }
 
 function setLanguage(currentLanguage){

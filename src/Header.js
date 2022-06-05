@@ -9,7 +9,7 @@ import { FiMail } from 'react-icons/fi';
 import { useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import {useEffect, useState} from "react";
-import Hamburger from 'hamburger-react'
+import Hamburger from 'hamburger-react';
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import {useDispatch, useSelector} from "react-redux";
 import {translate} from "./functions/Languages/translation";
@@ -100,7 +100,6 @@ const HeaderMainHeader = () => {
                                 </div>
 
                                 <SocialMediaListComponent customStyle={{height: "25%", width: "calc(100% - 24px)", display: "flex", flexDirection: (isMobile)?("column"):("row"), justifyContent: "center", alignItems: "center"}}/>
-
                             </>
 
                         }
@@ -179,6 +178,7 @@ const SocialMediaListComponent = (customStyle) => {
 }
 
 const HeaderSocialMedia = () => {
+    const [storePhoneNumber] = useState(useSelector(state => state.phoneNumber));
     return (
         <div className={"social-media-holder"}>
             <div className={"social-media-container"}>
@@ -186,9 +186,7 @@ const HeaderSocialMedia = () => {
                     <div className={"social-media-item"}>
                         <BsTelephone className={"icon"}/>
                         <div>
-                            <a href="tel:00905311234567" className={"phoneHref"}>
-                                +90 (534) 631 46 03
-                            </a>
+                            <a href="tel:00905311234567" className={"phoneHref"}>{storePhoneNumber}</a>
                         </div>
                     </div>
 

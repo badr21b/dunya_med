@@ -9,10 +9,11 @@ import MainComp from './Main'
 import TestComp from './Test'
 import FooterComp from "./Footer";
 import ScrollToTop from "react-scroll-to-top";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 
 import {useSelector, /*useDispatch*/} from "react-redux";
 import AboutComp from "./AboutComp";
+import WhatsappFloat from "./WhatsappFloat";
 
 //https://hairflow.webflow.io/#Testimonial
 
@@ -21,9 +22,17 @@ function App() {
     const [language, setLanguage] = useState('');
 
 
+    useEffect(() => {
+        document.title = "DunyaMED";
+    }, []);
+
     return (
     <div className="App">
         <ScrollToTop smooth />
+
+        <WhatsappFloat/>
+
+
         <HeaderComp language={language} setLanguage={setLanguage}/>
         <Routes>
             <Route path="/" element={<MainComp  currentLanguage={storeLanguage}/>} />
