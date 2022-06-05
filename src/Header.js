@@ -62,7 +62,18 @@ const HeaderMainHeader = () => {
     ]
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isOpen, setOpen] = useState(false)
+    const [storeLanguage, setStoreLanguage] = useState(useSelector(state => state.language));
+    const dispatch = useDispatch();
 
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        // dispatch({type: "SET_LANGUAGE" });
+        dispatch({
+            type: 'SET_LANGUAGE',
+            language: e.target.value,
+        })
+        setStoreLanguage(e.target.value)
+    }
 
     const onSetSidebarOpen = (open) => {
         setSidebarOpen(open)
@@ -71,47 +82,70 @@ const HeaderMainHeader = () => {
     return (
         <div className={"main-menu-holder"}>
             <div className={"main-menu-container"}>
-                <div className="logo-container" style={{width: "100px"}}>
+                <div className={isMobile ? ("logo-container-mobile"):("logo-container")}>
                     <img src={"./logoHeader.png"} alt="logo" style={{height:"60px"}}/>
                 </div>
+
+
 
                 {/* Menu Mobile/desktop version */}
                 {(isMobile) && (
                     <div className={"menu-list-holder-mobile"}>
-                    <Sidebar
-                        sidebar={
-                            <>
-                                <div className="logo-container" style={{marginBottom: "32px", height: "15%",display: "flex", flexDirection: "column", flexWrap: "wrap", justifyContent: "center", alignItems: "center"}}>
-                                    <img src={"./logoHeader.png"} alt="logo" />
-                                </div>
-                                <div className={"menu-list-container-mobile"} style={{height: "50%"}}>
-                                    {menuList.map(menuItem => {
-                                        return (
-                                        <AnchorLink
-                                            onClick={() => {onSetSidebarOpen(false)}}
-                                            className={"menu-list-item-mobile"} key={menuItem.key}  href={menuItem.link}
-                                            style={(location.pathname === menuItem.link)
-                                                ? ({ color: "orange" })
-                                                : ({ color: "black" })
-                                            }
-                                        >{menuItem.text}</AnchorLink>
-                                        )
-                                    } )}
-                                </div>
+                        <Sidebar
+                            sidebar={
+                                <>
+                                    <div className="logo-container" style={{marginBottom: "32px", height: "15%",display: "flex", flexDirection: "column", flexWrap: "wrap", justifyContent: "center", alignItems: "center"}}>
+                                        <img src={"./logoHeader.png"} alt="logo" />
+                                    </div>
+                                    <div className={"menu-list-container-mobile"} style={{height: "50%"}}>
+                                        {menuList.map(menuItem => {
+                                            return (
+                                            <AnchorLink
+                                                onClick={() => {onSetSidebarOpen(false)}}
+                                                className={"menu-list-item-mobile"} key={menuItem.key}  href={menuItem.link}
+                                                style={(location.pathname === menuItem.link)
+                                                    ? ({ color: "orange" })
+                                                    : ({ color: "black" })
+                                                }
+                                            >{menuItem.text}</AnchorLink>
+                                            )
+                                        } )}
+                                    </div>
 
-                                <SocialMediaListComponent customStyle={{height: "25%", width: "calc(100% - 24px)", display: "flex", flexDirection: (isMobile)?("column"):("row"), justifyContent: "center", alignItems: "center"}}/>
-                            </>
+                                    <SocialMediaListComponent customStyle={{height: "25%", width: "calc(100% - 24px)", display: "flex", flexDirection: (isMobile)?("column"):("row"), justifyContent: "center", alignItems: "center"}}/>
+                                </>
 
-                        }
-                        pullRight={false}
-                        open={sidebarOpen}
-                        onSetOpen={onSetSidebarOpen}
-                        styles={{ sidebar: { background: "white" } }}
-                    >
-                        <div style={{position: "absolute", right:"10px"}}>
-                            <Hamburger style={{position: "absolute  !important", right: "0 !important"}} toggle={() => onSetSidebarOpen(true)} toggled={isOpen} />
-                        </div>
-                    </Sidebar>
+                            }
+                            pullRight={false}
+                            open={sidebarOpen}
+                            onSetOpen={onSetSidebarOpen}
+                            styles={{ sidebar: { background: "white" } }}
+                        >
+                            <div style={{position: "absolute", right:"10px", display: "flex"}}>
+                                <select
+                                    style={{
+                                        position: "relative",
+                                        display: "flex",
+                                        width: "60px",
+                                        border: "none",
+                                        height: "60px",
+                                        fontSize: "32px",
+                                        flexDirection: "row",
+                                        flexWrap: "nowrap",
+                                        alignContent: "center",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+
+                                    }}
+                                    className={"languageSelectorMobile"} defaultValue={storeLanguage} onChange={handleChange}>
+                                    <option disabled>{translate("language", storeLanguage)}</option>
+                                    <option value={"en"}>🇬🇧</option>
+                                    <option value={"fr"}>🇫🇷</option>
+                                    <option value={"tr"}>🇹🇷</option>
+                                </select>
+                                <Hamburger style={{position: "absolute  !important", right: "0 !important"}} toggle={() => onSetSidebarOpen(true)} toggled={isOpen} />
+                            </div>
+                        </Sidebar>
                 </div>)}
 
                 {(isBrowser) && (

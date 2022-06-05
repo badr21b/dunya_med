@@ -17,6 +17,28 @@
     height: 18vmin;
   }
 }
+.logo-container-mobile {
+  pointer-events: none;
+  margin: 0 12px;
+  //width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  &>img{
+    height: 18vmin;
+  }
+  &>.languageSelectorMobile{
+    border: 1px solid #F3F3F3;
+    border-radius: 3px;
+    height: 26px;
+    font-size: 12px;
+    width: min-content;
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -2133,10 +2155,12 @@ input[type=number]::-webkit-outer-spin-button {
   justify-content: center;
   align-items: center;
   &>.phoneIcon{
-    font-size: 21px;
+    font-size: 24px;
     color: #FFFFFF;
     background-color: transparent;
     border: none;
+    margin-top: 5px;
+    margin-left: 1px;
     &:hover{
       cursor: pointer;
     }
