@@ -527,8 +527,10 @@ export default function MainComp(props) {
                             </div>
 
                             {(allowSubmit) ? (
-                                // <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send", storeLanguage)}</ReactWhatsapp>
-                                <div  className={"button"} onClick={() => window.location = 'mailto:info@dunyamed.fr'}>{translate("send", storeLanguage)}</div>
+                                <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send", storeLanguage)}</ReactWhatsapp>
+                                // <div  className={"button"} onClick={() => window.location = 'mailto:info@dunyamed.fr'}>
+                                //     {translate("send", storeLanguage)}
+                                // </div>
                             ) :(
                                 <div className={"button"} style={{background: "#e2e2e2"}}>{translate("send", storeLanguage)}</div>
                             )}
