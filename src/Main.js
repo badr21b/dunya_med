@@ -64,7 +64,7 @@ export default function MainComp(props) {
                 break;
             case "age":
                 setAge(e.target.value)
-                if(1 < age.length){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
+                if(0 < age.length){e.target.style.borderColor = "#e5e5e5"} else {e.target.style.borderColor = "red"}
                 break;
             case "sex":
                 setSex(e.target.value)
@@ -92,7 +92,7 @@ export default function MainComp(props) {
         if (
             6 < name.length &&
             6 < phone.length &&
-            1 < age.length &&
+            0 < age.length &&
             !! email.match(/.+@.+/) &&
             "initial" !== sex &&
             "initial" !== treatmentType &&
@@ -527,7 +527,8 @@ export default function MainComp(props) {
                             </div>
 
                             {(allowSubmit) ? (
-                                <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send", storeLanguage)}</ReactWhatsapp>
+                                // <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send", storeLanguage)}</ReactWhatsapp>
+                                <div  className={"button"} onClick={() => window.location = 'mailto:info@dunyamed.fr'}>{translate("send", storeLanguage)}</div>
                             ) :(
                                 <div className={"button"} style={{background: "#e2e2e2"}}>{translate("send", storeLanguage)}</div>
                             )}
