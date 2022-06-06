@@ -135,7 +135,8 @@ const HeaderMainHeader = () => {
                                         alignContent: "center",
                                         justifyContent: "center",
                                         alignItems: "center",
-
+                                        backgroundColor: "#ffffff",
+                                        appearance: "none"
                                     }}
                                     className={"languageSelectorMobile"} defaultValue={storeLanguage} onChange={handleChange}>
                                     <option disabled>{translate("language", storeLanguage)}</option>
@@ -143,7 +144,7 @@ const HeaderMainHeader = () => {
                                     <option value={"fr"}>🇫🇷</option>
                                     <option value={"tr"}>🇹🇷</option>
                                 </select>
-                                <Hamburger style={{position: "absolute  !important", right: "0 !important"}} toggle={() => onSetSidebarOpen(true)} toggled={isOpen} />
+                                <Hamburger style={{position: "absolute  !important", right: "0 !important", marginTop: "4px"}} toggle={() => onSetSidebarOpen(true)} toggled={isOpen} />
                             </div>
                         </Sidebar>
                 </div>)}
