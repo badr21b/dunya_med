@@ -49,6 +49,8 @@ const turkish = {
     "health_problem": "Herhangi bir sağlık sorununuz var mı?",
     "message": "Mesaj",
     "send": "Gönder",
+    "send_by_whatsapp": "Whatsapp ile gönder",
+    "send_by_email": "E-posta ile gönder",
     "information": "Bilgi",
     "working_days": "İş günleri",
     "saturday": "Cumartesi",

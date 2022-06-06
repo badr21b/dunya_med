@@ -114,6 +114,12 @@ export default function MainComp(props) {
         }
     }
 
+
+    const sendEmail= (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+
     const treatmentList = [
         {key: "fueSafir", text: "FUE SAPPHİRE", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
         {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
@@ -527,12 +533,21 @@ export default function MainComp(props) {
                             </div>
 
                             {(allowSubmit) ? (
-                                <ReactWhatsapp className={"button"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send", storeLanguage)}</ReactWhatsapp>
-                                // <div  className={"button"} onClick={() => window.location = 'mailto:info@dunyamed.fr'}>
-                                //     {translate("send", storeLanguage)}
-                                // </div>
+                                <div className={"sendButtonGroupContainer"}>
+                                    <ReactWhatsapp className={"sendButton"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send_by_whatsapp", storeLanguage)}</ReactWhatsapp>
+                                    <div  className={"sendButton"}
+                                          onClick={() => {sendEmail("mailto:info@dunyamed.fr")}}
+                                          // onClick={() => window.location = 'mailto:info@dunyamed.fr'}>
+                                    >
+                                        {translate("send_by_email", storeLanguage)}
+                                    </div>
+                                </div>
+
                             ) :(
-                                <div className={"button"} style={{background: "#e2e2e2"}}>{translate("send", storeLanguage)}</div>
+                                <div className={"sendButtonGroupContainer"}>
+                                    <div className={"sendButton"} style={{background: "#e2e2e2"}}>{translate("send_by_whatsapp", storeLanguage)}</div>
+                                    <div className={"sendButton"} style={{background: "#e2e2e2"}}>{translate("send_by_email", storeLanguage)}</div>
+                                </div >
                             )}
 
                         </div>

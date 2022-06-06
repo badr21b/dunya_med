@@ -81,7 +81,7 @@ const FooterComp = (props) => {
             </div>
             <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
                 <div className={"categoryHolder"} style={{fontSize: "14px"}}>{translate("questions_frequentes", storeLanguage)}</div>
-                <FrequentQuestions/>
+                <FrequentQuestions currentLanguage={storeLanguage}/>
             </div>
             <div className={"blockHolder"} style={{borderTop: "1px solid rgb(82 170 191)"}}>
                 <div className={"categoryHolder"} style={{fontSize: "12px"}}>© DunyaMED {new Date().getFullYear()}.</div>
