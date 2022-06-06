@@ -48,6 +48,19 @@ export default function MainComp(props) {
         setStoreLanguage(props.currentLanguage)
     },[props.currentLanguage])
 
+
+    const resetContactForm = () => {
+        setName("");
+        setPhone("");
+        setEmail("");
+        setAge("");
+        setSex("initial");
+        setTreatmentType("initial");
+        setHealthPrecedentDisease("");
+        setMessage("");
+        setAllowSubmit(false);
+    }
+
     const handleChange = (e) => {
         switch (e.target.dataset.fieldname) {
             case "name":
@@ -534,9 +547,12 @@ export default function MainComp(props) {
 
                             {(allowSubmit) ? (
                                 <div className={"sendButtonGroupContainer"}>
-                                    <ReactWhatsapp className={"sendButton"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send_by_whatsapp", storeLanguage)}</ReactWhatsapp>
+                                    <ReactWhatsapp onClick={() => {resetContactForm()}} className={"sendButton"} number="+905346314603" message={`${JSON.stringify(whatsappMessage, undefined, 2).replace(/[{}]/g, '')}`}>{translate("send_by_whatsapp", storeLanguage)}</ReactWhatsapp>
                                     <div  className={"sendButton"}
-                                          onClick={() => {sendEmail("mailto:info@dunyamed.fr")}}
+                                          onClick={() => {
+                                              sendEmail("mailto:info@dunyamed.fr");
+                                              resetContactForm();
+                                          }}
                                           // onClick={() => window.location = 'mailto:info@dunyamed.fr'}>
                                     >
                                         {translate("send_by_email", storeLanguage)}
