@@ -130,13 +130,14 @@ const HeaderMainHeader = () => {
                                         border: "none",
                                         height: "60px",
                                         fontSize: "32px",
-                                        flexDirection: "row",
-                                        flexWrap: "nowrap",
-                                        alignContent: "center",
-                                        justifyContent: "center",
                                         alignItems: "center",
                                         backgroundColor: "#ffffff",
-                                        appearance: "none"
+                                        appearance: "none",
+                                        justifyContent: "center",
+                                        alignContent: "center",
+                                        flexDirection: "row",
+                                        flexWrap: "nowrap",
+                                        textAlign: "center"
                                     }}
                                     className={"languageSelectorMobile"} defaultValue={storeLanguage} onChange={handleChange}>
                                     <option disabled>{translate("language", storeLanguage)}</option>
