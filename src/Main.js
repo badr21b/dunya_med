@@ -148,7 +148,7 @@ export default function MainComp(props) {
 
     return (
         <>
-            <main id='home' style={{ padding: "1rem 0", backgroundColor: "#f6f9f7" }}
+            <main id='home' style={!isDesktop ? {marginTop: "60px", padding: "1rem 0", backgroundColor: "#f6f9f7"} : {padding: "1rem 0", backgroundColor: "#f6f9f7"}}
                   className={(isDesktop)? ("paragraphPictureContainer"):("paragraphPictureContainerMobile")}
             >
                 <div className={"textParagraphContainer"}>

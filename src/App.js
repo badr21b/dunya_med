@@ -11,6 +11,7 @@ import FooterComp from "./Footer";
 import ScrollToTop from "react-scroll-to-top";
 import {useEffect, useState} from "react";
 
+
 import {useSelector, /*useDispatch*/} from "react-redux";
 import AboutComp from "./AboutComp";
 import WhatsappFloat from "./WhatsappFloat";

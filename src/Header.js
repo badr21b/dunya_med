@@ -14,9 +14,12 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import {useDispatch, useSelector} from "react-redux";
 import {translate} from "./functions/Languages/translation";
 
+import 'react-sticky-header/styles.css';
+import StickyHeader from 'react-sticky-header';
 
 const HeaderComp = () => {
     const [stickyClass, setStickyClass] = useState('relative');
+    const [reduceHeader, setReduceHeader] = useState(document.documentElement.scrollTop);
 
     useEffect(() => {
         window.addEventListener('scroll', stickNavbar);
@@ -25,6 +28,13 @@ const HeaderComp = () => {
             window.removeEventListener('scroll', stickNavbar);
         };
     }, []);
+    useEffect(() => {
+
+        window.onscroll = () => {
+            setReduceHeader(window.pageYOffset ? document.documentElement.scrollTop : document.body.scrollTop)
+        };
+
+    }, [window.pageYOffset]);
 
 
     const stickNavbar = () => {
@@ -35,16 +45,18 @@ const HeaderComp = () => {
     };
 
     return (
-        <>
-            {/*<Sticky>*/}
-                {(isBrowser) && (
-                    <HeaderSocialMedia stickyClass={stickyClass} />
-                )}
-                <HeaderMainHeader stickyClass={stickyClass}/>
-            {/*</Sticky>*/}
-
-        </>
-
+        <StickyHeader
+            // This is the sticky part of the header.
+            header={
+                <>
+                    {(isBrowser && !reduceHeader) && (
+                        <HeaderSocialMedia stickyClass={stickyClass} />
+                    )}
+                    <HeaderMainHeader stickyClass={stickyClass}/>
+                </>
+            }
+        >
+        </StickyHeader>
     )
 }
 
