@@ -18,31 +18,14 @@ import 'react-sticky-header/styles.css';
 import StickyHeader from 'react-sticky-header';
 
 const HeaderComp = () => {
-    const [stickyClass, setStickyClass] = useState('relative');
     const [reduceHeader, setReduceHeader] = useState(document.documentElement.scrollTop);
 
-    useEffect(() => {
-        window.addEventListener('scroll', stickNavbar);
-
-        return () => {
-            window.removeEventListener('scroll', stickNavbar);
-        };
-    }, []);
     useEffect(() => {
 
         window.onscroll = () => {
             setReduceHeader(window.pageYOffset ? document.documentElement.scrollTop : document.body.scrollTop)
         };
-
-    }, [window.pageYOffset]);
-
-
-    const stickNavbar = () => {
-        if (window !== undefined) {
-            let windowHeight = window.scrollY;
-            windowHeight > 500 ? setStickyClass('fixed top-0 left-0 z-50') : setStickyClass('relative');
-        }
-    };
+    }, []);
 
     return (
         <StickyHeader
@@ -50,9 +33,9 @@ const HeaderComp = () => {
             header={
                 <>
                     {(isBrowser && !reduceHeader) && (
-                        <HeaderSocialMedia stickyClass={stickyClass} />
+                        <HeaderSocialMedia />
                     )}
-                    <HeaderMainHeader stickyClass={stickyClass}/>
+                    <HeaderMainHeader/>
                 </>
             }
         >
