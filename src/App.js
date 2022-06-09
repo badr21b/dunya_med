@@ -29,7 +29,7 @@ function App() {
 
     return (
     <div className="App">
-        <ScrollToTop smooth />
+        <ScrollToTop smooth style={{zIndex: "90000000"}} />
 
         <WhatsappFloat/>
 
