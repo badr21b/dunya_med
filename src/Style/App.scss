@@ -32,11 +32,30 @@
     height: 18vmin;
   }
   &>.languageSelectorMobile{
-    border: 1px solid #F3F3F3;
+    //border: 1px solid #F3F3F3;
     border-radius: 3px;
-    height: 26px;
-    font-size: 12px;
-    width: min-content;
+    //height: 26px;
+    //font-size: 12px;
+    //width: min-content;
+    position: relative;
+    display: flex;
+    width: 60px;
+    border: none;
+    height: 60px;
+    font-size: 32px;
+    align-items: center;
+    background-color: #ffffff;
+    appearance: none;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+
+    &:focus{
+      outline: none;
+    }
+
   }
 }
 
@@ -2337,4 +2356,29 @@ input[type=number]::-webkit-outer-spin-button {
     }
   }
 }
+.languageSelectorMobile{
+  //border: 1px solid #F3F3F3;
+  border-radius: 3px;
+  //height: 26px;
+  //font-size: 12px;
+  //width: min-content;
+  position: relative;
+  display: flex;
+  width: 60px;
+  border: none;
+  height: 60px;
+  font-size: 32px;
+  align-items: center;
+  background-color: #ffffff;
+  appearance: none;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-align: center;
 
+  &:focus{
+    outline: none;
+  }
+
+}

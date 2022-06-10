@@ -130,22 +130,6 @@ const HeaderMainHeader = () => {
                         >
                             <div style={{position: "absolute", right:"10px", display: "flex"}}>
                                 <select
-                                    style={{
-                                        position: "relative",
-                                        display: "flex",
-                                        width: "60px",
-                                        border: "none",
-                                        height: "60px",
-                                        fontSize: "32px",
-                                        alignItems: "center",
-                                        backgroundColor: "#ffffff",
-                                        appearance: "none",
-                                        justifyContent: "center",
-                                        alignContent: "center",
-                                        flexDirection: "row",
-                                        flexWrap: "nowrap",
-                                        textAlign: "center"
-                                    }}
                                     className={"languageSelectorMobile"} defaultValue={storeLanguage} onChange={handleChange}>
                                     <option disabled>{translate("language", storeLanguage)}</option>
                                     <option value={"en"}>🇬🇧</option>
