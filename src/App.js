@@ -15,6 +15,7 @@ import {useEffect, useState} from "react";
 import {useSelector, /*useDispatch*/} from "react-redux";
 import AboutComp from "./AboutComp";
 import WhatsappFloat from "./WhatsappFloat";
+import PageNotFound from "./PageNotFound";
 
 //https://hairflow.webflow.io/#Testimonial
 
@@ -36,10 +37,13 @@ function App() {
 
         <HeaderComp language={language} setLanguage={setLanguage}/>
         <Routes>
+            <Route path='*' element={<PageNotFound />} />
+
             <Route path="/" element={<MainComp  currentLanguage={storeLanguage}/>} />
-            <Route path={`/#section${2}`} element={<MainComp  language={language}/>} />
             <Route path="/test" element={<TestComp  language={language}/>} />
             <Route path="/services/hair" element={<AboutComp  language={language}/>} />
+
+
         </Routes>
         <FooterComp currentLanguage={storeLanguage}/>
     </div>

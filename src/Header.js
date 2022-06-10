@@ -10,7 +10,9 @@ import { useLocation } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import {useEffect, useState} from "react";
 import Hamburger from 'hamburger-react';
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import { HashLink } from 'react-router-hash-link';
+
+
 import {useDispatch, useSelector} from "react-redux";
 import {translate} from "./functions/Languages/translation";
 
@@ -28,18 +30,25 @@ const HeaderComp = () => {
     }, []);
 
     return (
-        <StickyHeader
-            // This is the sticky part of the header.
-            header={
-                <>
-                    {(isBrowser && !reduceHeader) && (
-                        <HeaderSocialMedia />
-                    )}
-                    <HeaderMainHeader/>
-                </>
-            }
-        >
-        </StickyHeader>
+        <>
+            {isMobile ? (
+                <HeaderMainHeader/>
+            ):(
+                <StickyHeader
+                    // This is the sticky part of the header.
+                    header={
+                        <>
+                            {(isBrowser && !reduceHeader) && (
+                                <HeaderSocialMedia />
+                            )}
+                            <HeaderMainHeader/>
+                        </>
+                    }
+                >
+                </StickyHeader>
+            )}
+        </>
+
     )
 }
 
@@ -48,12 +57,12 @@ const HeaderComp = () => {
 const HeaderMainHeader = () => {
     const location = useLocation();
     const menuList = [
-        {key: "home", text: "Home", link: "#home"},
+        {key: "home", text: "Home", link: "/#home"},
         // {key: "treatment", text: "Treatment", link: "#treatment"},
-        {key: "process", text: "Process", link: "#process"},
-        {key: "testimonials", text: "Testimonials", link: "#testimonials"},
-        {key: "results", text: "Results", link: "#results"},
-        {key: "contact", text: "Contact", link: "#contact"},
+        {key: "process", text: "Process", link: "/#process"},
+        {key: "testimonials", text: "Testimonials", link: "/#testimonials"},
+        {key: "results", text: "Results", link: "/#results"},
+        {key: "contact", text: "Contact", link: "/#contact"},
     ]
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isOpen, setOpen] = useState(false)
@@ -95,14 +104,17 @@ const HeaderMainHeader = () => {
                                     <div className={"menu-list-container-mobile"} style={{height: "50%"}}>
                                         {menuList.map(menuItem => {
                                             return (
-                                            <AnchorLink
+                                                <HashLink smooth
+                                                // <AnchorLink
                                                 onClick={() => {onSetSidebarOpen(false)}}
-                                                className={"menu-list-item-mobile"} key={menuItem.key}  href={menuItem.link}
+                                                className={"menu-list-item-mobile"} key={menuItem.key}  to={menuItem.link}
                                                 style={(location.pathname === menuItem.link)
                                                     ? ({ color: "orange" })
                                                     : ({ color: "black" })
                                                 }
-                                            >{menuItem.text}</AnchorLink>
+                                            >{menuItem.text}
+                                            {/*</AnchorLink>*/}
+                                                </HashLink>
                                             )
                                         } )}
                                     </div>
@@ -149,13 +161,16 @@ const HeaderMainHeader = () => {
                     <div className={"menu-list-holder"}>
                         {menuList.map(menuItem => {
                             return (
-                                <AnchorLink
-                                    className={"menu-list-item"} key={menuItem.key} href={menuItem.link}
+                                // <AnchorLink
+                                <HashLink smooth
+                                    className={"menu-list-item"} key={menuItem.key} to={menuItem.link}
                                     style={(location.pathname === menuItem.link)
                                         ? ({ color: "orange" })
                                         : ({ color: "black" })
                                     }
-                                >{menuItem.text}</AnchorLink>
+                                >{menuItem.text}
+                                {/*</AnchorLink>*/}
+                                </HashLink>
                             )
                         } )}
 
