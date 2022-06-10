@@ -271,7 +271,7 @@ export default function MainComp(props) {
                         </div>
                     </div>
 
-                    <Parallax className="" y={[-10, 10]} tagOuter="figure">
+                    <Parallax className="" y={[-20, 10]} tagOuter="figure">
                         <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")}>
 
                             <Carousel className={"image"}
@@ -411,6 +411,7 @@ export default function MainComp(props) {
 
 
                 <section id='process'  className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}>
+                    <Parallax className="blocksRow" y={[-10, 50]} tagOuter="figure">
                     <div className={(isDesktop)? ("treatmentBlocksContainer"):("treatmentBlocksContainerMobile")} style={{marginBottom: '100px'}}>
                         <div className={"blockWrapperSmall"}>
                             <div className={"icon"}><AiFillCar/></div>
@@ -429,6 +430,7 @@ export default function MainComp(props) {
                             <div className={"title"}>{translate("suivi_medical",storeLanguage)}</div>
                         </div>
                     </div>
+                    </Parallax>
 
                 </section>
 
