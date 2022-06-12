@@ -19,29 +19,35 @@ import {translate} from "./functions/Languages/translation";
 import 'react-sticky-header/styles.css';
 import StickyHeader from 'react-sticky-header';
 
-const HeaderComp = () => {
+
+const HeaderComp = (props) => {
     const [reduceHeader, setReduceHeader] = useState(document.documentElement.scrollTop);
+    const [storeLanguage, setStoreLanguage] = useState(props.currentLanguage);
+
 
     useEffect(() => {
-
         window.onscroll = () => {
             setReduceHeader(window.pageYOffset ? document.documentElement.scrollTop : document.body.scrollTop)
         };
     }, []);
 
+    useEffect(() => {
+        setStoreLanguage(props.currentLanguage);
+    },[props.currentLanguage])
+
     return (
         <>
             {isMobile ? (
-                <HeaderMainHeader/>
+                <HeaderMainHeader storeLanguage={storeLanguage}/>
             ):(
                 <StickyHeader
                     // This is the sticky part of the header.
                     header={
                         <>
                             {(isBrowser && !reduceHeader) && (
-                                <HeaderSocialMedia />
+                                <HeaderSocialMedia storeLanguage={storeLanguage}/>
                             )}
-                            <HeaderMainHeader/>
+                            <HeaderMainHeader storeLanguage={storeLanguage}/>
                         </>
                     }
                 >
@@ -54,23 +60,42 @@ const HeaderComp = () => {
 
 
 
-const HeaderMainHeader = () => {
+const HeaderMainHeader = (props) => {
     const location = useLocation();
-    const menuList = [
-        {key: "home", text: "Home", link: "/#home"},
-        // {key: "treatment", text: "Treatment", link: "#treatment"},
-        {key: "process", text: "Process", link: "/#process"},
-        {key: "testimonials", text: "Testimonials", link: "/#testimonials"},
-        {key: "results", text: "Results", link: "/#results"},
-        {key: "contact", text: "Contact", link: "/#contact"},
-    ]
+
+
+    const [storeLanguage, setStoreLanguage] = useState(props.storeLanguage);
+    const [menuList, setMenuList] = useState([
+        {key: "home", text: translate("home", storeLanguage), link: "/#home"},
+        {key: "process", text: translate("process", storeLanguage), link: "/#process"},
+        {key: "testimonials", text: translate("testimonials", storeLanguage), link: "/#testimonials"},
+        {key: "results", text:  translate("results", storeLanguage), link: "/#results"},
+        {key: "contact", text:  translate("contact", storeLanguage), link: "/#contact"},
+    ]);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isOpen, setOpen] = useState(false)
-    const [storeLanguage, setStoreLanguage] = useState(useSelector(state => state.language));
+
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        // console.log(props.storeLanguage)
+        // console.log(storeLanguage)
+        // console.log(translate("online_diagnostic", storeLanguage))
+        setStoreLanguage(props.storeLanguage)
+        console.log("storeLanguage: " +storeLanguage)
+        setMenuList(
+            [
+                {key: "home", text: translate("home", props.storeLanguage), link: "/#home"},
+                {key: "process", text: translate("process", props.storeLanguage), link: "/#process"},
+                {key: "testimonials", text: translate("testimonials", props.storeLanguage), link: "/#testimonials"},
+                {key: "results", text:  translate("results", props.storeLanguage), link: "/#results"},
+                {key: "contact", text:  translate("contact", props.storeLanguage), link: "/#contact"},
+            ]
+        )
+    }, [storeLanguage, props.storeLanguage])
+
     const handleChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         // dispatch({type: "SET_LANGUAGE" });
         dispatch({
             type: 'SET_LANGUAGE',
@@ -166,28 +191,28 @@ const HeaderMainHeader = () => {
 }
 
 const SocialMediaListComponent = (customStyle) => {
-    const [storeLanguage, setStoreLanguage] = useState(useSelector(state => state.language));
-    const dispatch = useDispatch();
+    // const [setStoreLanguage] = useState(useSelector(state => state.language));
+    // const dispatch = useDispatch();
 
-    const handleChange = (e) => {
-        // console.log(e.target.value);
-        // dispatch({type: "SET_LANGUAGE" });
-        dispatch({
-            type: 'SET_LANGUAGE',
-            language: e.target.value,
-        })
-        setStoreLanguage(e.target.value)
-    }
+    // const handleChange = (e) => {
+    //     // console.log(e.target.value);
+    //     // dispatch({type: "SET_LANGUAGE" });
+    //     dispatch({
+    //         type: 'SET_LANGUAGE',
+    //         language: e.target.value,
+    //     })
+    //     setStoreLanguage(e.target.value)
+    // }
     return(
         <div className={"social-media-item-container"} style= {customStyle.customStyle} >
-            <div className={"social-media-item"}>
-              <select className={"languageSelector"} defaultValue={storeLanguage} onChange={handleChange}>
-                  <option disabled>{translate("language", storeLanguage)}</option>
-                  <option value={"en"}>🇬🇧 &nbsp; English</option>
-                  <option value={"fr"}>🇫🇷 &nbsp; Français</option>
-                  <option value={"tr"}>🇹🇷 &nbsp; Türkçe</option>
-              </select>
-            </div>
+            {/*<div className={"social-media-item"}>*/}
+            {/*  <select className={"languageSelector"} defaultValue={storeLanguage} onChange={handleChange}>*/}
+            {/*      <option disabled>{translate("language", storeLanguage)}</option>*/}
+            {/*      <option value={"en"}>🇬🇧 &nbsp; English</option>*/}
+            {/*      <option value={"fr"}>🇫🇷 &nbsp; Français</option>*/}
+            {/*      <option value={"tr"}>🇹🇷 &nbsp; Türkçe</option>*/}
+            {/*  </select>*/}
+            {/*</div>*/}
 
             {/* todo: add href here for each social */}
             <div className={"social-media-item"}>

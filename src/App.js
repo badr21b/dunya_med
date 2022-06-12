@@ -21,7 +21,7 @@ import PageNotFound from "./PageNotFound";
 
 function App() {
     const storeLanguage = useSelector(state => state.language);
-    const [language, setLanguage] = useState('');
+    const [language] = useState('');
 
 
     useEffect(() => {
@@ -35,13 +35,13 @@ function App() {
         <WhatsappFloat/>
 
 
-        <HeaderComp language={language} setLanguage={setLanguage}/>
+        <HeaderComp currentLanguage={storeLanguage}/>
         <Routes>
-            <Route path='*' element={<PageNotFound />} />
+            <Route path='*' element={<PageNotFound  currentLanguage={storeLanguage}/>} />
 
             <Route path="/" element={<MainComp  currentLanguage={storeLanguage}/>} />
             <Route path="/test" element={<TestComp  language={language}/>} />
-            <Route path="/services/hair" element={<AboutComp  language={language}/>} />
+            <Route path="/services/" element={<AboutComp  language={language}/>} />
 
 
         </Routes>

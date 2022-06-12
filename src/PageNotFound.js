@@ -4,11 +4,11 @@ import {Link} from "react-router-dom";
 export default function PageNotFound() {
 
     useEffect(() => {
-        console.log("here");
+        // console.log("here");
     },[])
 
     return (
-        <main style={{ padding: "1rem 0", zIndex: "9999999999999" }}>
+        <main style={{ padding: "1rem 0", zIndex: "9999999999999", marginTop: "100px" }}>
             <div className={"pageNotFoundContainer"}>
                 <div className={"textGroupContainer"}>
                     <div className={"title"}>404</div>

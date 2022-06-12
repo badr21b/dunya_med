@@ -134,12 +134,12 @@ export default function MainComp(props) {
     }
 
     const treatmentList = [
-        {key: "fueSafir", text: "FUE SAPPHİRE", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
-        {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
-        {key: "mesotherapy", text: "Mésothérapie", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
-        {key: "prp", text: "PRP", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/hair"},
-        {key: "implant_dentaire", text: translate("dental_implant", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>, link:"/services/hair"},
-        {key: "blanchiment_dentaire", text: translate("blanchiment_dentaire", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>, link:"/services/hair"  },
+        {key: "fueSafir", text: "FUE SAPPHİRE", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/"},
+        {key: "dhi", text: "DHI", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/"},
+        {key: "mesotherapy", text: "Mésothérapie", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/"},
+        {key: "prp", text: "PRP", icon: <FaHandHoldingMedical className={"treatmentItemIcon"}/>, link:"/services/"},
+        {key: "implant_dentaire", text: translate("dental_implant", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>, link:"/services/"},
+        {key: "blanchiment_dentaire", text: translate("blanchiment_dentaire", storeLanguage), icon: <MdOutlineHealthAndSafety className={"treatmentItemIcon"}/>, link:"/services/"  },
     ]
 
     const ratingText1 = 4.4;
@@ -189,7 +189,7 @@ export default function MainComp(props) {
             </main>
 
             <Parallax className="blocksRow" y={[-10, 10]} tagOuter="figure">
-            <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")}>
+            <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")} style={{marginTop: "-150px"}}>
                 <div className={"blocksRow"}>
                     <div className={"blocksWrapper"}>
                         <div className={"blockItem"}>
@@ -271,7 +271,7 @@ export default function MainComp(props) {
                         </div>
                     </div>
 
-                    <Parallax className="" y={[-20, 10]} tagOuter="figure">
+                    <Parallax className="" y={[-10, 10]} tagOuter="figure">
                         <div className={(isDesktop)? ("imageParagraphContainer"):("imageParagraphContainerMobile")}>
 
                             <Carousel className={"image"}
@@ -411,7 +411,7 @@ export default function MainComp(props) {
 
 
                 <section id='process'  className={(isDesktop)? ("mainContainer"):("mainContainerMobile")}>
-                    <Parallax className="blocksRow" y={[-10, 50]} tagOuter="figure">
+                    <Parallax className="blocksRow" y={[-10, 10]} tagOuter="figure">
                     <div className={(isDesktop)? ("treatmentBlocksContainer"):("treatmentBlocksContainerMobile")} style={{marginBottom: '100px'}}>
                         <div className={"blockWrapperSmall"}>
                             <div className={"icon"}><AiFillCar/></div>
