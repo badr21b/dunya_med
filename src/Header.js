@@ -82,7 +82,6 @@ const HeaderMainHeader = (props) => {
         // console.log(storeLanguage)
         // console.log(translate("online_diagnostic", storeLanguage))
         setStoreLanguage(props.storeLanguage)
-        console.log("storeLanguage: " +storeLanguage)
         setMenuList(
             [
                 {key: "home", text: translate("home", props.storeLanguage), link: "/#home"},
@@ -190,29 +189,32 @@ const HeaderMainHeader = (props) => {
     )
 }
 
-const SocialMediaListComponent = (customStyle) => {
-    // const [setStoreLanguage] = useState(useSelector(state => state.language));
-    // const dispatch = useDispatch();
+const SocialMediaListComponent = (customStyle, props) => {
+    //const [setStoreLanguage] = useState(useSelector(state => state.language));
+    const dispatch = useDispatch();
 
-    // const handleChange = (e) => {
-    //     // console.log(e.target.value);
-    //     // dispatch({type: "SET_LANGUAGE" });
-    //     dispatch({
-    //         type: 'SET_LANGUAGE',
-    //         language: e.target.value,
-    //     })
-    //     setStoreLanguage(e.target.value)
-    // }
+    const handleChange = (e) => {
+        // console.log(e.target.value);
+        // dispatch({type: "SET_LANGUAGE" });
+        dispatch({
+            type: 'SET_LANGUAGE',
+            language: e.target.value,
+        })
+        //setStoreLanguage(e.target.value)
+    }
     return(
         <div className={"social-media-item-container"} style= {customStyle.customStyle} >
-            {/*<div className={"social-media-item"}>*/}
-            {/*  <select className={"languageSelector"} defaultValue={storeLanguage} onChange={handleChange}>*/}
-            {/*      <option disabled>{translate("language", storeLanguage)}</option>*/}
-            {/*      <option value={"en"}>🇬🇧 &nbsp; English</option>*/}
-            {/*      <option value={"fr"}>🇫🇷 &nbsp; Français</option>*/}
-            {/*      <option value={"tr"}>🇹🇷 &nbsp; Türkçe</option>*/}
-            {/*  </select>*/}
-            {/*</div>*/}
+            {isBrowser &&
+                <div className={"social-media-item"}>
+                    <select className={"languageSelector"} defaultValue={props.currentLanguage} onChange={handleChange}>
+                        <option disabled>{translate("language", props.currentLanguage)}</option>
+                        <option value={"en"}>🇬🇧 &nbsp; English</option>
+                        <option value={"fr"}>🇫🇷 &nbsp; Français</option>
+                        <option value={"tr"}>🇹🇷 &nbsp; Türkçe</option>
+                    </select>
+                </div>
+            }
+
 
             {/* todo: add href here for each social */}
             <div className={"social-media-item"}>
