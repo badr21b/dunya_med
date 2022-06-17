@@ -44,8 +44,20 @@ export default function AboutComp(props) {
                     </ParallaxLayer>
 
                     <ParallaxLayer offset={1.5} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
-                        <div className={`${styles.card} ${styles.parallax} ${styles.purple}`}>
-                            <p>I'm not</p>
+                        <div className={`${styles.card} ${styles.parallax} ${styles.purple}`} style={{minHeight: "700px", width: "50%"}}>
+                            {/*<p>I'm not</p>*/}
+                            <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")} style={{height: "100vh", background: "red", width: "100%"}}>
+                            <div className={"backgroundDetailsContainer"} >
+                                <div className={"textBlockHolder"}>
+                                    <div className={"textBlockContainer"}>
+                                        <div className={"title"}>{categoryObj.title}</div>
+                                        <div className={"subtitle"}>{categoryObj.subtitle}</div>
+                                        <div className={"paragraph"}>{categoryObj.paragraph}</div>
+                                        <div className={"button"}>More info</div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     </ParallaxLayer>
 

@@ -220,7 +220,7 @@ const SocialMediaListComponent = (customStyle, props) => {
             <div className={"social-media-item"}>
                 {/*<GrFacebookOption className={"icon"}/>*/}
 
-                <a href="https://www.instagram.com/Dunyamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
+                <a href="https://www.instagram.com/duniamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
                     <AiOutlineInstagram className={"icon"} style={(isMobile)? {color: "#379bb3"} : {color: "#ffffff"}}/>
                 </a>
 
@@ -236,6 +236,9 @@ const SocialMediaListComponent = (customStyle, props) => {
 
 const HeaderSocialMedia = () => {
     const [storePhoneNumber] = useState(useSelector(state => state.phoneNumber));
+
+    console.log(storePhoneNumber)
+
     return (
         <div className={"social-media-holder"}>
             <div className={"social-media-container"}>

@@ -21,6 +21,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import {TextareaAutosize} from "@mui/material";
 
+
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
+
 export default function MainComp(props) {
 
     const [name, setName] = useState("");
@@ -130,7 +136,15 @@ export default function MainComp(props) {
 
     const sendEmail= (url) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-        if (newWindow) newWindow.opener = null
+        if (newWindow) newWindow.opener = null;
+
+        MySwal.fire({
+            icon: 'success',
+            // title: <i>{translate("success", storeLanguage)}</i>,
+            title: "",
+            html: <i>{translate("message_success_sent", storeLanguage)}</i>,
+        }).then(r => {return r})
+
     }
 
     const treatmentList = [
