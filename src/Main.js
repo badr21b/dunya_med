@@ -489,6 +489,7 @@ export default function MainComp(props) {
                                     {/*<div className={"lineElement"}>*/}
                                     {/*    <div className={"icon"}><BsPerson/></div>*/}
                                         <input className={"lineElement"}
+                                               style={isMobile ? ({width : "90%"}):({width: "40%"})}
                                                value={name}
                                                data-fieldname={"name"}
                                                onChange={handleChange}
@@ -496,6 +497,7 @@ export default function MainComp(props) {
                                         />
                                     {/*</div>*/}
                                     <input className={"lineElement"}
+                                           style={isMobile ? ({width : "90%"}):({width: "40%"})}
                                            value={phone}
                                            type="number"
                                            data-fieldname={"phone"}
@@ -507,6 +509,7 @@ export default function MainComp(props) {
                                     {/*<div className={"lineElement"}>*/}
                                     {/*    <div className={"icon"}><BsPerson/></div>*/}
                                     <input className={"lineElement"}
+                                           style={isMobile ? ({width : "90%"}):({width: "40%"})}
                                            value={email}
                                            type="email"
                                            data-fieldname={"email"}
@@ -515,6 +518,7 @@ export default function MainComp(props) {
                                     />
                                     {/*</div>*/}
                                     <input className={"lineElement"}
+                                           style={isMobile ? ({width : "90%"}):({width: "40%"})}
                                            value={age}
                                            type="age"
                                            data-fieldname={"age"}

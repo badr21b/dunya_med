@@ -237,8 +237,6 @@ const SocialMediaListComponent = (customStyle, props) => {
 const HeaderSocialMedia = () => {
     const [storePhoneNumber] = useState(useSelector(state => state.phoneNumber));
 
-    console.log(storePhoneNumber)
-
     return (
         <div className={"social-media-holder"}>
             <div className={"social-media-container"}>
