@@ -1,5 +1,5 @@
 .background {
-    background: linear-gradient(#e66465, #9198e5);
+    background: linear-gradient(#ffffff, #389bb3);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -33,6 +33,21 @@
     background-color: #ff6d6d;
 }
 
+.horizontalGroup{
+    position: relative;
+    display: flex;
+
+}
+.verticalGroup{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 .blue {
     background-color: #5b65ad;
     color: white;
@@ -40,6 +55,22 @@
 
 .purple {
     background-color: #9d65d0;
+}
+
+.blue_2 {
+    background-color: rgba(52, 176, 203, 0.63);
+    color: white;
+}
+.background_img{
+    background-color: #1f6878;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 @media (max-width: 750px) {
