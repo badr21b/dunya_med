@@ -43,15 +43,14 @@ export default function AboutComp(props) {
 
                 <div className={styles.background} />
 
-                <Parallax pages={100}>
+                <Parallax pages={treatmentsList.length * 2}>
 
                     <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
                         {/*<p className={styles.scrollText}>Scroll down</p>*/}
-                        <div id='hair'  className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")} style={{height: "100vh", width: "100%"}}>
+                        <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")} style={{height: "100vh", width: "100%"}}>
                             {/*<div className={"backgroundDetailsContainer"}/>*/}
-                            <HashLink smooth
-                                      className={"menu-list-item"} key={"hair"} to={"#hair"}
-                            > Hair anchor</HashLink>
+                            <HashLink smooth className={"menu-list-item"} key={"hair"} to={"#hair"}> Hair anchor</HashLink>
+                            <HashLink smooth className={"menu-list-item"} key={"hair"} to={"#dent"}> Dent anchor</HashLink>
                         </div>
                     </ParallaxLayer>
 
@@ -91,7 +90,7 @@ export default function AboutComp(props) {
                     {/*    )*/}
                     {/*} )}*/}
 
-                    <ParallaxLayer sticky={{ start: 1, end: 3 }} style={{ ...alignCenter, justifyContent: 'flex-start' }} >
+                    <ParallaxLayer  id='hair' sticky={{ start: 1, end: 3 }} style={{ ...alignCenter, justifyContent: 'flex-start' }} >
                         <div className={`${styles.card} ${styles.sticky} ${styles.verticalGroup}`}>
 
                             <div className={"backgroundDetailsContainer"} style={{backgroundImage: categoryObj.backgroundUrl}}>
@@ -120,7 +119,7 @@ export default function AboutComp(props) {
                                 </div>
                             </ParallaxLayer>
 
-                    <ParallaxLayer sticky={{ start: 3, end: 6 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+                    <ParallaxLayer id='dent' sticky={{ start: 3, end: 6 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
                         <div className={`${styles.card} ${styles.sticky}`}>
                             <p>I'm a sticky layer 2 two</p>
                         </div>
