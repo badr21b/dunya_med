@@ -90,14 +90,29 @@
 .categoryCardsListContainer{
     position: absolute;
     display: flex;
-    bottom: -50px;
+    bottom: 0;
     width: 90%;
     height: 100px;
-    //background: red;
     border: 1px solid;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.categoryResumeContainer{
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    /* border: 1px solid; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    border-radius: 13px;
+    background: #3e3e3e57;
 }
