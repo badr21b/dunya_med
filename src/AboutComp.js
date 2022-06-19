@@ -34,6 +34,7 @@ export default function AboutComp(props) {
 
 
     const [currentTreatment, setCurrentTreatment] = useState("hair");
+    const [currentBackgroundImage, setCurrentBackgroundImage] = useState("hair");
 
     const [hairInfo] = useState({
         key: "hair",
@@ -79,21 +80,22 @@ export default function AboutComp(props) {
                 <Parallax pages={10}>
 
                     <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
-                        <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")} style={{height: "100vh", width: "100%", backgroundImage: "url(https://www.kerimdental.com/images/slide_01.jpg)", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                        <div className={(isDesktop)? ("blocksContainer"):("blocksContainerMobile")} style={{height: "100vh", width: "100%", backgroundImage: currentBackgroundImage, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
                             <div className={`${styles.categoryResumeContainer}`}>
                                 <Animated animationIn="zoomInUp" animationOut="zoomOutDown" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
-                                    Hello World!!!
+                                    <div className={`${styles.categoryResumeAnchorContainer}`}>
+                                        {"hair" === currentTreatment && (<Anchor anchorObj={hairInfo}/>)}
+                                        {"dent" === currentTreatment && (<Anchor anchorObj={dentInfo}/>)}
+                                        {"aesthetic" === currentTreatment && (<Anchor anchorObj={aestheticInfo}/>)}
+                                    </div>
                                 </Animated>
-                                {/*<Anchor anchorObj={hairInfo}/>*/}
-                                {/*<Anchor anchorObj={dentInfo}/>*/}
-                                {/*<Anchor anchorObj={aestheticInfo}/>*/}
                             </div>
 
                             <div className={styles.categoryCardsListContainer}>
-                                <div onClick={() => {setCurrentTreatment("hair")}}>Hair</div>
-                                <div onClick={() => {setCurrentTreatment("dent")}}>Dent</div>
-                                <div onClick={() => {setCurrentTreatment("aesthetic")}}>Aesthetics</div>
+                                <div className={`${styles.categoryCardContainer}`} onClick={() => {setCurrentTreatment("hair", setCurrentBackgroundImage("url(https://www.kerimdental.com/images/slide_01.jpg)"))}}>Hair</div>
+                                <div className={`${styles.categoryCardContainer}`}  onClick={() => {setCurrentTreatment("dent")}}>Dent</div>
+                                <div className={`${styles.categoryCardContainer}`} onClick={() => {setCurrentTreatment("aesthetic")}}>Aesthetics</div>
                             </div>
 
                         </div>

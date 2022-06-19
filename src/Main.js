@@ -178,7 +178,7 @@ export default function MainComp(props) {
                                     <div key={item.key} className={"treatmentItem"} style={(isDesktop)? ({width: "50%"}):({width: "70%"})}>
                                         {item.icon}
                                         <Link
-                                            // style={{pointerEvents: 'none', textDecoration: 'none'}}
+                                            style={{pointerEvents: 'none', textDecoration: 'none'}}
                                             to={item.link} className={"treatmentItemText"}>{item.text}</Link>
                                     </div>
                                 )

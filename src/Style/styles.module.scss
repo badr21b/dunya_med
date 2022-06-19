@@ -92,12 +92,12 @@
     display: flex;
     bottom: 0;
     width: 90%;
-    height: 100px;
+    height: max-content;
     border: 1px solid;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-evenly;
+    align-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
@@ -112,7 +112,36 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    //box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    //border-radius: 13px;
+    //background: #3e3e3e57;
+}
+
+.categoryResumeAnchorContainer{
+    position: relative;
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    /* border: 1px solid; */
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
     border-radius: 13px;
-    background: #3e3e3e57;
+    background: rgba(62, 62, 62, 0.3411764706);
+}
+
+.categoryCardContainer{
+    background: red;
+    border: 1px solid;
+    width: 250px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 12px;
 }
