@@ -45,7 +45,7 @@ const FooterComp = (props) => {
                         {/*</div>*/}
                         <div className={"itemContainer"}>
                             <div className={"itemLeft"}>
-                                <a href="https://www.instagram.com/Dunyamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
+                                <a href="https://www.instagram.com/duniamed.fr/" rel="noreferrer" className={"icon"} target="_blank">
                                     Instagram
                                 </a>
                             </div>
